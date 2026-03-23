@@ -18,10 +18,5 @@ export const socialLinks: SocialLink[] = [
 		name: 'twitter',
 		link: '/',
 		icon: 'twitter-icon'
-	},
-	{
-		name: 'discord',
-		link: '/',
-		icon: 'discord-icon'
 	}
 ]
