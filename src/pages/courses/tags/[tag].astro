@@ -13,7 +13,7 @@ import CoursesPosts from '../../../components/blocks/courses/CoursesPosts.astro'
 // Data
 import { getCollection } from 'astro:content'
 export async function getStaticPaths() {
-	const allPosts = await getCollection('blog')
+	const allPosts = await getCollection('courses')
 	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 
 	return uniqueTags.map((tag) => {
