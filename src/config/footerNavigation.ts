@@ -36,54 +36,45 @@ export interface FooterData {
 export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Revolt.',
-		aboutText:
-			'Expertly made, responsive, accessible components in React and HTML ready to be used on your website or app. Just copy and paste them on your Tailwind CSS project.',
+		aboutText: 'Electricity thingy website.',
 		logo: {
 			src: '/logo.svg',
 			alt: 'The tailwind astro theme',
-			text: 'Revolt.'
+			text: 'Revolt'
 		}
 	},
 	footerColumns: [
 		{
-			category: 'Product',
-			subCategories: [
-				{
-					subCategory: 'Features',
-					subCategoryLink: '/features'
-				},
-				{
-					subCategory: 'FAQ',
-					subCategoryLink: '/faq'
-				},
-				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
-				}
-			]
-		},
-		{
-			category: 'About us',
+			category: 'Essentials',
 			subCategories: [
 				{
 					subCategory: 'About us',
-					subCategoryLink: '/'
-				},
+					subCategoryLink: '/about-us'
+				}
+				// {
+				// 	subCategory: 'Features',
+				// 	subCategoryLink: '/features'
+				// },
+				// {
+				// 	subCategory: 'FAQ',
+				// 	subCategoryLink: '/faq'
+				// },
+				// {
+				// 	subCategory: 'Pricing',
+				// 	subCategoryLink: '/pricing'
+				// },
+				// {
+				// 	subCategory: 'Changelog',
+				// 	subCategoryLink: '/changelog'
+				// },
+			]
+		},
+		{
+			category: 'Legal',
+			subCategories: [
 				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
-				},
-				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
+					subCategory: 'Terms',
+					subCategoryLink: '/terms'
 				}
 			]
 		},
@@ -93,19 +84,19 @@ export const footerNavigationData: FooterData = {
 				{
 					subCategory: 'Contact',
 					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Support',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Join us',
-					subCategoryLink: '/contact'
 				}
+				// {
+				// 	subCategory: 'Support',
+				// 	subCategoryLink: '/contact'
+				// },
+				// {
+				// 	subCategory: 'Join us',
+				// 	subCategoryLink: '/contact'
+				// }
 			]
 		}
 	],
 	subFooter: {
-		copywriteText: '© Revolt 2024.'
+		copywriteText: '© Revolt 2026.'
 	}
 }
