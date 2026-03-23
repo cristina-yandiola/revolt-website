@@ -1,4 +1,12 @@
 ---
+const isHidden = true
+
+if (isHidden) {
+	return new Response(null, {
+		status: 404,
+		statusText: 'Not found'
+	})
+}
 // Components
 // - Layout
 import Layout from '../layouts/Layout.astro'
@@ -14,7 +22,7 @@ import CTA from '../components/blocks/CTA/BasicDark.astro'
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Pricing made simple',
+	title: 'Revolt | Pricing made simple',
 	description:
 		'Discover the perfect SaaS pricing plan for your business. From startups to enterprises, our scalable solutions offer unparalleled features and 24/7 support.'
 }
@@ -27,7 +35,7 @@ const header = {
 import testimonialBackground from '../assets/testimonial-bg-02.webp'
 const testimonialData = {
 	blockquote:
-		"Foxi isn't just an app—it's like having a mischievous yet brilliant sidekick for your business. It streamlines tasks and also cracks jokes to keep spirits high",
+		"Revolt isn't just an app—it's like having a mischievous yet brilliant sidekick for your business. It streamlines tasks and also cracks jokes to keep spirits high",
 	figcaption: 'Max Widgetson',
 	cite: ' CEO, Widgetify Ltd'
 }

@@ -1,4 +1,4 @@
-# Foxi - Astro Theme
+# Revolt - Astro Theme
 
 This is an Astro website template built with Tailwind CSS.
 

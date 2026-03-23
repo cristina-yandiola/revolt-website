@@ -1,4 +1,4 @@
-# Agent Instructions for Foxi Astro Theme
+# Agent Instructions for Revolt Astro Theme
 
 This document provides essential context and instructions for AI coding agents operating within this Astro + Tailwind CSS repository.
 
