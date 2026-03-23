@@ -2,7 +2,7 @@
 title: 'Welcome to Revolt!'
 pubDate: 2024-04-04T05:00:00Z
 description: "We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly to help you stay organized and efficient."
-author: 'Eleni K'
+author: 'Cris Yandiola'
 image: '/blog/post-01-cover.png'
 tags: ['productivity', 'announcement']
 ---

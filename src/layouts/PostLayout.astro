@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props
 import Layout from './Layout.astro'
 
 // Section Components
-import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
+import CoursePostHero from '../components/blocks/courses/CoursePostHero.astro'
 
 // Content
 // - SEO
@@ -17,7 +17,7 @@ const SEO = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<BlogPostHero
+	<CoursePostHero
 		tags={frontmatter.tags}
 		title={frontmatter.title}
 		author={frontmatter.author}
