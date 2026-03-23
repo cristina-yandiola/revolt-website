@@ -18,6 +18,20 @@ import Highlight from '../../ui/Highlight.astro'
 // Content
 import ctaImage from '../../../assets/cta-dark-bg.webp'
 import badge from '../../../assets/badge.svg'
+
+export interface Props {
+	title?: string
+	text?: string
+	buttonText?: string
+	buttonLink?: string
+}
+
+const {
+	title = 'Join Over 30,000 Satisfied Users!',
+	text = 'Discover why thousands of professionals trust our platform to streamline their workflow and enhance productivity. Get started today and see the difference for yourself!',
+	buttonText = 'Get started now!',
+	buttonLink = '/contact'
+} = Astro.props
 ---
 
 <Section>
@@ -25,8 +39,8 @@ import badge from '../../../assets/badge.svg'
 		<Col span="1" />
 		<Col span="10">
 			<CTA
-				title="Join Over 30,000 Satisfied Users!"
-				text="Discover why thousands of professionals trust our platform to streamline their workflow and enhance productivity. Get started today and see the difference for yourself!"
+				title={title}
+				text={text}
 				mode="dark"
 				bg={ctaImage}
 			>
@@ -35,7 +49,7 @@ import badge from '../../../assets/badge.svg'
 					<span class="hidden md:block">#1 Product of the Year,</span>
 					<Highlight classes="md:ml-2"> Product Hunt </Highlight>
 				</ChipNotification>
-				<Button size="lg" style="primary"> Get started now! </Button>
+				<Button size="lg" link={buttonLink} style="primary"> {buttonText} </Button>
 			</CTA>
 		</Col>
 		<Col span="1" />

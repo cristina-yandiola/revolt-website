@@ -1,0 +1,65 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Feature from '../components/blocks/features/FeatureSticky.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import CTA from '../components/blocks/CTA/BasicDark.astro'
+
+// Data
+import servicesData from '../data/json-files/servicesData.json'
+// - Service Categories
+const strategyPlanning = servicesData.filter((service) => service.category === 'Strategy & Planning')
+const executionSupport = servicesData.filter((service) => service.category === 'Execution & Support')
+const techAutomation = servicesData.filter((service) => service.category === 'Technology & Automation')
+const trainingEnablement = servicesData.filter((service) => service.category === 'Training & Enablement')
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Revolt | Grid Access Services',
+	description:
+		"Discover Revolt's comprehensive grid access services. We offer strategy, execution, automation, and training to accelerate your interconnection timeline."
+}
+// - Page Header
+const header = {
+	title: 'Our <strong>Services</strong>',
+	text: 'Comprehensive solutions to accelerate your grid connection and eliminate bottlenecks.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+	
+	<Feature
+		title="Strategy & Planning"
+		text="Build a strong foundation with data-driven insights and strategic structuring to maximize your connection success rates."
+		data={strategyPlanning}
+	/>
+	
+	<Feature
+		title="Execution & Support"
+		text="Leverage our deep operational expertise to navigate complex grid operator interfaces and secure your approvals faster."
+		data={executionSupport}
+		classes="bg-neutral-50 dark:bg-neutral-900"
+	/>
+	
+	<Feature
+		title="Technology & Automation"
+		text="Cut manual workload and accelerate processes using our proprietary automation tools and streamlined workflows."
+		data={techAutomation}
+	/>
+	
+	<Feature
+		title="Training & Enablement"
+		text="Equip your team with the knowledge and operational competence needed to execute faster from day one."
+		data={trainingEnablement}
+		classes="bg-neutral-50 dark:bg-neutral-900"
+	/>
+	
+	<CTA 
+		title="Ready to accelerate your grid access?" 
+		text="Get expert guidance on navigating complex interconnection processes for your project."
+	/>
+</Layout>

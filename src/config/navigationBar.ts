@@ -39,18 +39,12 @@ export const navigationBarData: NavData = {
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },
-		{ name: 'About us', link: '/about-us' }
-		// {
-		// 	name: 'Resources',
-		// 	link: '#',
-		// 	submenu: [
-		// 		{ name: 'Blog', link: '/blog' },
-		// 		{ name: 'Changelog', link: '/changelog' },
-		// 		{ name: 'FAQ', link: '/faq' },
-		// 		{ name: 'Terms', link: '/terms' }
-		// 	]
-		// },
-		// { name: 'Contact', link: '/contact' }
+		{ name: 'About us', link: '/about-us' },
+		{ name: 'Services', link: '/services' },
+		{ name: 'Courses', link: '/courses' },
+		{ name: 'Contact', link: '/contact' }
 	],
-	navActions: [{ name: 'Contact us', link: '/contact', style: 'primary', size: 'lg' }]
+	navActions: [
+		/* { name: 'Contact us', link: '/contact', style: 'primary', size: 'lg' } */
+	]
 }

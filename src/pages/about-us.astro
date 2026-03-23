@@ -1,0 +1,138 @@
+---
+// Components
+import Layout from '../layouts/Layout.astro'
+// - Hero
+import PageHeader from '../components/blocks/hero/PageHeader.astro'
+// - Basic
+import TextImage from '../components/blocks/basic/TextImage.astro'
+// - Features
+import AboutFeatureList from '../components/blocks/features/AboutFeatureList.astro'
+// - Testimonial
+import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
+// - CTA
+import CTA from '../components/blocks/CTA/BasicDark.astro'
+// - Assets
+import testimonialBackground from '../assets/testimonial-bg-01.webp'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'About Revolt | Grid Access Experts',
+	description:
+		'Learn about Revolt, the company solving grid access bottlenecks for BESS, renewable energy, and data center projects through strategic expertise and accelerated execution.'
+}
+
+// - Hero Section
+const hero = {
+	title: 'About Revolt',
+	text: 'We are grid access specialists accelerating BESS, renewable, and data center projects worldwide.'
+}
+
+// - Text Image Section (Company Story)
+import storyImage from '../assets/highlights/highlight-01.svg'
+import storyImageMobile from '../assets/highlights/highlight-01-mobile.svg'
+
+const story = {
+	title: 'Our Mission',
+	text: `Grid access is no longer a technical step. It is the bottleneck that determines whether your project moves forward or stalls.
+
+Across BESS, renewables, and data centres, developers are facing the same challenge: timelines are slipping, application outcomes are uncertain, and grid access has become one of the largest investment risks.
+
+Revolt was built to improve what is within your control.
+
+We break away from slow, inefficient grid processes by delivering strong grid access strategy, deep operational expertise, and faster execution.
+
+How?
+
+- Selecting sites with higher chances of grid approval through data-driven screening
+- Structuring your pipeline across operators, regions, and voltage levels to balance speed, risk, and connection outcomes
+- Providing senior-level support on applications, grid operator interface, and critical processes such as BNetzA procedures
+- Automating grid application workflows to cut workload and accelerate speed to grid
+- Training your team to reach operational competence and faster execution from week one
+
+Through targeted training, automation tools and project support, we increase connection success, reduce wasted effort, and protect the value of your pipeline.
+
+In an increasingly saturated market, speed to grid is key to pipeline success.
+Start now and stay ahead of the curve.`,
+	image: { src: storyImage.src },
+	mobileImage: { src: storyImageMobile.src },
+	imageWidth: storyImage.width,
+	imageHeight: storyImage.height,
+	imagePosition: 'left'
+} as const
+
+// - Testimonial Section
+const testimonialData = {
+	blockquote: 'Revolt reduced our grid approval timeline by 60% and saved us hundreds of thousands in avoided delays. Their data-driven site selection and automated workflows transformed our interconnection process.',
+	figcaption: 'Michael Chen',
+	cite: 'Director of Project Development, GreenGrid Solutions'
+}
+
+// - CTA Section
+const ctaConfig = {
+	title: 'Ready to accelerate your grid access?',
+	text: 'Get expert guidance on navigating complex interconnection processes for your BESS, renewable, or data center project.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<!-- Hero Section -->
+	<PageHeader title={hero.title} text={hero.text} />
+
+	<!-- Company Story -->
+	<TextImage 
+		title={story.title} 
+		text={story.text} 
+		image={story.image}
+		mobileImage={story.mobileImage}
+		imageWidth={story.imageWidth}
+		imageHeight={story.imageHeight}
+		imagePosition={story.imagePosition}
+	/>
+
+	<!-- Our Methodology -->
+	<AboutFeatureList 
+		features={[
+			{
+				title: 'Data-Driven Site Selection',
+				description: 'Selecting sites with higher chances of grid approval through data-driven screening',
+				icon: 'chart-pie'
+			},
+			{
+				title: 'Strategic Pipeline Structuring',
+				description: 'Structuring your pipeline across operators, regions, and voltage levels to balance speed, risk, and connection outcomes',
+				icon: 'rectangle-stack'
+			},
+			{
+				title: 'Senior Expert Support',
+				description: 'Providing senior-level support on applications, grid operator interface, and critical processes such as BNetzA procedures',
+				icon: 'user'
+			},
+			{
+				title: 'Automated Workflows',
+				description: 'Automating grid application workflows to cut workload and accelerate speed to grid',
+				icon: 'computer-desktop'
+			},
+			{
+				title: 'Team Training & Enablement',
+				description: 'Training your team to reach operational competence and faster execution from week one',
+				icon: 'book'
+			}
+		]}
+	/>
+
+	<!-- Social Proof -->
+	<Testimonial 
+		bg={testimonialBackground} 
+		bgPosition="right"
+		blockquote={testimonialData.blockquote}
+		figcaption={testimonialData.figcaption}
+		cite={testimonialData.cite}
+	/>
+
+	<!-- Call to Action -->
+	<CTA 
+		title={ctaConfig.title} 
+		text={ctaConfig.text}
+	/>
+</Layout>

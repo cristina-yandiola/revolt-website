@@ -1,0 +1,50 @@
+[
+	{
+		"title": "Data-Driven Site Selection",
+		"icon": "chart-pie",
+		"description": "Select sites with higher chances of grid approval through comprehensive data-driven screening and analysis.",
+		"category": "Strategy & Planning"
+	},
+	{
+		"title": "Pipeline Structuring",
+		"icon": "rectangle-stack",
+		"description": "Structure your pipeline across operators, regions, and voltage levels to balance speed, risk, and connection outcomes.",
+		"category": "Strategy & Planning"
+	},
+	{
+		"title": "Senior-Level Support",
+		"icon": "user",
+		"description": "Get expert assistance on applications, grid operator interfaces, and critical processes such as BNetzA procedures.",
+		"category": "Execution & Support"
+	},
+	{
+		"title": "Grid Operator Interface",
+		"icon": "chat-bubble-left-right",
+		"description": "Navigate complex communications and negotiations with grid operators with our experienced team by your side.",
+		"category": "Execution & Support"
+	},
+	{
+		"title": "Workflow Automation",
+		"icon": "computer-desktop",
+		"description": "Automate grid application workflows to cut manual workload, reduce errors, and significantly accelerate your speed to grid.",
+		"category": "Technology & Automation"
+	},
+	{
+		"title": "Process Optimization",
+		"icon": "arrow-trending-up",
+		"description": "Streamline your internal processes using our proprietary tools to ensure maximum efficiency during the application phase.",
+		"category": "Technology & Automation"
+	},
+	{
+		"title": "Team Training",
+		"icon": "book",
+		"description": "Train your team to reach operational competence and faster execution from week one with our targeted programs.",
+		"category": "Training & Enablement"
+	},
+	{
+		"title": "Ongoing Enablement",
+		"icon": "light-bulb",
+		"description": "Keep your team updated on the latest regulatory changes and best practices to maintain a competitive edge.",
+		"category": "Training & Enablement"
+	}
+]
