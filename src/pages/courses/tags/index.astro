@@ -1,4 +1,12 @@
 ---
+const isHidden = true
+
+if (isHidden) {
+	return new Response(null, {
+		status: 404,
+		statusText: 'Not found'
+	})
+}
 // Blog Tags Page
 // ------------
 // Description: The blog tags page.
