@@ -40,7 +40,13 @@ const savedNavActions = navActions.map((action) => ({
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
-				<img src={logo.src} alt={logo.alt} width="48" height="48" />
+				<Icon
+					name="logo"
+					aria-label={logo.alt}
+					class="text-primary-500 dark:text-accent-500"
+					width={48}
+					height={48}
+				/>
 				<span>{logo.text}</span>
 			</a>
 
