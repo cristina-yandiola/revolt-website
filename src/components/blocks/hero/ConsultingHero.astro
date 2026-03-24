@@ -1,0 +1,44 @@
+---
+// Consulting Hero Section
+// ------------
+// Description: A specialized hero section for the consulting page with an image and impact text.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import { Image } from 'astro:assets'
+
+// Props
+type Props = {
+	id?: string
+	title?: string
+	text?: string
+	image?: any
+	classes?: string
+}
+const { id = 'intro', title, text, image, classes } = Astro.props
+---
+
+<Section id={id} classes=`bg-neutral-50 dark:bg-neutral-900 ${classes}` padding="top">
+	<Row>
+		<Col span="6" classes={`self-center`}>
+			<header class="max-w-xl pb-8 lg:pb-0">
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" set:html={title} />
+				<p class="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">{text}</p>
+			</header>
+		</Col>
+		<Col span="6">
+			{image && (
+				<Image
+					src={image}
+					alt="Consulting strategy and planning"
+					class="w-full h-auto rounded-xl shadow-xl shadow-neutral-200 dark:shadow-neutral-950"
+					format="webp"
+				/>
+			)}
+		</Col>
+	</Row>
+</Section>

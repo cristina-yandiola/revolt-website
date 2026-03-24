@@ -52,8 +52,8 @@ export const footerNavigationData: FooterData = {
 					subCategoryLink: '/about-us'
 				},
 				{
-					subCategory: 'Services',
-					subCategoryLink: '/services'
+					subCategory: 'Consulting',
+					subCategoryLink: '/consulting'
 				},
 				{
 					subCategory: 'Courses',

@@ -3,75 +3,29 @@
 import Layout from '../layouts/Layout.astro'
 // - Hero
 import PageHeader from '../components/blocks/hero/PageHeader.astro'
-// - Basic
-import TextImage from '../components/blocks/basic/TextImage.astro'
 // - Features
 import AboutFeatureList from '../components/blocks/features/AboutFeatureList.astro'
-// - Testimonial
-import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 // - CTA
 import CTA from '../components/blocks/CTA/BasicDark.astro'
-// - Assets
-import testimonialBackground from '../assets/testimonial-bg-01.webp'
 
 // Content
 // - SEO
 const SEO = {
 	title: 'About Revolt | Grid Access Experts',
 	description:
-		'Learn about Revolt, the company solving grid access bottlenecks for BESS, renewable energy, and data center projects through strategic expertise and accelerated execution.'
+		'Revolt breaks away from slow, inefficient grid processes by delivering strong grid access strategy, deep operational expertise, and faster execution.'
 }
 
 // - Hero Section
 const hero = {
-	title: 'About Revolt',
-	text: 'We are grid access specialists accelerating BESS, renewable, and data center projects worldwide.'
-}
-
-// - Text Image Section (Company Story)
-import storyImage from '../assets/highlights/highlight-01.svg'
-import storyImageMobile from '../assets/highlights/highlight-01-mobile.svg'
-
-const story = {
-	title: 'Our Mission',
-	text: `Grid access is no longer a technical step. It is the bottleneck that determines whether your project moves forward or stalls.
-
-Across BESS, renewables, and data centres, developers are facing the same challenge: timelines are slipping, application outcomes are uncertain, and grid access has become one of the largest investment risks.
-
-Revolt was built to improve what is within your control.
-
-We break away from slow, inefficient grid processes by delivering strong grid access strategy, deep operational expertise, and faster execution.
-
-How?
-
-- Selecting sites with higher chances of grid approval through data-driven screening
-- Structuring your pipeline across operators, regions, and voltage levels to balance speed, risk, and connection outcomes
-- Providing senior-level support on applications, grid operator interface, and critical processes such as BNetzA procedures
-- Automating grid application workflows to cut workload and accelerate speed to grid
-- Training your team to reach operational competence and faster execution from week one
-
-Through targeted training, automation tools and project support, we increase connection success, reduce wasted effort, and protect the value of your pipeline.
-
-In an increasingly saturated market, speed to grid is key to pipeline success.
-Start now and stay ahead of the curve.`,
-	image: { src: storyImage.src },
-	mobileImage: { src: storyImageMobile.src },
-	imageWidth: storyImage.width,
-	imageHeight: storyImage.height,
-	imagePosition: 'left'
-} as const
-
-// - Testimonial Section
-const testimonialData = {
-	blockquote: 'Revolt reduced our grid approval timeline by 60% and saved us hundreds of thousands in avoided delays. Their data-driven site selection and automated workflows transformed our interconnection process.',
-	figcaption: 'Michael Chen',
-	cite: 'Director of Project Development, GreenGrid Solutions'
+	title: 'Grid Access is the Bottleneck',
+	text: 'Grid access is no longer a technical step. It is the bottleneck that determines whether your project moves forward or stalls.'
 }
 
 // - CTA Section
 const ctaConfig = {
-	title: 'Ready to accelerate your grid access?',
-	text: 'Get expert guidance on navigating complex interconnection processes for your BESS, renewable, or data center project.'
+	title: 'Start now and stay ahead of the curve.',
+	text: 'In an increasingly saturated market, speed to grid is key to pipeline success.'
 }
 ---
 
@@ -79,16 +33,20 @@ const ctaConfig = {
 	<!-- Hero Section -->
 	<PageHeader title={hero.title} text={hero.text} />
 
-	<!-- Company Story -->
-	<TextImage 
-		title={story.title} 
-		text={story.text} 
-		image={story.image}
-		mobileImage={story.mobileImage}
-		imageWidth={story.imageWidth}
-		imageHeight={story.imageHeight}
-		imagePosition={story.imagePosition}
-	/>
+	<!-- Intro Content -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+			<p class="text-xl md:text-2xl font-medium leading-relaxed text-gray-800 dark:text-gray-200 mb-8">
+				Across BESS, renewables, and data centres, developers are facing the same challenge: timelines are slipping, application outcomes are uncertain, and grid access has become one of the largest investment risks.
+			</p>
+			<p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400 mb-8">
+				Revolt was built to improve what is within your control.
+			</p>
+			<p class="text-lg md:text-xl text-gray-700 dark:text-gray-300">
+				We break away from slow, inefficient grid processes by delivering strong grid access strategy, deep operational expertise, and faster execution.
+			</p>
+		</div>
+	</section>
 
 	<!-- Our Methodology -->
 	<AboutFeatureList 
@@ -121,14 +79,14 @@ const ctaConfig = {
 		]}
 	/>
 
-	<!-- Social Proof -->
-	<Testimonial 
-		bg={testimonialBackground} 
-		bgPosition="right"
-		blockquote={testimonialData.blockquote}
-		figcaption={testimonialData.figcaption}
-		cite={testimonialData.cite}
-	/>
+	<!-- Closing Text -->
+	<section class="py-16 bg-gray-50 dark:bg-gray-900">
+		<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+			<p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+				Through targeted training, automation tools and project support, we increase connection success, reduce wasted effort, and protect the value of your pipeline.
+			</p>
+		</div>
+	</section>
 
 	<!-- Call to Action -->
 	<CTA 
