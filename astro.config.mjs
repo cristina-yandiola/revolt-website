@@ -10,9 +10,9 @@ export default defineConfig({
   site: "https://revolt-website.bachacode.workers.dev",
   integrations: [icon(), sitemap()],
 
-  image: {
-    service: passthroughImageService(),
-  },
-
-  adapter: cloudflare(),
+  output: "server",
+  adapter: cloudflare({
+    imageService: "cloudflare",
+  }),
 });
+
