@@ -10,11 +10,7 @@ export default defineConfig({
   site: "https://revolt-website.bachacode.workers.dev",
   integrations: [icon(), sitemap()],
 
-  image: {
-    service: { entrypoint: "astro/assets/services/noop" },
-  },
-
-  output: "server",
+  output: "static",
   adapter: cloudflare(),
 });
 
