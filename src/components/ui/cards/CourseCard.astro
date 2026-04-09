@@ -1,5 +1,5 @@
 ---
-// Blog Card
+// Course Card
 // ------------
 // Description: The courses card component
 // Properties:
@@ -7,10 +7,9 @@
 // - Subtitle: the subtitle of the card
 // - Image: the main image of the card
 // - Icon: the icon of the card
-// - Link: The link to the courses post
+// - Link: The link to the course
 // - classes: extra classes
-// - Tags: the tags of the courses post
-// Reference: https://wind-ui.com/components/cards/
+// - Tags: the tags of the course
 
 // Components
 // - UI
@@ -41,16 +40,16 @@ const {
 <Card classes={classes}>
 	{image && <Image src={image} alt={title} width={600} height={400} />}
 	<CardBody>
-		<h3 class="post-title">
+		<h3 class="course-title">
 			<a href={link}>{title}</a>
 		</h3>
-		<h4 class="post-subtitle">{subtitle}</h4>
+		<h4 class="course-subtitle">{subtitle}</h4>
 		<slot />
 	</CardBody>
 
 	{
 		tags && (
-			<div class="post-tags">
+			<div class="course-tags">
 				{tags.map((tag: string) => (
 					<Badge name={tag} link={`/courses/tags/` + tag} classes="capitalize" />
 				))}
@@ -60,13 +59,13 @@ const {
 </Card>
 
 <style>
-	.post-title {
+	.course-title {
 		@apply mb-0 text-xl [&_a]:text-inherit;
 	}
-	.post-subtitle {
+	.course-subtitle {
 		@apply mb-6 text-sm font-normal text-neutral-400 dark:text-neutral-400;
 	}
-	.post-tags {
+	.course-tags {
 		@apply flex gap-2 border-t border-neutral-100 px-6 py-4 dark:border-neutral-800;
 	}
 </style>

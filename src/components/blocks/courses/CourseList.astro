@@ -11,8 +11,8 @@ import Section from '../../../components/ui/Section.astro'
 import Row from '../../../components/ui/Row.astro'
 import Col from '../../../components/ui/Col.astro'
 // - UI
-import Post from '../../../components/ui/cards/BlogCard.astro'
-import TagNavigation from '../../../components/ui/blog/TagNavigation.astro'
+import Course from '../../../components/ui/cards/CourseCard.astro'
+import TagNavigation from '../../../components/ui/courses/TagNavigation.astro'
 
 // Props
 type Props = {
@@ -20,7 +20,7 @@ type Props = {
 }
 const { data: allCourses } = Astro.props
 
-// Function to sort posts by date
+// Function to sort courses by date
 const sortedCourses = allCourses.sort((a: any, b: any) => {
 	return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 })
@@ -34,7 +34,7 @@ const sortedCourses = allCourses.sort((a: any, b: any) => {
 		{
 			sortedCourses.map((course: any) => (
 				<Col span="4">
-					<Post
+					<Course
 						link={`/courses/${course.id}`}
 						title={course.data.title}
 						subtitle={`By ${course.data.author} on ${new Date(course.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`}
@@ -42,7 +42,7 @@ const sortedCourses = allCourses.sort((a: any, b: any) => {
 						tags={course.data.tags}
 					>
 						{course.data.description}
-					</Post>
+					</Course>
 				</Col>
 			))
 		}

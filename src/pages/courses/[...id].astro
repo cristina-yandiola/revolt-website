@@ -1,25 +1,27 @@
 ---
+export const prerender = true
+
 // Course Page
 // ------------
 // Description: The course page.
 
 // Components
 // - Layout
-import Layout from '../../layouts/PostLayout.astro'
+import Layout from '../../layouts/CourseLayout.astro'
 
 // Data
 import { getCollection, render } from 'astro:content'
 export async function getStaticPaths() {
 	const courses = await getCollection('courses')
-	return courses.map((entry) => ({
-		params: { id: decodeURI(entry.id) },
-		props: { entry }
+	return courses.map((course) => ({
+		params: { id: decodeURI(course.id) },
+		props: { course }
 	}))
 }
-const { entry } = Astro.props
-const { Content } = await render(entry)
+const { course } = Astro.props
+const { Content } = await render(course)
 ---
 
-<Layout frontmatter={entry.data}>
+<Layout frontmatter={course.data}>
 	<Content />
 </Layout>

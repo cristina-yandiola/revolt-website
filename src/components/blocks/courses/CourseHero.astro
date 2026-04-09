@@ -1,12 +1,12 @@
 ---
 // Hero Section for Courses
 // ------------
-// Description: A hero section (page header) for the post pages.
+// Description: A hero section (page header) for the course pages.
 // Properties:
-// - tags: An array of tags for the post
-// - title: The title of the section (usually the title of the post)
-// - author: The author of the post
-// - publishDate: The publish date of the post
+// - tags: An array of tags for the course
+// - title: The title of the section (usually the title of the course)
+// - author: The author of the course
+// - publishDate: The publish date of the course
 
 // Components
 // - Layout
@@ -27,12 +27,12 @@ type Props = {
 const { tags, title, author, publishDate } = Astro.props
 ---
 
-<Section id="post-intro" classes="bg-neutral-50 dark:bg-neutral-900">
+<Section id="course-intro" classes="bg-neutral-50 dark:bg-neutral-900">
 	<Row>
 		<Col span="12" align="center">
-			<header class="post-header">
+			<header class="course-header">
 				<Breadcrumbs classes="mb-6" />
-				<h1 class="post-header__title">
+				<h1 class="course-header__title">
 					{title}
 				</h1>
 				{
@@ -47,7 +47,7 @@ const { tags, title, author, publishDate } = Astro.props
 			</header>
 			{
 				tags && (
-					<div class="post-header__tags">
+					<div class="course-header__tags">
 						{tags.map((tag: string) => (
 							<Badge name={tag} link={`/courses/tags/` + tag} classes="capitalize" />
 						))}
@@ -65,7 +65,7 @@ const { tags, title, author, publishDate } = Astro.props
 	.page-header__text {
 		@apply text-lg leading-relaxed;
 	}
-	.post-header__tags {
+	.course-header__tags {
 		@apply mt-6 flex flex-row items-center justify-center gap-2 pb-2;
 	}
 </style>

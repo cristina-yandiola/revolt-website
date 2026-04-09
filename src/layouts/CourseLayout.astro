@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props
 import Layout from './Layout.astro'
 
 // Section Components
-import CoursePostHero from '../components/blocks/courses/CoursePostHero.astro'
+import CourseHero from '../components/blocks/courses/CourseHero.astro'
 
 // Content
 // - SEO
@@ -17,7 +17,7 @@ const SEO = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<CoursePostHero
+	<CourseHero
 		tags={frontmatter.tags}
 		title={frontmatter.title}
 		author={frontmatter.author}
@@ -28,13 +28,13 @@ const SEO = {
 		})}
 	/>
 
-	<div class="post-body basic-text basic-text--lg">
+	<div class="course-body basic-text basic-text--lg">
 		<slot />
 	</div>
 </Layout>
 
 <style>
-	.post-body {
+	.course-body {
 		@apply mx-auto max-w-3xl px-6 py-12 lg:py-24;
 	}
 </style>

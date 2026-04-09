@@ -1,12 +1,4 @@
 ---
-const isHidden = true
-
-if (isHidden) {
-	return new Response(null, {
-		status: 404,
-		statusText: 'Not found'
-	})
-}
 // Course Tags Page
 // ------------
 // Description: The course tags page.
@@ -16,7 +8,7 @@ if (isHidden) {
 import Layout from '../../../layouts/Layout.astro'
 // - UI
 import Hero from '../../../components/blocks/hero/PageHeader.astro'
-import CoursesPosts from '../../../components/blocks/courses/CoursesPosts.astro'
+import CourseList from '../../../components/blocks/courses/CourseList.astro'
 
 // Data
 import { getCollection } from 'astro:content'
@@ -25,5 +17,5 @@ const allCourses = await getCollection('courses')
 
 <Layout>
 	<Hero title="Tags" />
-	<CoursesPosts data={allCourses} />
+	<CourseList data={allCourses} />
 </Layout>
