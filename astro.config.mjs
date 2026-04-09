@@ -13,7 +13,7 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare({
     platformProxy: {
-      enabled: true,
+      enabled: false,
     },
     imageService: "passthrough",
   }),
@@ -21,6 +21,12 @@ export default defineConfig({
   vite: {
     build: {
       minify: false,
+    },
+    ssr: {
+      optimizeDeps: {
+        // Force Vite to pre-bundle these CommonJS packages into ESM for workerd
+        include: ["debug", "astro-icon", "@iconify/utils"],
+      },
     },
   },
   image: {
