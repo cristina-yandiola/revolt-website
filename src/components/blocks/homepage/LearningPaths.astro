@@ -1,0 +1,137 @@
+---
+// LearningPaths Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import CourseCard from '../../ui/cards/CourseCard.astro'
+import { getCollection } from 'astro:content'
+
+const allCourses = await getCollection('courses')
+// We sort them by date and take more to allow filtering some
+const sortedCourses = allCourses.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+const featuredCourses = sortedCourses.slice(0, 6) // Take 6 to have enough to filter
+const tags = [...new Set(allCourses.map((course) => course.data.tags).flat())]
+---
+
+<Section id="learning-paths" classes="py-12 lg:py-24 bg-white dark:bg-neutral-950">
+	<Row classes="mb-12 items-end">
+		<Col span="8">
+			<h2 class="mb-4 text-4xl font-headings font-bold">Strategic Learning Paths</h2>
+			<p class="max-w-xl text-neutral-600 dark:text-neutral-400">
+				Industry-leading certification for the new energy economy.
+			</p>
+		</Col>
+		<Col span="4" classes="flex justify-end hidden lg:flex">
+			<div class="filter-controls flex gap-2 p-1 bg-neutral-100 dark:bg-neutral-900 rounded-sm" data-group="homepage-courses">
+				<button 
+					data-filter="all" 
+					class="filter-btn px-4 py-1 text-xs font-bold uppercase tracking-widest transition-all rounded-sm bg-white dark:bg-neutral-800 shadow-sm text-primary-600 dark:text-primary-400"
+				>
+					ALL
+				</button>
+				{tags.map(tag => (
+					<button 
+						data-filter={tag} 
+						class="filter-btn px-4 py-1 text-xs font-bold uppercase tracking-widest transition-all text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
+					>
+						{tag}
+					</button>
+				))}
+			</div>
+		</Col>
+	</Row>
+	<Row classes="course-grid gap-y-8 lg:gap-x-8" data-max="3">
+		{
+			featuredCourses.map((course: any) => (
+				<Col span="4" classes="course-card-wrapper transition-all duration-300">
+					<CourseCard
+						link={`/courses/${course.id}`}
+						title={course.data.title}
+						subtitle={`${course.data.tags[0] || 'Core'} Module`}
+						image={course.data.image}
+						tags={course.data.tags}
+					>
+						{course.data.description}
+					</CourseCard>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<script>
+	function setupFilters() {
+		const filterGroups = document.querySelectorAll('.filter-controls');
+		
+		filterGroups.forEach(group => {
+			const buttons = group.querySelectorAll('.filter-btn');
+			const grid = group.closest('section')?.querySelector('.course-grid') as HTMLElement;
+			if (!grid) return;
+			
+			const cards = grid.querySelectorAll('.course-card-wrapper');
+			const maxVisible = parseInt(grid.dataset.max || '999');
+
+			function applyFilter(filter: string, updateURL = true) {
+				let visibleCount = 0;
+				
+				cards.forEach((cardWrapper: any) => {
+					const card = cardWrapper.querySelector('[data-tags]');
+					const cardTags = card?.dataset.tags?.split(',') || [];
+					
+					const matches = filter === 'all' || cardTags.includes(filter);
+					
+					if (matches && visibleCount < maxVisible) {
+						cardWrapper.style.display = 'block';
+						setTimeout(() => cardWrapper.style.opacity = '1', 10);
+						visibleCount++;
+					} else {
+						cardWrapper.style.opacity = '0';
+						cardWrapper.style.display = 'none';
+					}
+				});
+
+				// Update buttons
+				buttons.forEach((btn: any) => {
+					if (btn.dataset.filter === filter) {
+						btn.classList.add('bg-white', 'dark:bg-neutral-800', 'shadow-sm', 'text-primary-600', 'dark:text-primary-400');
+						btn.classList.remove('text-neutral-500');
+					} else {
+						btn.classList.remove('bg-white', 'dark:bg-neutral-800', 'shadow-sm', 'text-primary-600', 'dark:text-primary-400');
+						btn.classList.add('text-neutral-500');
+					}
+				});
+
+				if (updateURL) {
+					const url = new URL(window.location.href);
+					if (filter === 'all') {
+						url.searchParams.delete('tag');
+					} else {
+						url.searchParams.set('tag', filter);
+					}
+					window.history.pushState({}, '', url);
+				}
+			}
+
+			buttons.forEach(btn => {
+				btn.addEventListener('click', () => {
+					const filter = (btn as HTMLElement).dataset.filter || 'all';
+					applyFilter(filter);
+				});
+			});
+
+			// Initial filter from URL
+			const urlParams = new URLSearchParams(window.location.search);
+			const initialTag = urlParams.get('tag');
+			if (initialTag) {
+				applyFilter(initialTag, false);
+			} else {
+				applyFilter('all', false);
+			}
+		});
+	}
+
+	// Initialize on load and after swaps
+	document.addEventListener('DOMContentLoaded', setupFilters);
+	document.addEventListener('astro:after-swap', setupFilters);
+</script>

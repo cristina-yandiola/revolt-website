@@ -1,0 +1,94 @@
+---
+// Challenges Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+---
+
+<Section id="challenges" classes="py-12 lg:py-24 bg-white dark:bg-neutral-950">
+	<Row classes="mb-12">
+		<Col span="12">
+			<h2 class="mb-4 text-4xl font-headings font-bold">Core Industry Challenges</h2>
+			<p class="max-w-xl text-neutral-600 dark:text-neutral-400">
+				Application outcomes are uncertain. We focus on the high-risk intersections of modern infrastructure.
+			</p>
+		</Col>
+	</Row>
+	<Row classes="gap-y-6 lg:gap-x-6">
+		<!-- Card 1: BESS Operations -->
+		<Col span="8" classes="h-full">
+			<div class="group relative flex h-[400px] overflow-hidden rounded-sm border border-neutral-100 bg-white dark:border-neutral-800 dark:bg-neutral-900 shadow-sm transition-all hover:shadow-md">
+				<div class="z-10 flex w-full flex-col justify-between p-8 lg:w-1/2">
+					<div>
+						<span class="mb-4 inline-block font-mono text-sm font-bold uppercase tracking-wider text-neutral-400">01</span>
+						<h3 class="mb-4 text-3xl font-headings font-bold">BESS Operations</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Optimizing battery energy storage systems against volatile grid constraints and frequency response demands.
+						</p>
+					</div>
+					<Button variation="link" style="primary" link="/courses" classes="!p-0 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+						EXPLORE VERTICAL &rarr;
+					</Button>
+				</div>
+				<div class="absolute right-0 top-0 hidden h-full w-1/2 bg-neutral-100 dark:bg-neutral-800 lg:block overflow-hidden">
+					<!-- Placeholder for the BESS image -->
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-950 to-transparent"></div>
+                    <div class="h-full w-full flex items-center justify-center">
+                        <div class="w-32 h-32 border-4 border-primary-500/20 rounded-md rotate-12"></div>
+                        <div class="absolute w-32 h-32 border-4 border-primary-500/10 rounded-md -rotate-12 translate-x-4 translate-y-4"></div>
+                    </div>
+				</div>
+			</div>
+		</Col>
+
+		<!-- Card 2: Renewables -->
+		<Col span="4" classes="h-full">
+			<div class="flex h-[400px] flex-col justify-between rounded-sm bg-primary-600 p-8 text-white dark:bg-primary-800 shadow-sm transition-all hover:shadow-md">
+				<div>
+					<span class="mb-4 inline-block font-mono text-sm font-bold uppercase tracking-wider text-primary-200">02</span>
+					<h3 class="mb-4 text-3xl font-headings font-bold">Renewables</h3>
+					<p class="text-primary-50:">
+						Solving the interconnection puzzle for utility-scale solar and wind projects.
+					</p>
+				</div>
+				<div class="mt-8 h-1 w-full bg-accent-400"></div>
+			</div>
+		</Col>
+
+		<!-- Card 3: Data Centres -->
+		<Col span="4" classes="h-full">
+			<div class="flex h-[400px] flex-col justify-between rounded-sm bg-neutral-100 p-8 dark:bg-neutral-900 border border-transparent dark:border-neutral-800 shadow-sm transition-all hover:shadow-md">
+				<div>
+					<span class="mb-4 inline-block font-mono text-sm font-bold uppercase tracking-wider text-neutral-400">03</span>
+					<h3 class="mb-4 text-3xl font-headings font-bold font-headings">Data Centres</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 font-sans leading-relaxed">
+						Securing firm power in an increasingly saturated energy market.
+					</p>
+				</div>
+				<div class="flex gap-1 mt-auto">
+                    <div class="h-4 w-6 bg-neutral-300 dark:bg-neutral-700"></div>
+                    <div class="h-4 w-6 bg-neutral-300 dark:bg-neutral-700"></div>
+                </div>
+			</div>
+		</Col>
+
+		<!-- Card 4: Grid Efficiency -->
+		<Col span="8" classes="h-full">
+			<div class="flex h-[400px] flex-col lg:flex-row items-center rounded-sm bg-accent-400 p-8 text-neutral-950 dark:bg-accent-500 shadow-sm transition-all hover:shadow-md">
+				<div class="mb-8 lg:mb-0 lg:w-1/2">
+					<span class="text-7xl font-bold tracking-tighter lg:text-8xl">98%</span>
+					<p class="text-sm font-bold uppercase tracking-widest text-neutral-800">
+						GRID EFFICIENCY FOCUS
+					</p>
+				</div>
+				<div class="lg:w-1/2">
+					<p class="text-xl font-medium leading-relaxed">
+						We break away from slow, inefficient processes by delivering deep operational expertise.
+					</p>
+				</div>
+			</div>
+		</Col>
+	</Row>
+</Section>

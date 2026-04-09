@@ -33,11 +33,11 @@ const {
 	image,
 	link,
 	classes = '!shadow-none border border-neutral-100 dark:border-neutral-800',
-	tags
+	tags = []
 } = Astro.props
 ---
 
-<Card classes={classes}>
+<Card classes={classes} tags={tags}>
 	{image && <Image src={image} alt={title} width={600} height={400} />}
 	<CardBody>
 		<h3 class="course-title">

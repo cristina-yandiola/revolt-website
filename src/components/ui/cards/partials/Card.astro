@@ -10,17 +10,25 @@
 type Props = {
 	link?: string
 	classes?: string
+	tags?: string[]
 }
-const { link, classes } = Astro.props
+const { link, classes, tags = [] } = Astro.props
 ---
 
 {
 	link ? (
-		<a href={link} class:list={['card', { [`${classes}`]: classes }]}>
+		<a
+			href={link}
+			class:list={['card', { [`${classes}`]: classes }]}
+			data-tags={tags.length > 0 ? tags.join(',') : undefined}
+		>
 			<slot />
 		</a>
 	) : (
-		<div class:list={['card', { [`${classes}`]: classes }]}>
+		<div
+			class:list={['card', { [`${classes}`]: classes }]}
+			data-tags={tags.length > 0 ? tags.join(',') : undefined}
+		>
 			<slot />
 		</div>
 	)

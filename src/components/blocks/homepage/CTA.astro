@@ -1,0 +1,36 @@
+---
+// CTA Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+---
+
+<Section id="cta" classes="py-12 lg:py-24 bg-white dark:bg-neutral-950 overflow-hidden">
+	<div class="relative w-full rounded-sm bg-neutral-950 px-8 py-16 text-white lg:px-24 lg:py-32 overflow-hidden border border-neutral-900 shadow-2xl">
+		<!-- Decorative stripes -->
+		<div class="absolute right-0 top-0 bottom-0 flex gap-2 opacity-50">
+			<div class="w-4 h-full bg-primary-900/40"></div>
+			<div class="w-4 h-full bg-primary-800/40"></div>
+			<div class="w-4 h-full bg-primary-700/40"></div>
+			<div class="w-4 h-full bg-primary-600/40"></div>
+			<div class="w-4 h-full bg-accent-600/40"></div>
+			<div class="w-4 h-full bg-accent-400/40"></div>
+		</div>
+
+		<Row classes="relative z-10">
+			<Col span="8">
+				<h2 class="mb-6 text-5xl font-headings font-bold leading-tight lg:text-6xl">
+					Ready to accelerate your <br />grid transition?
+				</h2>
+				<p class="mb-10 max-w-xl text-lg text-neutral-400 leading-relaxed">
+					Join 500+ developers and engineers who are already optimizing their project pipelines with Revolt.
+				</p>
+				<Button size="lg" style="white" link="/signup" classes="!bg-accent-400 !text-neutral-950 !border-none hover:!bg-accent-500 font-bold uppercase tracking-widest px-8">
+					GET INSTANT ACCESS
+				</Button>
+			</Col>
+		</Row>
+	</div>
+</Section>

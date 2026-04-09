@@ -1,0 +1,71 @@
+---
+// Solution Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Section id="solution" classes="py-12 lg:py-24 bg-neutral-50 dark:bg-neutral-900/50">
+	<Row classes="items-center">
+		<Col span="6">
+			<h2 class="mb-6 text-4xl font-headings font-bold">The Revolt Solution</h2>
+			<p class="mb-10 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+				We don't just teach theory. We deliver a transition architecture designed for developers who cannot afford to wait for the grid to "fix itself."
+			</p>
+			<ul class="space-y-8">
+				<li class="flex gap-4">
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+						<Icon name="shield-check" class="h-6 w-6" />
+					</div>
+					<div>
+						<h3 class="mb-1 font-bold">Strategy</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Strong grid access frameworks tailored to asset class.</p>
+					</div>
+				</li>
+				<li class="flex gap-4">
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+						<Icon name="user-group" class="h-6 w-6" />
+					</div>
+					<div>
+						<h3 class="mb-1 font-bold">Expertise</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Deep operational insights from former grid engineers.</p>
+					</div>
+				</li>
+				<li class="flex gap-4">
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+						<Icon name="bolt" class="h-6 w-6" />
+					</div>
+					<div>
+						<h3 class="mb-1 font-bold">Execution</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Faster project timelines through process optimization.</p>
+					</div>
+				</li>
+			</ul>
+		</Col>
+		<Col span="6" classes="mt-12 lg:mt-0">
+			<div class="relative">
+				<div class="aspect-video w-full rounded-sm bg-neutral-200 dark:bg-neutral-800 overflow-hidden relative">
+                    <!-- Placeholder image -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-neutral-900/40"></div>
+                    <div class="h-full w-full flex items-center justify-center text-neutral-400 font-mono text-sm tracking-widest">
+                        ENGINEERING_VISUAL_01
+                    </div>
+                </div>
+				<div class="mt-8 rounded-sm bg-white p-8 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 shadow-xl lg:-ml-12 lg:w-full relative z-10">
+					<p class="mb-6 text-xl italic leading-relaxed text-neutral-800 dark:text-neutral-200">
+						"Revolt was built to improve what is within your control. Our methodology reduces uncertainty in application outcomes by over 40%."
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="h-12 w-12 rounded-full bg-neutral-200 dark:bg-neutral-800"></div>
+						<div>
+							<p class="font-bold">Director of Grid Strategy</p>
+							<p class="text-sm text-neutral-500">Kinetic Grid Academy</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Col>
+	</Row>
+</Section>

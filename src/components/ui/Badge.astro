@@ -16,15 +16,17 @@ type Props = {
 	link?: string
 	type?: string
 	classes?: string
+	filter?: string
 }
-const { name, link, type = 'neutral', classes } = Astro.props
+const { name, link, type = 'neutral', classes, filter } = Astro.props
 ---
 
 {
-	link ? (
+	link || filter ? (
 		<a
-			href={link}
+			href={link || '#'}
 			class:list={['badge', { [`${classes}`]: classes }, { [`badge--${type}`]: type }]}
+			data-filter={filter}
 		>
 			{name}
 		</a>

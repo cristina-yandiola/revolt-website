@@ -26,14 +26,14 @@ const sortedCourses = allCourses.sort((a: any, b: any) => {
 })
 ---
 
-<Section>
-	<Row>
+<Section id="courses">
+	<Row classes="course-grid">
 		<Col span="12">
 			<TagNavigation />
 		</Col>
 		{
 			sortedCourses.map((course: any) => (
-				<Col span="4">
+				<Col span="4" classes="course-card-wrapper transition-all duration-300">
 					<Course
 						link={`/courses/${course.id}`}
 						title={course.data.title}
@@ -48,3 +48,81 @@ const sortedCourses = allCourses.sort((a: any, b: any) => {
 		}
 	</Row>
 </Section>
+
+<script>
+	function setupFilters() {
+		const filterGroups = document.querySelectorAll('.filter-controls');
+		
+		filterGroups.forEach(group => {
+			const buttons = group.querySelectorAll('.filter-btn');
+			const grid = group.closest('section')?.querySelector('.course-grid') as HTMLElement;
+			if (!grid) return;
+			
+			const cards = grid.querySelectorAll('.course-card-wrapper');
+			const maxVisible = parseInt(grid.dataset.max || '999');
+
+			function applyFilter(filter: string, updateURL = true) {
+				let visibleCount = 0;
+				
+				cards.forEach((cardWrapper: any) => {
+					const card = cardWrapper.querySelector('[data-tags]');
+					const cardTags = card?.dataset.tags?.split(',') || [];
+					
+					const matches = filter === 'all' || cardTags.includes(filter);
+					
+					if (matches && visibleCount < maxVisible) {
+						cardWrapper.style.display = 'block';
+						setTimeout(() => cardWrapper.style.opacity = '1', 10);
+						visibleCount++;
+					} else {
+						cardWrapper.style.opacity = '0';
+						cardWrapper.style.display = 'none';
+					}
+				});
+
+				// Update buttons
+				buttons.forEach((btn: any) => {
+					const btnFilter = btn.dataset.filter;
+					if (btnFilter === filter) {
+						btn.classList.add('badge--primary');
+						btn.classList.remove('badge--neutral');
+					} else {
+						btn.classList.remove('badge--primary');
+						btn.classList.add('badge--neutral');
+					}
+				});
+
+				if (updateURL) {
+					const url = new URL(window.location.href);
+					if (filter === 'all') {
+						url.searchParams.delete('tag');
+					} else {
+						url.searchParams.set('tag', filter);
+					}
+					window.history.pushState({}, '', url);
+				}
+			}
+
+			buttons.forEach(btn => {
+				btn.addEventListener('click', (e) => {
+					e.preventDefault();
+					const filter = (btn as HTMLElement).dataset.filter || 'all';
+					applyFilter(filter);
+				});
+			});
+
+			// Initial filter from URL
+			const urlParams = new URLSearchParams(window.location.search);
+			const initialTag = urlParams.get('tag');
+			if (initialTag) {
+				applyFilter(initialTag, false);
+			} else {
+				applyFilter('all', false);
+			}
+		});
+	}
+
+	// Initialize on load and after swaps
+	document.addEventListener('DOMContentLoaded', setupFilters);
+	document.addEventListener('astro:after-swap', setupFilters);
+</script>
