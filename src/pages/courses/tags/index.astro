@@ -7,9 +7,9 @@ if (isHidden) {
 		statusText: 'Not found'
 	})
 }
-// Blog Tags Page
+// Course Tags Page
 // ------------
-// Description: The blog tags page.
+// Description: The course tags page.
 
 // Components
 // - Layout
@@ -20,10 +20,10 @@ import CoursesPosts from '../../../components/blocks/courses/CoursesPosts.astro'
 
 // Data
 import { getCollection } from 'astro:content'
-const allPosts = await getCollection('courses')
+const allCourses = await getCollection('courses')
 ---
 
 <Layout>
 	<Hero title="Tags" />
-	<CoursesPosts data={allPosts} />
+	<CoursesPosts data={allCourses} />
 </Layout>

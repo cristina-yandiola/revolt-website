@@ -17,9 +17,14 @@ export default defineConfig({
     },
     imageService: "passthrough",
   }),
+
+  vite: {
+    build: {
+      minify: false,
+    },
+  },
   image: {
     // This tells Astro to stop trying to "process" images and just serve them
     service: passthroughImageService(),
   },
 });
-

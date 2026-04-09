@@ -1,10 +1,11 @@
 import type { APIRoute } from 'astro'
+import { env } from 'cloudflare:workers'
 
 const robotsTxt = `
 User-agent: *
 Allow: /
 
-Sitemap: ${new URL('sitemap-index.xml', import.meta.env.SITE).href}
+Sitemap: ${new URL('sitemap-index.xml', env.SITE).href}
 `.trim()
 
 export const GET: APIRoute = () => {

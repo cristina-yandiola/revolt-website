@@ -1,6 +1,6 @@
 {
 	"compatibility_date": "2026-03-17",
-	"compatibility_flags": ["global_fetch_strictly_public"],
+	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
 	"name": "astro-oxygenna-theme",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
@@ -9,5 +9,9 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+  "vars": {
+    "SITE": "https://revolt-website.bachacode.workers.dev",
+    "PUBLIC_GA_TRACKING_ID": ""
+  }
 }

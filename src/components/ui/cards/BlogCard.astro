@@ -1,15 +1,15 @@
 ---
 // Blog Card
 // ------------
-// Description: The blog card component
+// Description: The courses card component
 // Properties:
 // - Title: the title of the card
 // - Subtitle: the subtitle of the card
 // - Image: the main image of the card
 // - Icon: the icon of the card
-// - Link: The link to the blog post
+// - Link: The link to the courses post
 // - classes: extra classes
-// - Tags: the tags of the blog post
+// - Tags: the tags of the courses post
 // Reference: https://wind-ui.com/components/cards/
 
 // Components
@@ -52,7 +52,7 @@ const {
 		tags && (
 			<div class="post-tags">
 				{tags.map((tag: string) => (
-					<Badge name={tag} link={`/blog/tags/` + tag} classes="capitalize" />
+					<Badge name={tag} link={`/courses/tags/` + tag} classes="capitalize" />
 				))}
 			</div>
 		)

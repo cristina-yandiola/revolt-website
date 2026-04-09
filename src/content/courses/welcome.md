@@ -3,13 +3,13 @@ title: 'Welcome to Revolt!'
 pubDate: 2024-04-04T05:00:00Z
 description: "We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly to help you stay organized and efficient."
 author: 'Cris Yandiola'
-image: '/blog/post-01-cover.png'
+image: '/courses/post-01-cover.png'
 tags: ['productivity', 'announcement']
 ---
 
 Welcome to Revolt! We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly. Revolt combines powerful features with an intuitive interface to help you stay organized and efficient.
 
-![Revolt is here.](/blog/post-01.png)
+![Revolt is here.](/courses/post-01.png)
 
 We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.
 

@@ -1,7 +1,7 @@
 ---
-// Blog Post Page
+// Course Page
 // ------------
-// Description: The blog post page.
+// Description: The course page.
 
 // Components
 // - Layout
@@ -10,8 +10,8 @@ import Layout from '../../layouts/PostLayout.astro'
 // Data
 import { getCollection, render } from 'astro:content'
 export async function getStaticPaths() {
-	const blogEntries = await getCollection('courses')
-	return blogEntries.map((entry) => ({
+	const courses = await getCollection('courses')
+	return courses.map((entry) => ({
 		params: { id: decodeURI(entry.id) },
 		props: { entry }
 	}))

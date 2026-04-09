@@ -1,7 +1,7 @@
 ---
-// Blog Tag Page
+// Course Tag Page
 // ------------
-// Description: The blog tag page.
+// Description: The course tag page.
 
 // Components
 // - Layout
@@ -13,11 +13,11 @@ import CoursesPosts from '../../../components/blocks/courses/CoursesPosts.astro'
 // Data
 import { getCollection } from 'astro:content'
 export async function getStaticPaths() {
-	const allPosts = await getCollection('courses')
-	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+	const allCourses = await getCollection('courses')
+	const uniqueTags = [...new Set(allCourses.map((post) => post.data.tags).flat())]
 
 	return uniqueTags.map((tag) => {
-		const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
+		const filteredPosts = allCourses.filter((post) => post.data.tags.includes(tag))
 		return {
 			params: { tag },
 			props: { posts: filteredPosts }
