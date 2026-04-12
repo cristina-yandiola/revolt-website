@@ -7,27 +7,34 @@ import Col from '../../ui/Col.astro'
 import Button from '../../ui/Button.astro'
 ---
 
-<Section id="cta" classes="py-12 lg:py-24 bg-white dark:bg-neutral-950 overflow-hidden">
-	<div class="relative w-full rounded-sm bg-neutral-950 px-8 py-16 text-white lg:px-24 lg:py-32 overflow-hidden border border-neutral-900 shadow-2xl">
-		<!-- Decorative stripes -->
-		<div class="absolute right-0 top-0 bottom-0 flex gap-2 opacity-50">
-			<div class="w-4 h-full bg-primary-900/40"></div>
-			<div class="w-4 h-full bg-primary-800/40"></div>
-			<div class="w-4 h-full bg-primary-700/40"></div>
-			<div class="w-4 h-full bg-primary-600/40"></div>
-			<div class="w-4 h-full bg-accent-600/40"></div>
-			<div class="w-4 h-full bg-accent-400/40"></div>
-		</div>
-
+<Section id="cta" classes="overflow-hidden flex justify-center" mode="dark" padding="none">
+	<!-- Decorative stripes -->
+	<div class="absolute bottom-0 right-0 top-0 flex gap-2 opacity-50">
+		<div class="h-full w-16 bg-primary-900/40"></div>
+		<div class="h-full w-16 bg-primary-800/40"></div>
+		<div class="h-full w-16 bg-primary-700/40"></div>
+		<div class="h-full w-16 bg-primary-600/40"></div>
+		<div class="h-full w-16 bg-accent-600/40"></div>
+		<div class="h-full w-16 bg-accent-400/40"></div>
+	</div>
+	<div class="overflow-hidden rounded-sm px-8 py-16 shadow-2xl lg:px-24 lg:py-32">
 		<Row classes="relative z-10">
 			<Col span="8">
-				<h2 class="mb-6 text-5xl font-headings font-bold leading-tight lg:text-6xl">
+				<h2
+					class="mb-6 font-headings text-5xl font-bold leading-tight !text-neutral-500 lg:text-6xl"
+				>
 					Ready to accelerate your <br />grid transition?
 				</h2>
-				<p class="mb-10 max-w-xl text-lg text-neutral-400 leading-relaxed">
-					Join 500+ developers and engineers who are already optimizing their project pipelines with Revolt.
+				<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-400">
+					Join 500+ developers and engineers who are already optimizing their project pipelines with
+					Revolt.
 				</p>
-				<Button size="lg" style="white" link="/signup" classes="!bg-accent-400 !text-neutral-950 !border-none hover:!bg-accent-500 font-bold uppercase tracking-widest px-8">
+				<Button
+					size="lg"
+					style="white"
+					link="/contact"
+					classes="!bg-accent-400 !text-neutral-950 !border-none hover:!bg-accent-500 font-bold uppercase tracking-widest px-8"
+				>
 					GET INSTANT ACCESS
 				</Button>
 			</Col>
