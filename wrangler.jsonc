@@ -1,7 +1,7 @@
 {
 	"compatibility_date": "2026-03-17",
 	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
-	"name": "astro-oxygenna-theme",
+	"name": "revolt-website",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
