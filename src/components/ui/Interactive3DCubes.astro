@@ -1,0 +1,160 @@
+---
+// Interactive 3D Cubes Component
+// A 3x3x3 Rubik's style grid of real 3D DOM cubes with idle rocking, mouse tilt, and color highlight.
+const cubes = []
+for (let z = -1; z <= 1; z++) {
+	for (let y = -1; y <= 1; y++) {
+		for (let x = -1; x <= 1; x++) {
+			cubes.push({ x, y, z })
+		}
+	}
+}
+---
+
+<div
+	id="cube-scene"
+	class="pointer-events-none absolute inset-0 flex items-center justify-center [perspective:1200px]"
+>
+	<div
+		id="cube-tilt"
+		class="transition-transform duration-700 ease-out"
+		style="transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;"
+	>
+		<div id="cube-anim" style="transform-style: preserve-3d;">
+			<!-- Base Isometric Rotation -->
+			<div
+				class="pointer-events-auto relative"
+				style="transform: rotateX(60deg) rotateZ(-45deg); transform-style: preserve-3d;"
+			>
+				{
+					cubes.map(({ x, y, z }) => (
+						<div
+							class="cube absolute left-1/2 top-1/2 cursor-pointer"
+							style={`--x: ${x}; --y: ${y}; --z: ${z}; transform-style: preserve-3d;`}
+						>
+							{/* 6 Faces for true 3D volume */}
+							<div class="face face-top border border-primary-300/40 bg-primary-400/95 dark:border-primary-500/40 dark:bg-primary-500/95" />
+							<div class="face face-bottom border border-primary-800/40 bg-primary-400/95 dark:border-primary-900/40 dark:bg-primary-900/95" />
+							<div class="face face-left border border-primary-700/40 bg-primary-500/95 dark:border-primary-800/40 dark:bg-primary-800/95" />
+							<div class="face face-right border border-primary-500/40 bg-primary-500/95 dark:border-primary-600/40 dark:bg-primary-600/95" />
+							<div class="face face-front border border-primary-600/40 bg-primary-600/95 dark:border-primary-700/40 dark:bg-primary-700/95" />
+							<div class="face face-back border border-primary-800/40 bg-primary-700/95 dark:border-primary-800/40 dark:bg-primary-800/95" />
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Idle rocking animation */
+	@keyframes float-rock {
+		0%,
+		100% {
+			transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+		}
+		50% {
+			transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
+		}
+	}
+
+	#cube-anim {
+		animation: float-rock 8s ease-in-out infinite;
+	}
+
+	/* 3D Cube Construction & Positioning */
+	.cube {
+		--s: 48px; /* Base cube size */
+		--gap: 8px; /* Rubik's gap */
+		--offset: calc(var(--s) + var(--gap));
+
+		width: var(--s);
+		height: var(--s);
+		margin-left: calc(var(--s) / -2);
+		margin-top: calc(var(--s) / -2);
+
+		transform: translate3d(
+			calc(var(--x) * var(--offset)),
+			calc(var(--y) * var(--offset)),
+			calc(var(--z) * var(--offset))
+		);
+	}
+
+	@media (min-width: 640px) {
+		.cube {
+			--s: 96px; /* Larger cubes on desktop */
+			--gap: 24px;
+		}
+	}
+
+	/* Individual Faces */
+	.face {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: filter 0.2s ease-out;
+	}
+
+	/* Positioning the 6 faces using half-size Z-translations */
+	.face-top {
+		transform: translateZ(calc(var(--s) / 2));
+	}
+	.face-bottom {
+		transform: rotateX(180deg) translateZ(calc(var(--s) / 2));
+	}
+	.face-front {
+		transform: rotateX(-90deg) translateZ(calc(var(--s) / 2));
+	}
+	.face-back {
+		transform: rotateX(90deg) translateZ(calc(var(--s) / 2));
+	}
+	.face-right {
+		transform: rotateY(90deg) translateZ(calc(var(--s) / 2));
+	}
+	.face-left {
+		transform: rotateY(-90deg) translateZ(calc(var(--s) / 2));
+	}
+
+	/* Color Highlight on Hover */
+	.cube:hover .face {
+		/* Brighten the specific hovered cube without breaking preserve-3d by keeping filter on the faces */
+		filter: brightness(1.4) contrast(1.2);
+	}
+</style>
+
+<script>
+	const scene = document.getElementById('cube-scene')
+	const tilt = document.getElementById('cube-tilt')
+
+	if (scene && tilt) {
+		const heroSection = scene.closest('section') || document.body
+
+		heroSection.addEventListener('mousemove', (e) => {
+			const rect = heroSection.getBoundingClientRect()
+			const x = e.clientX - rect.left
+			const y = e.clientY - rect.top
+
+			const centerX = rect.width / 2
+			const centerY = rect.height / 2
+
+			const normalizedX = (x - centerX) / centerX
+			const normalizedY = (y - centerY) / centerY
+
+			// Subtle mouse tilt for the whole 3x3x3 grid
+			const maxRotateX = 12
+			const maxRotateY = 12
+
+			const rx = -normalizedY * maxRotateX
+			const ry = normalizedX * maxRotateY
+
+			tilt.style.setProperty('--rx', `${rx}deg`)
+			tilt.style.setProperty('--ry', `${ry}deg`)
+		})
+
+		heroSection.addEventListener('mouseleave', () => {
+			tilt.style.setProperty('--rx', '0deg')
+			tilt.style.setProperty('--ry', '0deg')
+		})
+	}
+</script>
