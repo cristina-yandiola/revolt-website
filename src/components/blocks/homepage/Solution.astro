@@ -10,6 +10,40 @@ import cubeNetworkImg from '../../../assets/cube-grid-electric.webp'
 ---
 
 <Section id="solution" classes="py-12 lg:py-24 bg-neutral-50 dark:bg-neutral-900/50">
+	<!-- Blueprint Grid Background (Fading top and bottom) -->
+	<div
+		class="pointer-events-none absolute left-1/2 top-0 z-[-1] h-full w-[100vw] -translate-x-1/2 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+	>
+		<div
+			class="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:64px_64px] text-neutral-900/5 dark:text-white/5"
+		>
+		</div>
+	</div>
+
+	<!-- Decorative Crosshairs -->
+	<div
+		class="pointer-events-none absolute left-6 top-12 hidden font-mono text-xl text-neutral-300 lg:left-12 lg:block dark:text-neutral-800"
+	>
+		+
+	</div>
+	<div
+		class="pointer-events-none absolute right-6 top-12 hidden font-mono text-xl text-neutral-300 lg:right-12 lg:block dark:text-neutral-800"
+	>
+		+
+	</div>
+	<div
+		class="pointer-events-none absolute bottom-12 left-6 hidden font-mono text-xl text-neutral-300 lg:left-12 lg:block dark:text-neutral-800"
+	>
+		+
+	</div>
+
+	<!-- Technical Accent -->
+	<div
+		class="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:right-8 lg:block"
+	>
+		[ SEC_03.SOLUTION ]
+	</div>
+
 	<Row classes="items-center">
 		<Col span="6">
 			<h2 class="mb-6 font-headings text-4xl font-bold">The Revolt Solution</h2>

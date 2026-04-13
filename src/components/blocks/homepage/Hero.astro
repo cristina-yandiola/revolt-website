@@ -12,6 +12,28 @@ import Interactive3DCubes from '../../ui/Interactive3DCubes.astro'
 	id="hero"
 	classes="pt-24 pb-12 lg:pt-32 lg:pb-24 overflow-hidden bg-neutral-50 dark:bg-neutral-950"
 >
+	<!-- Blueprint Grid Background (Full screen width) -->
+	<div
+		class="pointer-events-none absolute left-1/2 top-0 z-[-1] h-full w-[100vw] -translate-x-1/2 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+	>
+		<div
+			class="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:64px_64px] text-neutral-900/5 dark:text-white/5"
+		>
+		</div>
+	</div>
+
+	<!-- Technical Accents -->
+	<div
+		class="pointer-events-none absolute -left-4 top-24 hidden rotate-180 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:-left-12 lg:block"
+	>
+		// SYS.GRID_INIT_01
+	</div>
+	<div
+		class="pointer-events-none absolute -right-4 top-24 hidden rotate-180 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:-right-12 lg:block"
+	>
+		LAT_45.02 // LON_-93.22
+	</div>
+
 	<Row>
 		<Col span="6" classes="flex flex-col justify-center">
 			<p
