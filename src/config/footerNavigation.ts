@@ -36,10 +36,11 @@ export interface FooterData {
 export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Revolt.',
-		aboutText: 'Electricity thingy website.',
+		aboutText:
+			'Navigating grid access risks for BESS, renewables, and data centres through expert strategy and execution.',
 		logo: {
 			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
+			alt: 'Revolt logo',
 			text: 'Revolt'
 		}
 	},
