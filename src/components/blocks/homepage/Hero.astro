@@ -35,7 +35,8 @@ import Interactive3DCubes from '../../ui/Interactive3DCubes.astro'
 	</div>
 
 	<Row>
-		<Col span="6" classes="flex flex-col justify-center">
+		<Col span="6" classes="relative flex flex-col justify-center z-10">
+			<Interactive3DCubes interactive={false} class="absolute inset-0 -z-10 opacity-10 lg:hidden" />
 			<p
 				class="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400"
 			>
@@ -54,7 +55,7 @@ import Interactive3DCubes from '../../ui/Interactive3DCubes.astro'
 				<Button variation="outline" size="lg" link="/contact">GET IN TOUCH</Button>
 			</div>
 		</Col>
-		<Col span="6" classes="relative mt-12 lg:mt-0">
+		<Col span="6" classes="relative mt-12 hidden lg:block lg:mt-0">
 			<div class="group relative aspect-square w-full overflow-hidden rounded-sm">
 				<!-- Dynamic 3D Cubes -->
 				<Interactive3DCubes />

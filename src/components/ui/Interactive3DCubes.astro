@@ -1,6 +1,13 @@
 ---
 // Interactive 3D Cubes Component
 // A 3x3x3 Rubik's style grid of real 3D DOM cubes with idle rocking, mouse tilt, and color highlight.
+interface Props {
+	interactive?: boolean
+	class?: string
+}
+
+const { interactive = true, class: className } = Astro.props
+
 const cubes = []
 for (let z = -1; z <= 1; z++) {
 	for (let y = -1; y <= 1; y++) {
@@ -13,7 +20,11 @@ for (let z = -1; z <= 1; z++) {
 
 <div
 	id="cube-scene"
-	class="pointer-events-none absolute inset-0 flex items-center justify-center [perspective:1200px]"
+	class:list={[
+		'pointer-events-none absolute inset-0 flex items-center justify-center [perspective:1200px]',
+		className
+	]}
+	data-interactive={interactive}
 >
 	<div
 		id="cube-tilt"
@@ -23,13 +34,13 @@ for (let z = -1; z <= 1; z++) {
 		<div id="cube-anim" style="transform-style: preserve-3d;">
 			<!-- Base Isometric Rotation -->
 			<div
-				class="pointer-events-auto relative"
+				class:list={['relative', { 'pointer-events-auto': interactive }]}
 				style="transform: rotateX(60deg) rotateZ(-45deg); transform-style: preserve-3d;"
 			>
 				{
 					cubes.map(({ x, y, z }) => (
 						<div
-							class="cube absolute left-1/2 top-1/2 cursor-pointer"
+							class:list={['cube absolute left-1/2 top-1/2', { 'cursor-pointer': interactive }]}
 							style={`--x: ${x}; --y: ${y}; --z: ${z}; transform-style: preserve-3d;`}
 						>
 							{/* 6 Faces for true 3D volume */}
@@ -65,8 +76,8 @@ for (let z = -1; z <= 1; z++) {
 
 	/* 3D Cube Construction & Positioning */
 	.cube {
-		--s: 48px; /* Base cube size */
-		--gap: 8px; /* Rubik's gap */
+		--s: clamp(32px, 8vw, 94px); /* Base cube size adaptable to viewport */
+		--gap: clamp(4px, 1.5vw, 24px); /* Rubik's gap */
 		--offset: calc(var(--s) + var(--gap));
 
 		width: var(--s);
@@ -79,13 +90,6 @@ for (let z = -1; z <= 1; z++) {
 			calc(var(--y) * var(--offset)),
 			calc(var(--z) * var(--offset))
 		);
-	}
-
-	@media (min-width: 640px) {
-		.cube {
-			--s: 96px; /* Larger cubes on desktop */
-			--gap: 24px;
-		}
 	}
 
 	/* Individual Faces */
@@ -127,7 +131,7 @@ for (let z = -1; z <= 1; z++) {
 	const scene = document.getElementById('cube-scene')
 	const tilt = document.getElementById('cube-tilt')
 
-	if (scene && tilt) {
+	if (scene && tilt && scene.dataset.interactive === 'true') {
 		const heroSection = scene.closest('section') || document.body
 
 		heroSection.addEventListener('mousemove', (e) => {
