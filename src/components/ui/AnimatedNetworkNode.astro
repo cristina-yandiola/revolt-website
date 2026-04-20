@@ -1,0 +1,121 @@
+---
+interface Props {
+	class?: string;
+}
+
+const { class: className = "relative w-full aspect-square flex items-center justify-center" } = Astro.props;
+---
+<div class={className}>
+	<!-- Unified SVG Architecture -->
+	<svg class="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 200 200">
+		<defs>
+			<!-- High-Tech Glow Filter -->
+			<filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
+				<feGaussianBlur stdDeviation="4" result="blur" />
+				<feComposite in="SourceGraphic" in2="blur" operator="over" />
+			</filter>
+		</defs>
+
+		<!-- Static background radar rings -->
+		<circle cx="100" cy="100" r="70" class="fill-none stroke-primary-500/10" stroke-width="1" />
+		<circle cx="100" cy="100" r="45" class="fill-none stroke-primary-500/20" stroke-width="1" />
+
+		<!-- Rotating Grid Group -->
+		<g class="origin-center animate-[spin_40s_linear_infinite]">
+			<!-- Base Connection Lines -->
+			<g class="text-primary-500/20 dark:text-primary-400/20" stroke="currentColor" stroke-width="1">
+				<line x1="60" y1="75" x2="100" y2="100" />
+				<line x1="180" y1="50" x2="100" y2="100" />
+				<line x1="65" y1="160" x2="100" y2="100" />
+				<line x1="170" y1="145" x2="100" y2="100" />
+				<!-- Cross Connections -->
+				<line x1="60" y1="75" x2="65" y2="160" stroke-width="0.5" stroke-dasharray="2 4" />
+				<line x1="180" y1="50" x2="170" y2="145" stroke-width="0.5" stroke-dasharray="2 4" />
+			</g>
+
+			<!-- Data Pulses (Energy Flowing to Center) -->
+			<g stroke="currentColor" class="text-primary-400 dark:text-primary-300" stroke-width="2" stroke-linecap="round" fill="none">
+				<!-- Lines drawn from outer nodes TO center node (100,100) so animation flows inward -->
+				<line x1="60" y1="75" x2="100" y2="100" class="data-pulse-js opacity-0" />
+				<line x1="180" y1="50" x2="100" y2="100" class="data-pulse-js opacity-0" />
+				<line x1="65" y1="160" x2="100" y2="100" class="data-pulse-js opacity-0" />
+				<line x1="170" y1="145" x2="100" y2="100" class="data-pulse-js opacity-0" />
+			</g>
+
+			<!-- Peripheral Nodes -->
+			<circle cx="60" cy="75" r="4" class="fill-neutral-50 dark:fill-neutral-900 stroke-primary-500 stroke-[1.5px]" filter="url(#node-glow)" />
+			<circle cx="180" cy="50" r="5" class="fill-neutral-50 dark:fill-neutral-900 stroke-primary-500 stroke-[1.5px]" filter="url(#node-glow)" />
+			<circle cx="65" cy="160" r="3" class="fill-primary-400" filter="url(#node-glow)" />
+			<circle cx="170" cy="145" r="4" class="fill-neutral-50 dark:fill-neutral-900 stroke-primary-500 stroke-[1.5px]" filter="url(#node-glow)" />
+
+			<!-- Node Labels (Counter-rotating to stay upright and always above node) -->
+			<g class="fill-neutral-500 dark:fill-neutral-400 font-mono text-[8px] spin-reverse">
+				<text x="60" y="65" text-anchor="middle" style="transform-origin: 60px 75px;">BESS_ND</text>
+				<text x="180" y="40" text-anchor="middle" style="transform-origin: 180px 50px;">RNW_ACT</text>
+				<text x="65" y="150" text-anchor="middle" style="transform-origin: 65px 160px;">DATA_CX</text>
+				<text x="170" y="135" text-anchor="middle" style="transform-origin: 170px 145px;">SYNC_OK</text>
+			</g>
+		</g>
+
+		<!-- Center Node (Static, Receiving Data) -->
+		<circle cx="100" cy="100" r="8" class="fill-primary-500" filter="url(#node-glow)" />
+		<circle cx="100" cy="100" r="8" class="fill-primary-400 origin-center animate-ping opacity-40" style="animation-duration: 2s;" />
+	</svg>
+
+	<style>
+		@keyframes spin-reverse {
+			from { transform: rotate(0deg); }
+			to { transform: rotate(-360deg); }
+		}
+		.spin-reverse text {
+			animation: spin-reverse 40s linear infinite;
+		}
+	</style>
+
+	<!-- Data Pulse JS Controller -->
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const pulses = document.querySelectorAll('.data-pulse-js');
+			pulses.forEach(pulse => {
+				if (!(pulse instanceof SVGPathElement || pulse instanceof SVGLineElement)) return;
+				
+				const length = pulse.getTotalLength();
+				const dashLength = 15;
+				// Set stroke array: dash length followed by massive gap
+				pulse.style.strokeDasharray = `${dashLength} ${length * 2 + dashLength * 2}`;
+				
+				let isShooting = false;
+				
+				function shoot() {
+					if (isShooting) return;
+					isShooting = true;
+					
+					// Ensure pulse is visible before animating
+					(pulse as SVGElement).style.opacity = '1';
+					
+					// Random speed between 1.0s and 3.0s
+					const duration = 1000 + Math.random() * 2000;
+					
+					// Animate dash offset to travel full length
+					const animation = pulse.animate([
+						{ strokeDashoffset: dashLength },
+						{ strokeDashoffset: -length }
+					], {
+						duration: duration,
+						easing: 'linear'
+					});
+					
+					animation.onfinish = () => {
+						isShooting = false;
+						(pulse as SVGElement).style.opacity = '0';
+						// Random rest period between 0.5s and 3s before next shot
+						setTimeout(shoot, 500 + Math.random() * 2500);
+					};
+				}
+				
+				// Start first shoot with random initial delay
+				setTimeout(shoot, Math.random() * 2000);
+			});
+		});
+	</script>
+</div>
