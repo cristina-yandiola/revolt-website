@@ -5,6 +5,20 @@ import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import Button from '../../ui/Button.astro'
+
+interface Props {
+	title?: string
+	text?: string
+	buttonText?: string
+	buttonLink?: string
+}
+
+const {
+	title = 'Ready to accelerate your <br />grid transition?',
+	text = 'Join 500+ developers and engineers who are already optimizing their project pipelines with Revolt.',
+	buttonText = 'GET INSTANT ACCESS',
+	buttonLink = '/contact'
+} = Astro.props
 ---
 
 <Section id="cta" classes="overflow-hidden flex justify-center" mode="dark" padding="none">
@@ -22,20 +36,16 @@ import Button from '../../ui/Button.astro'
 			<Col span="8">
 				<h2
 					class="mb-6 font-headings text-5xl font-bold leading-tight !text-neutral-500 lg:text-6xl"
-				>
-					Ready to accelerate your <br />grid transition?
-				</h2>
-				<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-400">
-					Join 500+ developers and engineers who are already optimizing their project pipelines with
-					Revolt.
-				</p>
+					set:html={title}
+				/>
+				<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-400" set:html={text} />
 				<Button
 					size="lg"
 					style="white"
-					link="/contact"
+					link={buttonLink}
 					classes="!bg-accent-400 !text-neutral-950 !border-none hover:!bg-accent-500 font-bold uppercase tracking-widest px-8"
 				>
-					GET INSTANT ACCESS
+					{buttonText}
 				</Button>
 			</Col>
 		</Row>

@@ -114,6 +114,7 @@ Prettier plugins are enabled for both Astro and Tailwind CSS. Ensure Tailwind cl
 
 ### Component Architecture
 
+- **Call to Action (CTA):** Always use `src/components/blocks/homepage/CTA.astro` as the default CTA component across the site instead of basic/generic CTA blocks. It provides a high-conversion, highly-styled presentation aligned with the brand.
 - **Frontmatter vs Template:** Keep all logic (data fetching, computations, conditionals) in the frontmatter script (`---`). The template should be purely declarative HTML/JSX.
 - **Props Destructuring:** Destructure props in the frontmatter for cleaner template usage: `const { title, description, children } = Astro.props`.
 - **Slots:** Use `<slot />` and `<slot name="specific" />` for flexible component composition. Document available slots in component JSDoc comments.
@@ -168,3 +169,17 @@ Prettier plugins are enabled for both Astro and Tailwind CSS. Ensure Tailwind cl
 - **Component props:** Use `console.log(Astro.props)` in the frontmatter to debug what's being passed to a component.
 - **Collection data:** Log the result of `getCollection()` to verify you're getting expected data.
 - **Build vs Dev:** Some issues only appear in production builds - run `npm run build && npm run preview` to test locally before deploying.
+
+## 7. Website Theme & Aesthetic
+
+### Domain & Narrative
+Revolt is a specialized consulting firm focused on accelerating grid access strategies for BESS (Battery Energy Storage Systems), renewable energy projects, and data centers. The core narrative revolves around overcoming slow grid processes, managing interconnection risks, and optimizing pipeline structuring within the modern energy and power infrastructure sectors.
+
+### Design Language & Vibe
+The overarching aesthetic is **highly technical, modern, and "engineering-first."** It embraces a precise, data-driven look rather than a traditional corporate style.
+- **Visual Motifs:** The design utilizes blueprint-style backgrounds, coordinate markers (e.g., `LAT_45.02`), system initialization codes (`SYS.GRID_INIT`), and 3D interactive elements (like geometric cubes) to symbolize solving complex, multi-dimensional puzzles (like grid interconnection).
+- **Layout:** Pages follow a structured, high-conversion B2B marketing flow (Hero &rarr; Challenges &rarr; Solution &rarr; Learning Paths &rarr; CTA). Layouts rely heavily on crisp grid systems, reflecting the literal "power grid" theme.
+
+### Color Palette & Typography
+- **Colors:** The palette relies heavily on stark contrasts using `neutral` scales for backgrounds (supporting both clean light modes and deep, immersive dark modes). A distinctive `primary` color scale is used deliberately for call-to-actions, highlights, and glowing technical accents (representing energy/power). 
+- **Typography:** Combines bold, clean sans-serif fonts for primary headings and body text for legibility, heavily contrasted with `font-mono` (monospace) text for technical accents, small labels, and metadata to reinforce the engineering aesthetic.
