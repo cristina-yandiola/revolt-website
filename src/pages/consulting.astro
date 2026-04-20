@@ -1,22 +1,15 @@
 ---
 // Components
-// - Layout
 import Layout from '../layouts/Layout.astro'
-// - UI
-import Feature from '../components/blocks/features/FeatureSticky.astro'
-import Hero from '../components/blocks/hero/ConsultingHero.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import CTA from '../components/blocks/homepage/CTA.astro'
+import AnimatedProcessPipeline from '../components/ui/AnimatedProcessPipeline.astro'
+import { Icon } from 'astro-icon/components'
 
 // Data
 import consultingData from '../data/json-files/consultingData.json'
-// - Consulting Categories
-const strategyPlanning = consultingData.filter((service) => service.category === 'Strategy & Planning')
-const executionSupport = consultingData.filter((service) => service.category === 'Execution & Support')
-const techAutomation = consultingData.filter((service) => service.category === 'Technology & Automation')
-const trainingEnablement = consultingData.filter((service) => service.category === 'Training & Enablement')
-
-// Assets
-import heroImage from '../assets/hero-01.png'
 
 // Content
 // - SEO
@@ -25,44 +18,151 @@ const SEO = {
 	description:
 		"Discover Revolt's comprehensive grid access consulting. We offer strategy, execution, automation, and training to accelerate your interconnection timeline."
 }
-// - Page Header
-const header = {
-	title: 'Our <strong>Consulting</strong>',
+
+// - Hero Section
+const hero = {
+	kicker: 'CONSULTING EXPERTISE',
+	title: 'Our <span class="italic text-primary-600 dark:text-primary-400">Consulting</span>',
 	text: 'Comprehensive consulting solutions to accelerate your grid connection and eliminate bottlenecks. We help developers, operators, and funds mitigate risks and streamline processes from initial site screening through to successful grid connection.'
+}
+
+// - CTA Section
+const ctaConfig = {
+	title: 'Ready to accelerate your grid access?',
+	text: 'Get expert consulting guidance on navigating complex interconnection processes for your project.',
+	buttonText: 'CONTACT US',
+	buttonLink: '/contact'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} image={heroImage} />
-	
-	<Feature
-		title="Strategy & Planning"
-		text="Build a strong foundation with data-driven insights and strategic structuring to maximize your connection success rates."
-		data={strategyPlanning}
-	/>
-	
-	<Feature
-		title="Execution & Support"
-		text="Leverage our deep operational expertise to navigate complex grid operator interfaces and secure your approvals faster."
-		data={executionSupport}
-		classes="bg-neutral-50 dark:bg-neutral-900"
-	/>
-	
-	<Feature
-		title="Technology & Automation"
-		text="Cut manual workload and accelerate processes using our proprietary automation tools and streamlined workflows."
-		data={techAutomation}
-	/>
-	
-	<Feature
-		title="Training & Enablement"
-		text="Equip your team with the knowledge and operational competence needed to execute faster from day one."
-		data={trainingEnablement}
-		classes="bg-neutral-50 dark:bg-neutral-900"
-	/>
-	
-	<CTA 
-		title="Ready to accelerate your grid access?" 
-		text="Get expert consulting guidance on navigating complex interconnection processes for your project."
+	<!-- 1. Hero Section -->
+	<Section id="consulting-hero" classes="pt-24 pb-12 lg:pt-32 lg:pb-24 overflow-hidden relative border-b border-neutral-200 dark:border-neutral-800">
+		<!-- Blueprint Grid Background -->
+		<div
+			class="pointer-events-none absolute left-1/2 top-0 z-[-1] h-full w-[100vw] -translate-x-1/2 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+		>
+			<div
+				class="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:64px_64px] text-neutral-900/5 dark:text-white/5"
+			>
+			</div>
+		</div>
+
+		<!-- Technical Accents -->
+		<div
+			class="pointer-events-none absolute -left-4 top-24 hidden rotate-180 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:-left-12 lg:block"
+		>
+			// SYS.CONSULTING_INIT_01
+		</div>
+		<div
+			class="pointer-events-none absolute -right-4 top-24 hidden rotate-180 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:-right-12 lg:block"
+		>
+			LAT_45.02 // LON_-93.22
+		</div>
+
+		<Row>
+			<Col span="6" classes="flex flex-col justify-center z-10 relative">
+				<!-- Animated Pipeline Visual (Background on mobile) -->
+				<AnimatedProcessPipeline class="absolute inset-0 -z-10 opacity-20 lg:hidden pointer-events-none" />
+				<p
+					class="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400"
+				>
+					// {hero.kicker}
+				</p>
+				<h1
+					class="mb-8 font-headings text-5xl font-bold leading-tight lg:text-7xl"
+					set:html={hero.title}
+				/>
+				<p class="max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					{hero.text}
+				</p>
+			</Col>
+			<Col span="6" classes="relative hidden lg:flex items-center justify-center min-h-[400px] mt-12 lg:mt-0">
+				<!-- Animated Pipeline Visual -->
+				<AnimatedProcessPipeline class="w-full max-w-md aspect-square" />
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- 2. Narrative (The Approach) -->
+	<Section id="approach" classes="py-16 lg:py-24 bg-neutral-50 dark:bg-neutral-950">
+		<Row>
+			<Col span="5" classes="flex flex-col justify-center mb-8 lg:mb-0">
+				<h2 class="font-headings text-3xl font-bold leading-tight text-neutral-900 dark:text-neutral-100 md:text-4xl">
+					Mitigate risk and unlock pipeline value.
+				</h2>
+			</Col>
+			<Col span="1" classes="hidden lg:block" />
+			<Col span="6" classes="flex flex-col justify-center gap-6 text-lg text-neutral-600 dark:text-neutral-400 border-l border-neutral-200 dark:border-neutral-800 pl-6 lg:pl-8">
+				<p>
+					In a highly constrained grid environment, securing interconnection requires more than just submitting applications. It demands a sophisticated, multi-disciplinary approach.
+				</p>
+				<p>
+					We deploy our <strong class="text-neutral-900 dark:text-neutral-100 font-bold">data-driven methodologies and automated workflows</strong> to radically optimize your grid access pipeline, increasing connection certainty while minimizing administrative overhead.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- 3. Core Services Grid -->
+	<Section id="services" classes="py-16 lg:py-24 bg-white dark:bg-neutral-900">
+		<Row>
+			<Col span="12" classes="mb-16">
+				<div class="mb-4 flex items-center gap-4">
+					<div class="flex-1 h-px bg-primary-500/30"></div>
+					<span class="font-mono text-xs uppercase tracking-widest text-primary-600 dark:text-primary-400">Core Services</span>
+					<div class="flex-1 h-px bg-primary-500/30"></div>
+				</div>
+				<h2 class="text-center font-headings text-4xl font-bold text-neutral-900 dark:text-neutral-100">
+					Consulting Capabilities
+				</h2>
+				<p class="mt-4 text-center text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+					A complete suite of services designed to accelerate your strategy, execute flawlessly, automate complex processes, and train your teams to win.
+				</p>
+			</Col>
+		</Row>
+		<Row classes="gap-y-8">
+			{
+				consultingData.map((service, idx) => {
+					// Create a technical accent label from the category (e.g. "Strategy & Planning" -> "STRATEGY_PLN")
+					let catCode = "SRV_" + String(idx + 1).padStart(2, '0');
+					if (service.category.includes('Strategy')) catCode = 'STRATEGY_PLN';
+					if (service.category.includes('Execution')) catCode = 'EXECUTION_SP';
+					if (service.category.includes('Technology')) catCode = 'TECH_AUTO';
+					if (service.category.includes('Training')) catCode = 'TRAINING_EN';
+
+					return (
+						<Col span="4" classes="flex">
+							<div class="group relative flex w-full flex-col justify-between overflow-hidden rounded-sm border border-neutral-200 bg-neutral-50 p-8 transition-all hover:border-primary-500/50 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-primary-500/50">
+								<!-- Technical Accent -->
+								<div class="absolute right-0 top-0 bg-neutral-200/50 px-3 py-1 font-mono text-[10px] tracking-widest text-neutral-500 dark:bg-neutral-800/50 dark:text-neutral-400">
+									{catCode}
+								</div>
+								
+								<div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+									<Icon name={service.icon} class="h-6 w-6" />
+								</div>
+								
+								<h3 class="mb-3 font-headings text-xl font-bold text-neutral-900 dark:text-neutral-100">
+									{service.title}
+								</h3>
+								
+								<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+									{service.description}
+								</p>
+							</div>
+						</Col>
+					)
+				})
+			}
+		</Row>
+	</Section>
+
+	<!-- 4. Call to Action -->
+	<CTA
+		title={ctaConfig.title}
+		text={ctaConfig.text}
+		buttonText={ctaConfig.buttonText}
+		buttonLink={ctaConfig.buttonLink}
 	/>
 </Layout>
