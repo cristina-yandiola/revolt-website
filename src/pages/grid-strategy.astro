@@ -1,0 +1,224 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Button from '../components/ui/Button.astro'
+import Col from '../components/ui/Col.astro'
+import Row from '../components/ui/Row.astro'
+import Section from '../components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import CTA from '../components/blocks/homepage/CTA.astro'
+
+// Assets
+import electricGridImg from '../assets/electric-grid.jpg'
+import cubeGridImg from '../assets/cube-grid-electric.webp'
+import networkImg from '../assets/futuristic-digital-cube-network-with-glowing-neon-blue-lights-and-data-points-distribution-photo.jpg'
+
+const SEO = {
+	title: 'Grid Strategy | Revolt Grid Access Consulting',
+	description:
+		'Supporting investors and developers with high-fidelity grid connection decisions. Navigate complexity with Revolt’s proprietary analytics engine.'
+}
+
+const capabilities = [
+	{
+		title: 'Feasibility Mapping',
+		text: 'Comprehensive spatial analysis of existing capacity and proximity to connection points.',
+		icon: 'squares-plus'
+	},
+	{
+		title: 'Curtailment Modeling',
+		text: 'Predictive risk assessment for energy export constraints across 10-year horizons.',
+		icon: 'arrow-trending-up'
+	},
+	{
+		title: 'Cost Optimization',
+		text: 'Capex forecasting for contestable and non-contestable grid connection works.',
+		icon: 'circle-stack'
+	}
+]
+
+const methodology = [
+	{
+		number: '01',
+		title: 'Data Ingestion',
+		text: 'We integrate real-time grid data with historical load profiles to create a digital twin of your target region.'
+	},
+	{
+		number: '02',
+		title: 'BESS Simulation',
+		text: 'Our algorithms stress-test Battery Energy Storage System (BESS) configurations against multiple grid scenarios.'
+	},
+	{
+		number: '03',
+		title: 'Strategic Roadmap',
+		text: 'Receive a validated investment brief with prioritized connection sites and risk-adjusted returns.'
+	}
+]
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<!-- Hero Section -->
+	<Section id="strategy-hero" classes="bg-neutral-50 py-20 lg:py-28 dark:bg-neutral-950">
+		<Row classes="items-center">
+			<Col span="7" classes="relative z-10">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Optimized Infrastructure
+				</p>
+				<h1 class="mb-6 font-headings text-5xl font-bold leading-tight lg:text-5xl">
+					Grid Strategy
+				</h1>
+				<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					Supporting investors and developers with high-fidelity grid connection decisions. Navigate
+					complexity with Revolt’s proprietary analytics engine.
+				</p>
+				<div class="flex flex-wrap gap-4">
+					<Button size="lg" link="/contact">BOOK A CALL</Button>
+					<Button size="lg" variation="outline" link="#strategy-scope">TECHNICAL SPECS</Button>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Capabilities Section (Full-half Image) -->
+	<Section
+		id="strategy-scope"
+		classes="bg-white dark:bg-neutral-950 overflow-hidden"
+		padding="none"
+	>
+		<div class="absolute -bottom-0 -top-0 left-[calc(50%-50vw)] right-1/2 hidden lg:block">
+			<Image
+				src={electricGridImg}
+				alt="Technical grid visualization"
+				class="h-full w-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-primary-500/5"></div>
+		</div>
+		<Row classes="items-center ">
+			<Col span="6" classes="lg:hidden mb-12">
+				<div class="relative min-h-[400px]">
+					<Image
+						src={electricGridImg}
+						alt="Technical grid visualization"
+						text-accent-600
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
+			</Col>
+			<Col span="6" classes="hidden lg:block" />
+			<Col span="6" classes="relative z-10 lg:pl-16 py-16 lg:py-28">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Capabilities
+				</p>
+				<h2 class="mb-10 font-headings text-3xl font-bold leading-tight lg:text-4xl">Scope</h2>
+				<div class="space-y-10">
+					{
+						capabilities.map((item) => (
+							<div class="flex gap-6">
+								<div class="flex h-12 w-12 shrink-0 items-center justify-center bg-primary-500/10 text-primary-500 dark:bg-primary-400/10">
+									<Icon name={item.icon} class="h-6 w-6" />
+								</div>
+								<div>
+									<h3 class="mb-2 font-headings text-xl font-bold">{item.title}</h3>
+									<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{item.text}</p>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Methodology Section (Full-half Image Reverse) -->
+	<Section
+		id="strategy-methodology"
+		classes="bg-neutral-50 dark:bg-neutral-900 overflow-hidden"
+		padding="none"
+	>
+		<div class="absolute -bottom-0 -top-0 left-1/2 right-[calc(50%-50vw)] hidden lg:block">
+			<Image
+				src={cubeGridImg}
+				alt="BESS Simulation visualization"
+				class="h-full w-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-primary-500/5"></div>
+		</div>
+		<Row classes="items-center ">
+			<Col span="6" classes="relative z-10 lg:pr-16 py-16 lg:py-28">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Methodology
+				</p>
+				<h2 class="mb-10 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					How it works
+				</h2>
+				<div class="space-y-12">
+					{
+						methodology.map((step) => (
+							<div class="border-l-4 border-primary-500 pl-8">
+								<span class="mb-2 block font-mono text-4xl font-black text-primary-500/30">
+									{step.number}
+								</span>
+								<h3 class="mb-3 font-headings text-xl font-bold">{step.title}</h3>
+								<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{step.text}</p>
+							</div>
+						))
+					}
+				</div>
+			</Col>
+			<Col span="6" classes="lg:hidden mt-12">
+				<div class="relative min-h-[400px]">
+					<Image
+						src={cubeGridImg}
+						alt="BESS Simulation visualization"
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Engineering Section -->
+	<Section id="strategy-engineering" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
+		<Row classes="mb-16 text-center">
+			<Col span="8" classes="lg:col-start-3">
+				<h2 class="font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					Engineered for precision
+				</h2>
+			</Col>
+		</Row>
+		<Row classes="gap-6">
+			<Col span="8">
+				<div
+					class="flex h-full flex-col justify-between border border-neutral-200 bg-neutral-50 p-10 dark:border-neutral-800 dark:bg-neutral-900"
+				>
+					<div>
+						<h3 class="mb-4 font-headings text-2xl font-bold">Interactive Heatmaps</h3>
+						<p class="max-w-md leading-relaxed text-neutral-600 dark:text-neutral-400">
+							Visualize grid congestion patterns across the national network in real-time with
+							sub-station granularity.
+						</p>
+					</div>
+					<div class="mt-12 overflow-hidden border border-neutral-200 dark:border-neutral-800">
+						<Image src={networkImg} alt="Interactive Heatmap" class="w-full object-cover" />
+					</div>
+				</div>
+			</Col>
+			<Col span="4">
+				<div class="flex h-full flex-col justify-between bg-primary-500 p-10 text-white">
+					<Icon name="bolt" class="h-12 w-12 text-accent-600" />
+					<div>
+						<h3 class="mb-4 font-headings text-2xl font-bold text-neutral-50">Rapid Siting</h3>
+						<p class="leading-relaxed">
+							Reduce site identification time from weeks to seconds with our AI-driven GIS tools.
+						</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<CTA />
+</Layout>
