@@ -6,108 +6,77 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-import cubeNetworkImg from '../../../assets/cube-grid-electric.webp'
+import electricGridImg from '../../../assets/electric-grid.jpg'
 ---
 
-<Section id="solution" classes="py-12 lg:py-24 bg-neutral-50 dark:bg-neutral-900/50">
-	<!-- Blueprint Grid Background (Fading top and bottom) -->
+<Section id="solution" classes="bg-white py-12 lg:py-24 dark:bg-neutral-950">
 	<div
-		class="pointer-events-none absolute left-1/2 top-0 z-[-1] h-full w-[100vw] -translate-x-1/2 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+		class="absolute -bottom-12 -top-12 left-[calc(50%-50vw)] right-1/2 hidden lg:-bottom-24 lg:-top-24 lg:block"
 	>
-		<div
-			class="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:64px_64px] text-neutral-900/5 dark:text-white/5"
-		>
-		</div>
+		<Image
+			src={electricGridImg}
+			alt="Transmission grid infrastructure"
+			class="h-full w-full object-cover grayscale"
+		/>
+		<div class="absolute inset-0 bg-neutral-950/15 dark:bg-neutral-950/35"></div>
 	</div>
-
-	<!-- Decorative Crosshairs -->
-	<div
-		class="pointer-events-none absolute left-6 top-12 hidden font-mono text-xl text-neutral-300 lg:left-12 lg:block dark:text-neutral-800"
-	>
-		+
-	</div>
-	<div
-		class="pointer-events-none absolute right-6 top-12 hidden font-mono text-xl text-neutral-300 lg:right-12 lg:block dark:text-neutral-800"
-	>
-		+
-	</div>
-	<div
-		class="pointer-events-none absolute bottom-12 left-6 hidden font-mono text-xl text-neutral-300 lg:left-12 lg:block dark:text-neutral-800"
-	>
-		+
-	</div>
-
-	<!-- Technical Accent -->
-	<div
-		class="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:right-8 lg:block"
-	>
-		[ SEC_03.SOLUTION ]
-	</div>
-
-	<Row classes="items-center">
-		<Col span="6">
-			<h2 class="mb-6 font-headings text-4xl font-bold">The Revolt Solution</h2>
-			<p class="mb-10 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-				We don't just teach theory. We deliver a transition architecture designed for developers who
-				cannot afford to wait for the grid to "fix itself."
+	<Row classes="items-stretch gap-y-10">
+		<Col span="6" classes="lg:hidden">
+			<div class="relative min-h-[360px] overflow-hidden">
+				<Image
+					src={electricGridImg}
+					alt="Transmission grid infrastructure"
+					class="absolute inset-0 h-full w-full object-cover grayscale"
+				/>
+				<div class="absolute inset-0 bg-neutral-950/15 dark:bg-neutral-950/35"></div>
+			</div>
+		</Col>
+		<Col span="6" classes="hidden lg:block" />
+		<Col span="6" classes="relative z-10 flex flex-col justify-center lg:pl-12">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">
+				Gridscore Platform
+			</p>
+			<h2
+				class="mb-6 max-w-xl font-headings text-3xl font-bold leading-tight text-primary-600 lg:text-4xl"
+			>
+				Gridscore turns grid constraints into actionable site intelligence
+			</h2>
+			<p class="mb-10 max-w-xl leading-relaxed text-neutral-600 dark:text-neutral-400">
+				Gridscore ranks connection opportunities, capacity signals, and regulatory constraints so
+				teams can prioritize viable BESS, renewable, and data centre projects before committing
+				capital.
 			</p>
 			<ul class="space-y-8">
 				<li class="flex gap-4">
-					<div
-						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400"
-					>
-						<Icon name="shield-check" class="h-6 w-6" />
-					</div>
+					<Icon name="shield-check" class="mt-1 h-6 w-6 shrink-0 text-primary-600" />
 					<div>
-						<h3 class="mb-1 font-bold">Strategy</h3>
-						<p class="text-sm text-neutral-600 dark:text-neutral-400">
-							Strong grid access frameworks tailored to asset class.
+						<h3 class="mb-1 font-bold">Connection Risk Ranking</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Compare candidate sites by grid access risk, capacity pressure, and connection
+							pathway.
 						</p>
 					</div>
 				</li>
 				<li class="flex gap-4">
-					<div
-						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400"
-					>
-						<Icon name="user-group" class="h-6 w-6" />
-					</div>
+					<Icon name="user-group" class="mt-1 h-6 w-6 shrink-0 text-primary-600" />
 					<div>
-						<h3 class="mb-1 font-bold">Expertise</h3>
-						<p class="text-sm text-neutral-600 dark:text-neutral-400">
-							Deep operational insights from former grid engineers.
+						<h3 class="mb-1 font-bold">Shared Pipeline View</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Align development, investment, and technical teams around the same grid-score logic.
 						</p>
 					</div>
 				</li>
 				<li class="flex gap-4">
-					<div
-						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400"
-					>
-						<Icon name="bolt" class="h-6 w-6" />
-					</div>
+					<Icon name="bolt" class="mt-1 h-6 w-6 shrink-0 text-primary-600" />
 					<div>
-						<h3 class="mb-1 font-bold">Execution</h3>
-						<p class="text-sm text-neutral-600 dark:text-neutral-400">
-							Faster project timelines through process optimization.
+						<h3 class="mb-1 font-bold">Faster Screening</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Shorten early-stage qualification by focusing diligence on the strongest grid
+							positions.
 						</p>
 					</div>
 				</li>
 			</ul>
-		</Col>
-		<Col span="6" classes="mt-12 lg:mt-0">
-			<div class="relative pb-8">
-				<div
-					class="relative aspect-video w-full overflow-hidden rounded-tl-lg [-webkit-mask-image:linear-gradient(to_right,black_60%,transparent_100%)] [mask-image:linear-gradient(to_right,black_60%,transparent_100%)]"
-				>
-					<Image
-						src={cubeNetworkImg}
-						alt="Digital cube network architecture"
-						class="absolute inset-0 h-full w-full object-cover"
-					/>
-				</div>
-				<!-- Support line -->
-				<div class="absolute -left-8 bottom-0 h-3 w-[100vw] bg-primary-500 dark:bg-primary-600">
-				</div>
-			</div>
 		</Col>
 	</Row>
 </Section>
