@@ -5,20 +5,37 @@ import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import Button from '../../ui/Button.astro'
+import { Image } from 'astro:assets'
+import heroImage from '../../../assets/electric-grid.jpg'
+import { Icon } from 'astro-icon/components'
 ---
 
 <Section
 	id="hero"
 	classes="pt-24 pb-12 lg:pt-32 lg:pb-24 overflow-hidden bg-neutral-50 dark:bg-neutral-950"
 >
+	<div
+		class="absolute -bottom-12 -top-24 left-1/2 right-[calc(50%-50vw)] hidden lg:-bottom-24 lg:-top-32 lg:block"
+	>
+		<Image
+			src={heroImage}
+			alt="Electrical grid infrastructure"
+			class="h-full w-full object-cover"
+			loading="eager"
+		/>
+		<div
+			class="absolute inset-0 z-10 h-full w-full bg-gradient-to-r from-neutral-50 from-[100%] to-transparent backdrop-blur-md md:from-neutral-50 md:from-[60%] md:backdrop-blur-none lg:from-[0%] dark:from-neutral-950/75 md:dark:from-neutral-950"
+		>
+		</div>
+	</div>
 	<Row>
-		<Col span="6" classes="relative flex flex-col justify-center z-10">
+		<Col span="5" classes="relative flex flex-col justify-center z-10">
 			<p
 				class="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400"
 			>
 				Grid Access Strategy
 			</p>
-			<h1 class="mb-8 font-headings text-5xl font-bold leading-tight lg:text-7xl">
+			<h1 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-5xl">
 				Navigating <span class="text-primary-600 dark:text-primary-400">Grid Access</span> Risks.
 			</h1>
 			<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -27,12 +44,15 @@ import Button from '../../ui/Button.astro'
 				control.
 			</p>
 			<div class="flex flex-wrap gap-4">
-				<Button size="lg" link="/courses">VIEW COURSES</Button>
-				<Button variation="outline" size="lg" link="/contact">GET IN TOUCH</Button>
+				<Button size="lg" link="/courses">VIEW GRIDSCORE</Button>
+				<Button variation="link" size="lg" link="/contact">
+					<span class="flex items-center border-b-4 border-primary-600 pb-1.5">
+						BOOK A CALL
+						<Icon name="arrow-right" class="ml-2 dark:text-neutral-50" />
+					</span>
+				</Button>
 			</div>
 		</Col>
-		<Col span="6" classes="relative mt-12 hidden lg:block lg:mt-0">
-			<div class="group relative aspect-square w-full overflow-hidden rounded-sm"></div>
-		</Col>
+		<Col span="6" classes="hidden lg:block" />
 	</Row>
 </Section>
