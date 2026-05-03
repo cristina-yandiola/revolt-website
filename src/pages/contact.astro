@@ -1,35 +1,162 @@
 ---
 // Components
-// - Layout
 import Layout from '../layouts/Layout.astro'
-// - UI
-import FormHero from '../components/blocks/hero/ContactHero.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
-import ContactCards from '../components/blocks/contact/ContactCards.astro'
-import SocialProof from '../components/blocks/socialproof/Basic.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import Button from '../components/ui/Button.astro'
+import InputField from '../components/ui/forms/form-elements/InputField.astro'
+import TextArea from '../components/ui/forms/form-elements/TextArea.astro'
 
-// Content
-// - SEO
+// Assets
+import networkImg from '../assets/futuristic-digital-cube-network-with-glowing-neon-blue-lights-and-data-points-distribution-photo.jpg'
+import electricGridImg from '../assets/electric-grid.jpg'
+
 const SEO = {
-	title: 'Revolt | Get in Touch with Us',
+	title: 'Contact Revolt | Strategic Grid Engagement',
 	description:
-		'Have questions or need assistance? Contact Revolt today for support, inquiries, or feedback. Our team is here to help you make the most of your Revolt experience.'
+		'Connect with the Revolt technical team for GridScore™ analytics or strategic advisory for BESS deployment.'
 }
-// - Page Header
-const header = {
-	title: 'Get Answers to Your <strong>Revolt</strong> Questions.',
-	text: "Whether you have a question, need support, or just want to share your feedback, we're all ears. Reach out to us and we'll get back to you as soon as possible."
-}
+
+const contactHubs = [
+	{
+		city: 'San Francisco',
+		role: 'Data Engineering & AI Research',
+		address: '44 Tehama St, CA 94105'
+	},
+	{
+		city: 'Berlin',
+		role: 'Grid Strategy & EU Compliance',
+		address: 'Torstraße 140, 10119 Berlin'
+	},
+	{
+		city: 'Singapore',
+		role: 'APAC Market Logistics & BESS Operations',
+		address: '79 Robinson Rd, 068897'
+	}
+]
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<FormHero
-		title={header.title}
-		text={header.text}
-		id="contact"
-		classes="bg-neutral-50 dark:bg-neutral-950/80"
-	/>
-	<ContactCards classes="dark:bg-neutral-950/80" />
-	<SocialProof classes="dark:bg-neutral-950/80" />
-	<CTA />
+	<!-- 2. Contact Form Section -->
+	<Section id="contact-form" classes="py-16 lg:py-32 bg-neutral-50 dark:bg-neutral-900">
+		<Row classes="gap-y-16">
+			<Col span="5">
+				<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					Direct Transmission
+				</h2>
+				<p class="mb-12 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					Our technical team monitors all incoming inquiries for strategic alignment. Expect a
+					response within 24 operational hours.
+				</p>
+				<div class="space-y-8">
+					<div class="group flex items-start gap-4">
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center bg-primary-500/10 text-primary-500 transition-transform group-hover:scale-110 dark:bg-primary-400/10"
+						>
+							<Icon name="circle-stack" class="h-6 w-6" />
+						</div>
+						<div>
+							<h3 class="font-headings text-lg font-bold">Data Inquiries</h3>
+							<p class="font-mono text-sm font-semibold text-primary-500">
+								technical-support@revolt.grid
+							</p>
+						</div>
+					</div>
+					<div class="group flex items-start gap-4">
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center bg-primary-500/10 text-primary-500 transition-transform group-hover:scale-110 dark:bg-primary-400/10"
+						>
+							<Icon name="user-group" class="h-6 w-6" />
+						</div>
+						<div>
+							<h3 class="font-headings text-lg font-bold">Partnerships</h3>
+							<p class="font-mono text-sm font-semibold text-primary-500">advisory@revolt.grid</p>
+						</div>
+					</div>
+				</div>
+			</Col>
+			<Col span="6" classes="lg:col-start-7">
+				<div
+					class="border border-neutral-200 bg-white p-8 shadow-sm lg:p-12 dark:border-neutral-800 dark:bg-neutral-950"
+				>
+					<form action="#" method="POST" class="space-y-6">
+						<InputField id="name" label="Full Name" type="text" required />
+						<InputField id="email" label="Work Email" type="email" required />
+						<InputField id="company" label="Company / Organization" type="text" required />
+						<TextArea id="message" label="Message" required />
+						<Button
+							style="primary"
+							size="lg"
+							classes="w-full !bg-primary-500 !text-white hover:!bg-primary-600"
+						>
+							SEND TRANSMISSION
+							<Icon name="arrow-right" class="ml-2 h-4 w-4" />
+						</Button>
+					</form>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- 3. Global Hubs Section -->
+	<Section id="hubs" classes="py-16 lg:py-32 bg-white dark:bg-neutral-950">
+		<Row classes="mb-16 items-end justify-between">
+			<Col span="6">
+				<h2 class="font-headings text-3xl font-bold leading-tight lg:text-4xl">Global Hubs</h2>
+			</Col>
+			<Col span="4" classes="text-right">
+				<p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Strategic Intelligence Centers
+				</p>
+			</Col>
+		</Row>
+		<Row classes="gap-8">
+			{
+				contactHubs.map((hub) => (
+					<Col span="4" classes="shadow-md">
+						<div class="h-full border-l-4 border-primary-500 bg-neutral-50 py-6 pl-8 transition-colors hover:bg-white dark:bg-neutral-900 dark:hover:bg-neutral-800">
+							<h3 class="mb-2 font-headings text-xl font-bold">{hub.city}</h3>
+							<p class="mb-4 text-neutral-600 dark:text-neutral-400">{hub.role}</p>
+							<p class="font-mono text-xs text-neutral-400">{hub.address}</p>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+
+	<!-- 4. Bottom Bleed Section -->
+	<Section
+		id="bottom-bleed"
+		classes="overflow-hidden bg-neutral-50 dark:bg-neutral-900"
+		padding="none"
+	>
+		<div class="absolute -bottom-0 -top-0 left-1/2 right-[calc(50%-50vw)] hidden lg:block">
+			<Image src={electricGridImg} alt="Energy infrastructure" class="h-full w-full object-cover" />
+		</div>
+		<Row classes="py-16 lg:py-32 items-center">
+			<Col span="6" classes="relative z-10 lg:pr-16">
+				<h2 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					Optimizing the Transition
+				</h2>
+				<p class="mb-10 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					Our analytics platform processes over 40TB of grid telemetry daily to ensure Revolt
+					partners stay ahead of market volatility.
+				</p>
+				<Button variation="outline" size="lg" link="/documentation"> VIEW DOCUMENTATION </Button>
+			</Col>
+			<Col span="6" classes="lg:hidden mt-12">
+				<div class="relative min-h-[400px]">
+					<Image
+						src={electricGridImg}
+						alt="Energy infrastructure"
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
+			</Col>
+		</Row>
+	</Section>
 </Layout>
