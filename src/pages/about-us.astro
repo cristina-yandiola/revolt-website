@@ -5,181 +5,207 @@ import Section from '../components/ui/Section.astro'
 import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
 import CTA from '../components/blocks/homepage/CTA.astro'
-import AnimatedNetworkNode from '../components/ui/AnimatedNetworkNode.astro'
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+// Assets
+import electricGridImg from '../assets/electric-grid.jpg'
+import cubeGridImg from '../assets/cube-grid-electric.webp'
 
 // Content
 // - SEO
 const SEO = {
-	title: 'About Revolt | Grid Access Experts',
+	title: 'About Revolt | Technical Grid Strategy Experts',
 	description:
-		'Revolt breaks away from slow, inefficient grid processes by delivering strong grid access strategy, deep operational expertise, and faster execution.'
+		'Revolt is the technical anchor for energy investors, providing the data and strategic engagement necessary for successful grid connection in Germany’s evolving landscape.'
 }
 
-// - Hero Section
-const hero = {
-	kicker: 'OUR IDENTITY',
-	title: 'We engineer <span class="italic text-primary-600 dark:text-primary-400">certainty</span> into grid access.',
-	text: 'Revolt is a specialized consulting firm combining deep operational expertise with data-driven workflows. We partner with BESS, renewable, and data center developers to turn interconnection risks into strategic advantages.'
-}
-
-// - Methodology Features
-const features = [
+const stats = [
 	{
-		title: 'Data-Driven Site Selection',
-		description: 'Selecting sites with higher chances of grid approval through data-driven screening.',
-		icon: 'chart-pie'
+		value: '10+',
+		label: 'Years Experience'
 	},
 	{
-		title: 'Strategic Pipeline Structuring',
-		description: 'Structuring your pipeline across operators, regions, and voltage levels to balance speed, risk, and connection outcomes.',
-		icon: 'rectangle-stack'
-	},
-	{
-		title: 'Senior Expert Support',
-		description: 'Providing senior-level support on applications, grid operator interface, and critical processes such as BNetzA procedures.',
-		icon: 'user'
-	},
-	{
-		title: 'Automated Workflows',
-		description: 'Automating grid application workflows to cut workload and accelerate speed to grid.',
-		icon: 'computer-desktop'
-	},
-	{
-		title: 'Team Training & Enablement',
-		description: 'Training your team to reach operational competence and faster execution from week one.',
-		icon: 'book'
+		value: '500+',
+		label: 'MW Connected'
 	}
 ]
 
-// - CTA Section
-const ctaConfig = {
-	title: 'Start now and stay ahead <br/>of the curve.',
-	text: 'In an increasingly saturated market, speed to grid is key to pipeline success.',
-	buttonText: 'CONTACT US',
-	buttonLink: '/contact'
-}
+const bessFeatures = [
+	'Technical Feasibility Assessments',
+	'BNetzA Regulatory Alignment',
+	'System Integration Strategies'
+]
+
+const regulatoryItems = [
+	{
+		title: 'BNetzA Compliance',
+		text: 'Direct alignment with the Federal Network Agency for seamless project approval.'
+	},
+	{
+		title: 'TSO Engagement',
+		text: 'High-level negotiation and technical integration with TenneT, 50Hertz, Amprion, and TransnetBW.'
+	},
+	{
+		title: 'Infrastructure Audit',
+		text: 'Deep-dive technical due diligence for existing and planned grid assets.'
+	}
+]
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<!-- 1. Hero Section -->
-	<Section id="about-hero" classes="pt-24 pb-12 lg:pt-32 lg:pb-24 overflow-hidden relative border-b border-neutral-200 dark:border-neutral-800">
-		<!-- Blueprint Grid Background -->
-		<div
-			class="pointer-events-none absolute left-1/2 top-0 z-[-1] h-full w-[100vw] -translate-x-1/2 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
-		>
-			<div
-				class="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:64px_64px] text-neutral-900/5 dark:text-white/5"
-			>
-			</div>
-		</div>
-
-		<!-- Technical Accents -->
-		<div
-			class="pointer-events-none absolute -left-4 top-24 hidden rotate-180 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:-left-12 lg:block"
-		>
-			// SYS.ABOUT_INIT_01
-		</div>
-		<div
-			class="pointer-events-none absolute -right-4 top-24 hidden rotate-180 font-mono text-[10px] tracking-[0.2em] text-neutral-400/60 [writing-mode:vertical-lr] lg:-right-12 lg:block"
-		>
-			LAT_45.02 // LON_-93.22
-		</div>
-
+	<Section
+		id="about-hero"
+		classes="pt-24 pb-12 lg:pt-32 lg:pb-32 bg-white dark:bg-neutral-950 overflow-hidden relative"
+	>
 		<Row>
-			<Col span="6" classes="flex flex-col justify-center z-10 relative">
-				<!-- Animated Orbit & Data Flow Visual (Background on mobile) -->
-				<AnimatedNetworkNode class="absolute inset-0 -z-10 opacity-20 lg:hidden pointer-events-none" />
-				<p
-					class="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400"
-				>
-					// {hero.kicker}
+			<Col span="8" classes="flex flex-col justify-center z-10 relative">
+				<p class="mb-6 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					The Future of Infrastructure
 				</p>
-				<h1
-					class="mb-8 font-headings text-5xl font-bold leading-tight lg:text-7xl"
-					set:html={hero.title}
-				/>
+				<h1 class="mb-8 font-headings text-5xl font-bold leading-tight lg:text-5xl">
+					Navigating the complexities of Germany's power grid.
+				</h1>
 				<p class="max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-					{hero.text}
+					Revolt is the technical anchor for energy investors, providing the data and strategic
+					engagement necessary for successful grid connection in Germany’s evolving regulatory
+					landscape.
 				</p>
-			</Col>
-			<Col span="6" classes="relative hidden lg:flex items-center justify-center min-h-[400px] mt-12 lg:mt-0">
-				<!-- Animated Orbit & Data Flow Visual -->
-				<AnimatedNetworkNode class="w-full max-w-md aspect-square" />
 			</Col>
 		</Row>
 	</Section>
 
-	<!-- 2. Mission & Narrative (The Solution) -->
-	<Section id="mission" classes="py-16 lg:py-24 bg-neutral-50 dark:bg-neutral-950">
-		<Row>
-			<Col span="5" classes="flex flex-col justify-center mb-8 lg:mb-0">
-				<h2 class="font-headings text-3xl font-bold leading-tight text-neutral-900 dark:text-neutral-100 md:text-4xl">
-					Revolt was built to improve what is within your control.
+	<!-- 2. Expertise Section: Bleed Image Right -->
+	<Section id="expertise" classes="bg-neutral-50 dark:bg-neutral-900 overflow-hidden" padding='none'>
+		<div class="absolute -bottom-0 -top-0 left-1/2 right-[calc(50%-50vw)] hidden lg:block">
+			<Image src={electricGridImg} alt="Technical power lines" class="h-full w-full object-cover" />
+		</div>
+		<Row classes="items-center py-16 lg:py-32">
+			<Col span="6" classes="relative z-10 lg:pr-16">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Our Legacy
+				</p>
+				<h2 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					Decade of Strategic Expertise
 				</h2>
-			</Col>
-			<Col span="1" classes="hidden lg:block" />
-			<Col span="6" classes="flex flex-col justify-center gap-6 text-lg text-neutral-600 dark:text-neutral-400 border-l border-neutral-200 dark:border-neutral-800 pl-6 lg:pl-8">
-				<p>
-					Across BESS, renewables, and data centres, developers are facing the same challenge: timelines are slipping, application outcomes are uncertain, and grid access has become one of the largest investment risks.
+				<p class="mb-10 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					With over ten years on the front lines of European energy infrastructure, Revolt has
+					witnessed every major shift in the German energy transition. We don't just observe the
+					market; we actively shape the technical frameworks that define it.
 				</p>
-				<p>
-					We break away from slow, inefficient grid processes by delivering <strong class="text-neutral-900 dark:text-neutral-100 font-bold">strong grid access strategy, deep operational expertise, and faster execution.</strong>
-				</p>
-			</Col>
-		</Row>
-	</Section>
-
-	<!-- 3. Core Capabilities Grid (Methodology) -->
-	<Section id="methodology" classes="py-16 lg:py-24 bg-white dark:bg-neutral-900">
-		<Row>
-			<Col span="12" classes="mb-16">
-				<div class="mb-4 flex items-center gap-4">
-					<div class="flex-1 h-px bg-primary-500/30"></div>
-					<span class="font-mono text-xs uppercase tracking-widest text-primary-600 dark:text-primary-400">Core Capabilities</span>
-					<div class="flex-1 h-px bg-primary-500/30"></div>
+				<div class="grid grid-cols-2 gap-8">
+					{
+						stats.map((stat) => (
+							<div>
+								<div class="mb-1 text-4xl font-black text-primary-500">{stat.value}</div>
+								<div class="font-mono text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+									{stat.label}
+								</div>
+							</div>
+						))
+					}
 				</div>
-				<h2 class="text-center font-headings text-4xl font-bold text-neutral-900 dark:text-neutral-100">
-					Our Methodology
-				</h2>
-				<p class="mt-4 text-center text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-					Through targeted training, automation tools and project support, we increase connection success, reduce wasted effort, and protect the value of your pipeline.
-				</p>
 			</Col>
-		</Row>
-		<Row classes="gap-y-8">
-			{
-				features.map((feature, idx) => (
-					<Col span="4" classes="flex">
-						<div class="group relative flex w-full flex-col justify-between overflow-hidden rounded-sm border border-neutral-200 bg-neutral-50 p-8 transition-all hover:border-primary-500/50 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-primary-500/50">
-							<!-- Technical Accent -->
-							<div class="absolute right-0 top-0 bg-neutral-200/50 px-3 py-1 font-mono text-[10px] tracking-widest text-neutral-500 dark:bg-neutral-800/50 dark:text-neutral-400">
-								CAPABILITY_0{idx + 1}
-							</div>
-							
-							<div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
-								<Icon name={feature.icon} class="h-6 w-6" />
-							</div>
-							
-							<h3 class="mb-3 font-headings text-xl font-bold text-neutral-900 dark:text-neutral-100">
-								{feature.title}
-							</h3>
-							
-							<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-								{feature.description}
-							</p>
-						</div>
-					</Col>
-				))
-			}
+			<Col span="6" classes="lg:hidden mt-12">
+				<div class="relative min-h-[400px]">
+					<Image
+						src={electricGridImg}
+						alt="Technical power lines"
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
+			</Col>
 		</Row>
 	</Section>
 
-	<!-- 4. Call to Action -->
+	<!-- 3. BESS Section: Bleed Image Left -->
+	<Section id="bess" classes="bg-white dark:bg-neutral-950 overflow-hidden" padding="none">
+		<div class="absolute -bottom-0 -top-0 left-[calc(50%-50vw)] right-1/2 hidden lg:block">
+			<Image
+				src={cubeGridImg}
+				alt="BESS facility visualization"
+				class="h-full w-full object-cover"
+			/>
+		</div>
+		<Row classes="items-center py-16 lg:py-32">
+			<Col span="6" classes="lg:hidden mb-12">
+				<div class="relative min-h-[400px]">
+					<Image
+						src={cubeGridImg}
+						alt="BESS facility visualization"
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
+			</Col>
+			<Col span="6" classes="hidden lg:block" />
+			<Col span="6" classes="relative z-10 lg:pl-16">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Core Competency
+				</p>
+				<h2 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					Leading the BESS Revolution
+				</h2>
+				<p class="mb-8 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					Battery Energy Storage Systems (BESS) are the backbone of grid stability. Revolt
+					specializes in the high-stakes engineering and negotiation required to bring large-scale
+					infrastructure projects from planning to activation.
+				</p>
+				<ul class="space-y-4">
+					{
+						bessFeatures.map((feature) => (
+							<li class="flex items-start gap-3">
+								<Icon name="check-circle" class="h-6 w-6 shrink-0 text-primary-500" />
+								<span class="text-neutral-700 dark:text-neutral-200">{feature}</span>
+							</li>
+						))
+					}
+				</ul>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- 4. Regulation / TSO Section -->
+	<Section id="regulatory" classes="py-16 lg:py-32 bg-neutral-50 dark:bg-neutral-900">
+		<Row classes="items-center gap-y-12">
+			<Col span="6">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Regulatory Navigation
+				</p>
+				<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					TSO & DSO Engagement
+				</h2>
+				<p class="mb-10 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+					The German grid is a complex web of Transmission and Distribution System Operators. Revolt
+					acts as your primary liaison, ensuring technical compliance with BNetzA standards while
+					accelerating the connection timeline through established relationships.
+				</p>
+				<div class="inline-block bg-primary-500 p-8 text-white">
+					<p class="font-headings text-2xl font-bold leading-tight">
+						Precision-engineered grid strategies for the modern age.
+					</p>
+				</div>
+			</Col>
+			<Col span="5" classes="lg:col-start-8">
+				<div class="space-y-6">
+					{
+						regulatoryItems.map((item) => (
+							<div class="border-l-4 border-primary-500 bg-white p-8 shadow-sm transition-all hover:shadow-md dark:bg-neutral-950">
+								<h3 class="mb-2 font-headings text-xl font-bold text-primary-500">{item.title}</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">{item.text}</p>
+							</div>
+						))
+					}
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- 5. Call to Action -->
 	<CTA
-		title={ctaConfig.title}
-		text={ctaConfig.text}
-		buttonText={ctaConfig.buttonText}
-		buttonLink={ctaConfig.buttonLink}
+		title="Ready to secure your grid connection?"
+		text="Discuss your project with our engineering team to secure your position in the German energy transition."
+		buttonText="SCHEDULE TECHNICAL REVIEW"
+		buttonLink="/contact"
 	/>
 </Layout>
