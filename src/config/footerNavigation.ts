@@ -49,29 +49,21 @@ export const footerNavigationData: FooterData = {
 			category: 'Essentials',
 			subCategories: [
 				{
+					subCategory: 'Home',
+					subCategoryLink: '/'
+				},
+				{
 					subCategory: 'About us',
 					subCategoryLink: '/about-us'
 				},
 				{
-					subCategory: 'Consulting',
-					subCategoryLink: '/consulting'
+					subCategory: 'GridScore',
+					subCategoryLink: '/gridscore'
 				},
 				{
-					subCategory: 'Courses',
-					subCategoryLink: '/courses'
+					subCategory: 'Grid Strategy',
+					subCategoryLink: '/grid-strategy'
 				}
-				// {
-				// 	subCategory: 'FAQ',
-				// 	subCategoryLink: '/faq'
-				// },
-				// {
-				// 	subCategory: 'Pricing',
-				// 	subCategoryLink: '/pricing'
-				// },
-				// {
-				// 	subCategory: 'Changelog',
-				// 	subCategoryLink: '/changelog'
-				// },
 			]
 		},
 		{
