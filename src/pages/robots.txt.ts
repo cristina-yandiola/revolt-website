@@ -4,7 +4,7 @@ const robotsTxt = `
 User-agent: *
 Allow: /
 
-Sitemap: ${new URL('sitemap-index.xml', 'revoltgrid.de').href}
+Sitemap: ${new URL('sitemap-index.xml', 'https://revoltgrid.de').href}
 `.trim()
 
 export const GET: APIRoute = () => {
