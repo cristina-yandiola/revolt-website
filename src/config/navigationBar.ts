@@ -35,7 +35,7 @@ export const navigationBarData: NavData = {
 	logo: {
 		src: '',
 		alt: 'Revolt logo',
-		text: 'Revolt<span class="text-accent-500 text-6xl ml-1">.</span>'
+		text: 'Revolt<span class="text-accent-500 text-5xl ml-1">.</span>'
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },
