@@ -2,10 +2,7 @@
 // Hero Section
 // ------------
 import SectionWithImage from '../../ui/SectionWithImage.astro'
-import Row from '../../ui/Row.astro'
-import Col from '../../ui/Col.astro'
 import Button from '../../ui/Button.astro'
-import { Image } from 'astro:assets'
 import heroImage from '../../../assets/home-hero.png'
 import { Icon } from 'astro-icon/components'
 ---
@@ -17,7 +14,7 @@ import { Icon } from 'astro-icon/components'
 	imageAlt="test"
 	padding="none"
 >
-	<div classes="relative flex flex-col justify-center z-10 px-6 py-12 lg:px-8 lg:py-24">
+	<div class="relative z-10 flex flex-col justify-center px-6 py-12 lg:px-8 lg:py-24">
 		<p
 			class="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400"
 		>
