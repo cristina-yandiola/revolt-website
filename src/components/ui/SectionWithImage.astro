@@ -8,7 +8,7 @@
 // - Padding: by default each section has a vertical padding. The padding property defines where the padding is applied (top, bottom, both, none), default is both
 // - Image: The image to be placed at the side of the section. The image will be placed on the right side of the section on desktop and will be hidden on mobile
 // - classes: additional classes
-import { ImageMetadata } from 'astro'
+import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
 
 // Props
@@ -43,7 +43,7 @@ const { id, mode, padding = 'both', image, imageAlt, classes } = Astro.props
 			class="absolute inset-0 h-full w-full object-cover contrast-[1.1] grayscale-[0.2]"
 			src={image}
 			loading="eager"
-			alt={imageAlt}
+      alt={imageAlt || 'Section image'}
 		/>
 	</div>
 </section>
