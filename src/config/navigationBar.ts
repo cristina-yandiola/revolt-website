@@ -33,9 +33,9 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '/logo.svg',
-		alt: 'The tailwind astro theme',
-		text: 'Revolt'
+		src: '',
+		alt: 'Revolt logo',
+		text: 'Revolt<span class="text-accent-500 text-6xl ml-1">.</span>'
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },
