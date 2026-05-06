@@ -7,7 +7,8 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://revolt-website.bachacode.workers.dev",
+  site: "https://revoltgrid.de",
+
   integrations: [icon(), sitemap()],
 
   output: "static",
