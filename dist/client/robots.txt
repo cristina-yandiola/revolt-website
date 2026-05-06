@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://revolt-website.bachacode.workers.dev/sitemap-index.xml

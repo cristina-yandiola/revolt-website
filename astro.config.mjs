@@ -10,7 +10,7 @@ export default defineConfig({
   site: "https://revolt-website.bachacode.workers.dev",
   integrations: [icon(), sitemap()],
 
-  output: "server",
+  output: "static",
   adapter: cloudflare({
     platformProxy: {
       enabled: false,
