@@ -1,0 +1,70 @@
+---
+// Section with Image
+// ------------
+// Description: a foundational component representing a section of content within page. The section component can contain any number of rows. This is a variant of the Section component that allows you to easily add a side image to the section.
+// Properties:
+// - Id: the id of the section
+// - Mode:  use that to overide the light/dark mode for a specific section. Usefull if you have a section that might contain a dark background
+// - Padding: by default each section has a vertical padding. The padding property defines where the padding is applied (top, bottom, both, none), default is both
+// - Image: The image to be placed at the side of the section. The image will be placed on the right side of the section on desktop and will be hidden on mobile
+// - classes: additional classes
+import { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+// Props
+type Props = {
+	id?: string
+	mode?: 'dark' | 'light'
+	padding?: 'both' | 'top' | 'bottom' | 'none'
+	image: ImageMetadata
+	imageAlt?: string
+	classes?: string
+}
+const { id, mode, padding = 'both', image, imageAlt, classes } = Astro.props
+---
+
+<section
+	{...id ? { id } : {}}
+	class:list={[
+		'section',
+		'relative flex h-dvh max-h-[1080px] w-full overflow-hidden',
+		{ 'section--padded': padding === 'both' },
+		{ 'section--padded-t': padding === 'top' },
+		{ 'section--padded-b': padding === 'bottom' },
+		{ [`${mode}`]: mode },
+		{ [`${classes}`]: classes }
+	]}
+>
+	<div class="flex w-full items-center px-6 py-12 md:w-[55%] lg:px-8 lg:py-24">
+		<slot />
+	</div>
+	<div class="relative min-h-[400px] w-full md:w-[45%]">
+		<Image
+			class="absolute inset-0 h-full w-full object-cover contrast-[1.1] grayscale-[0.2]"
+			src={image}
+			loading="eager"
+			alt={imageAlt}
+		/>
+	</div>
+</section>
+
+<style>
+	.section {
+		@apply relative text-neutral-500 dark:text-neutral-400 [&.dark:not([class*='bg-'])]:bg-neutral-950 [&.dark]:text-neutral-400 [&.light:not([class*='bg-'])]:bg-white [&.light]:bg-white [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
+	}
+	.section--padded {
+		@apply py-12 lg:py-24;
+	}
+	.section--padded-t {
+		@apply pt-12 lg:pt-24;
+	}
+	.section--padded-b {
+		@apply pb-12 lg:pb-24;
+	}
+	.section__bg {
+		@apply absolute inset-0 bg-cover;
+	}
+	.container {
+		@apply relative z-[1] mx-auto px-6 [.section--fullwidth_&]:max-w-full [.section--fullwidth_&]:px-0;
+	}
+</style>
