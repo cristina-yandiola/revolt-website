@@ -39,9 +39,9 @@ export const footerNavigationData: FooterData = {
 		aboutText:
 			'Navigating grid access risks for BESS, renewables, and data centres through expert strategy and execution.',
 		logo: {
-			src: '/logo.svg',
+			src: '',
 			alt: 'Revolt logo',
-			text: 'Revolt'
+			text: 'Revolt<span class="text-accent-500 text-5xl ml-1">.</span>'
 		}
 	},
 	footerColumns: [
