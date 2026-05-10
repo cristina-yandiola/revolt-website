@@ -1,0 +1,47 @@
+---
+import SectionWithImage from '../../ui/SectionWithImage.astro'
+import Col from '../../../components/ui/Col.astro'
+import Row from '../../../components/ui/Row.astro'
+import powerlines from '../../../assets/powerlines-2-upscaled.png'
+import { Icon } from 'astro-icon/components'
+---
+
+<SectionWithImage
+	id="gridscore-hero"
+	image={powerlines}
+	imageAlt="Modern electrical substation with high-voltage lines and insulators under a clear blue sky, technical high-end industrial photography"
+	mode="light"
+	surfaceColor
+	reverse
+	padding="none"
+>
+	<Row>
+		<Col span="12" classes="relative z-10">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Strategic Context
+			</p>
+			<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				Why grid data matters now
+			</h2>
+			<p class="mb-6 leading-relaxed text-neutral-600 dark:text-neutral-400">
+				As grid connection queues increase across Germany, project viability depends more than ever
+				on understanding congestion exposure, network constraints, and regional capacity dynamics
+				before capital is deployed.
+			</p>
+			<p class="mb-8 leading-relaxed text-neutral-600 dark:text-neutral-400">
+				GridScore supports developers and investors with structured grid intelligence to improve
+				siting decisions, prioritise development resources, and reduce hidden connection risk.
+			</p>
+			<ul class="space-y-4">
+				<li class="flex items-center gap-3 font-semibold text-neutral-700 dark:text-neutral-200">
+					<Icon name="check-circle" class="h-5 w-5 text-primary-500" />
+					Mitigate interconnection risk
+				</li>
+				<li class="flex items-center gap-3 font-semibold text-neutral-700 dark:text-neutral-200">
+					<Icon name="check-circle" class="h-5 w-5 text-primary-500" />
+					Optimize asset deployment
+				</li>
+			</ul>
+		</Col>
+	</Row>
+</SectionWithImage>

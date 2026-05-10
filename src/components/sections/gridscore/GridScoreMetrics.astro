@@ -1,0 +1,92 @@
+---
+import Section from '../../ui/Section.astro'
+import Col from '../../../components/ui/Col.astro'
+import Row from '../../../components/ui/Row.astro'
+import { Icon } from 'astro-icon/components'
+
+const frameworkItems = [
+	{
+		icon: 'document-chart-bar',
+		text: 'Automated technical assessment of substation capacity and network constraints across German electricity networks.'
+	},
+	{
+		icon: 'shield-check',
+		text: 'Analysis of redispatch exposure, curtailment risk, and regional network constraints for BESS and flexible assets.'
+	},
+	{
+		icon: 'gauge',
+		text: 'Prioritization of candidate connection points based on grid-related investment and development risk.'
+	}
+]
+
+const stats = [
+	{
+		value: '400+',
+		label: 'Grid scenarios mapped',
+		classes: 'bg-surface-100',
+		text: 'text-neutral-500'
+	},
+	{
+		value: '280+',
+		label: 'Substations tracked',
+		classes: 'bg-accent-400 text-neutral-950',
+		text: 'text-neutral-950'
+	},
+	{
+		value: '12GW+',
+		label: 'Projects analyzed',
+		classes: 'bg-surface-200',
+		text: 'text-neutral-700'
+	},
+	{
+		value: '380kV<br/>110kV',
+		label: 'GRID COVERAGE',
+		classes: 'border-2 border-neutral-500',
+		text: 'text-neutral-500'
+	}
+]
+---
+	<Section id="gridscore-framework" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
+		<Row classes="items-center gap-y-12">
+			<Col span="5">
+				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Analysis Framework
+				</p>
+				<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+					What GridScore does
+				</h2>
+				<ul class="space-y-6">
+					{
+						frameworkItems.map((item) => (
+							<li class="flex gap-4">
+								<Icon name={item.icon} class="mt-1 h-5 w-5 shrink-0 text-primary-500" />
+								<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{item.text}</p>
+							</li>
+						))
+					}
+				</ul>
+			</Col>
+			<Col span="5" classes="lg:col-start-8">
+				<div class="grid gap-4 sm:grid-cols-2">
+					{
+						stats.map((stat) => (
+							<div class:list={['flex min-h-44 flex-col justify-end p-8', stat.classes]}>
+								<p
+									class:list={['mb-1 font-headings text-4xl font-bold tracking-tight', stat.text]}
+									set:html={stat.value}
+								/>
+								<p
+									class:list={[
+										'font-mono text-xs font-bold uppercase tracking-[0.18em]',
+										stat.text
+									]}
+								>
+									{stat.label}
+								</p>
+							</div>
+						))
+					}
+				</div>
+			</Col>
+		</Row>
+	</Section>
