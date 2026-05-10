@@ -1,0 +1,87 @@
+---
+import Button from '../../ui/Button.astro'
+import Col from '../../ui/Col.astro'
+import Row from '../../ui/Row.astro'
+import Section from '../../ui/Section.astro'
+
+const steps = [
+	{
+		number: '1',
+		title: 'Location Intake',
+		text: 'Provide GPS coordinates, substations, or a candidate development pipeline for evaluation.'
+	},
+	{
+		number: '2',
+		title: 'Analytical Pass',
+		text: 'GridScore evaluates congestion exposure, connection constraints, redispatch patterns, and regional capacity signals.'
+	},
+	{
+		number: '3',
+		title: 'Risk Dossier',
+		text: 'Receive a concise GridScore report with prioritized connection opportunities and key grid-related risk indicators.'
+	}
+]
+---
+
+<Section id="gridscore-flow" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
+	<Row classes="mb-12 text-center">
+		<Col span="8" classes="lg:col-start-3">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Operational Flow
+			</p>
+			<h2 class="font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				How GridScore is delivered
+			</h2>
+			<p class="mt-6 text-lg text-neutral-600 dark:text-neutral-400">GridScore is available as:</p>
+		</Col>
+	</Row>
+
+	<Row classes="mb-16 gap-y-6">
+		<Col span="6">
+			<div
+				class="bg-surface-100 flex h-full flex-col justify-between border-2 border-neutral-200 p-8"
+			>
+				<ul class="mb-8 list-outside list-disc pl-5 text-lg leading-relaxed text-neutral-600">
+					<li>
+						Downloadable ranking of Germany’s top transmission-level connection opportunities
+						(380kV/TSO level)
+					</li>
+				</ul>
+				<div>
+					<Button type="link" link="/contact" style="primary">Request ranking</Button>
+				</div>
+			</div>
+		</Col>
+		<Col span="6">
+			<div
+				class="bg-surface-100 flex h-full flex-col justify-between border-2 border-neutral-200 p-8"
+			>
+				<ul class="mb-8 list-outside list-disc pl-5 text-lg leading-relaxed text-neutral-600">
+					<li>
+						Tailored assessment workflow for evaluating specific substations, coordinates, and
+						development pipelines across transmission and distribution networks
+					</li>
+				</ul>
+				<div>
+					<Button type="link" link="/contact" style="primary">Request assessment</Button>
+				</div>
+			</div>
+		</Col>
+	</Row>
+
+	<Row classes="gap-y-6">
+		{
+			steps.map((step) => (
+				<Col span="4">
+					<div class="bg-surface-100 h-full border-2 border-neutral-200 p-8">
+						<div class="mb-6 flex h-10 w-10 items-center justify-center bg-primary-500 font-mono text-sm font-bold text-white">
+							{step.number}
+						</div>
+						<h3 class="mb-4 font-headings text-xl font-bold">{step.title}</h3>
+						<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{step.text}</p>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+</Section>

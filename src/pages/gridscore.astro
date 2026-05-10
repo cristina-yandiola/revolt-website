@@ -1,75 +1,26 @@
 ---
-// Components
-// - Layout
 import Layout from '../layouts/Layout.astro'
-// - UI
-import Col from '../components/ui/Col.astro'
-import Row from '../components/ui/Row.astro'
-import Section from '../components/ui/Section.astro'
-import CTA from '../components/blocks/homepage/CTA.astro'
 
 import GridScoreHero from '../components/sections/gridscore/GridScoreHero.astro'
 import GridScoreMetrics from '../components/sections/gridscore/GridScoreMetrics.astro'
 import GridScoreContext from '../components/sections/gridscore/GridScoreContext.astro'
 import GridScoreSupport from '../components/sections/gridscore/GridScoreSupport.astro'
+import GridScoreFlow from '../components/sections/gridscore/GridScoreFlow.astro'
+import CTA from '../components/blocks/homepage/CTA.astro'
 
 const SEO = {
 	title: 'GridScore | Revolt Grid Access Intelligence',
 	description:
 		'GridScore ranks points of connection, capacity signals, and grid access risk before development capital is committed.'
 }
-
-const steps = [
-	{
-		number: '1',
-		title: 'Location Intake',
-		text: 'Provide GPS coordinates, substations, or a candidate development pipeline for evaluation.'
-	},
-	{
-		number: '2',
-		title: 'Analytical Pass',
-		text: 'GridScore evaluates congestion exposure, connection constraints, redispatch patterns, and regional capacity signals.'
-	},
-	{
-		number: '3',
-		title: 'Risk Dossier',
-		text: 'Receive a concise GridScore report with prioritized connection opportunities and key grid-related risk indicators.'
-	}
-]
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<GridScoreHero />
 	<GridScoreMetrics />
 	<GridScoreContext />
+	<GridScoreFlow />
 
-	<Section id="gridscore-flow" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
-		<Row classes="mb-12 text-center">
-			<Col span="8" classes="lg:col-start-3">
-				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
-					Operational Flow
-				</p>
-				<h2 class="font-headings text-3xl font-bold leading-tight lg:text-4xl">
-					How GridScore is delivered
-				</h2>
-			</Col>
-		</Row>
-		<Row classes="gap-y-6">
-			{
-				steps.map((step) => (
-					<Col span="4">
-						<div class="bg-surface-100 h-full border-2 border-neutral-200 p-8">
-							<div class="mb-6 flex h-10 w-10 items-center justify-center bg-primary-500 font-mono text-sm font-bold text-white">
-								{step.number}
-							</div>
-							<h3 class="mb-4 font-headings text-xl font-bold">{step.title}</h3>
-							<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{step.text}</p>
-						</div>
-					</Col>
-				))
-			}
-		</Row>
-	</Section>
 	<GridScoreSupport />
 	<CTA />
 </Layout>
