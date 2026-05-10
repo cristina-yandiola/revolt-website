@@ -20,8 +20,20 @@ type Props = {
 	imageAlt?: string
 	classes?: string
 	surfaceColor?: boolean
+	fullHeight?: boolean
+	reverse?: boolean
 }
-const { id, mode, padding = 'both', image, imageAlt, classes, surfaceColor } = Astro.props
+const {
+	id,
+	mode,
+	padding = 'both',
+	image,
+	imageAlt,
+	classes,
+	surfaceColor,
+	fullHeight,
+	reverse
+} = Astro.props
 ---
 
 <section
@@ -29,6 +41,8 @@ const { id, mode, padding = 'both', image, imageAlt, classes, surfaceColor } = A
 	class:list={[
 		'section',
 		surfaceColor ? 'section--surface' : 'section-neutral',
+		fullHeight ? 'md:h-dvh md:max-h-[1080px]' : '',
+		reverse ? 'flex-row-reverse' : '',
 		{ 'section--padded': padding === 'both' },
 		{ 'section--padded-t': padding === 'top' },
 		{ 'section--padded-b': padding === 'bottom' },
@@ -39,7 +53,7 @@ const { id, mode, padding = 'both', image, imageAlt, classes, surfaceColor } = A
 	<div class="flex w-full items-center px-6 py-12 md:w-[45%] lg:px-8 lg:py-24">
 		<slot />
 	</div>
-	<div class="relative min-h-[400px] w-full md:w-[40%]">
+	<div class="relative hidden min-h-[400px] w-full md:block md:w-[45%]">
 		<Image
 			class="absolute inset-0 h-full w-full object-cover contrast-[1.1] grayscale-[0.2]"
 			src={image}
@@ -51,7 +65,7 @@ const { id, mode, padding = 'both', image, imageAlt, classes, surfaceColor } = A
 
 <style>
 	.section {
-		@apply relative flex h-dvh max-h-[1080px] w-full justify-between text-neutral-500 dark:text-neutral-400 [&.dark]:text-neutral-400 [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
+		@apply relative flex w-full justify-end text-neutral-500 dark:text-neutral-400 [&.dark]:text-neutral-400 [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
 	}
 
 	.section--neutral {
