@@ -9,31 +9,31 @@ import { Icon } from 'astro-icon/components'
 
 <SectionWithImage
 	id="hero"
-	classes="overflow-hidden bg-neutral-50 dark:bg-neutral-950"
 	image={heroImage}
 	imageAlt="test"
 	padding="none"
+	surfaceColor
+	mode="light"
 >
 	<div class="relative z-10 flex flex-col justify-center px-6 py-12 lg:px-8 lg:py-24">
 		<p
 			class="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400"
 		>
-			Grid Access Strategy
+			Grid Intelligence
 		</p>
 		<h1 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
-			Navigating <span class="text-primary-700 dark:text-primary-400">Grid Access</span> Risks.
+			Decision-grade <span class="text-primary-700 dark:text-primary-400">Grid Intelligence</span> for
+			Energy Infrastructure.
 		</h1>
 		<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-			Across BESS, renewables, and data centres, timelines are slipping. Grid access has become one
-			of the largest investment risks. Revolt was built to improve what is within your control.
+			Revolt helps developers and investors prioritize connection opportunities, assess grid-related
+			investment risk, and make faster decisions across BESS, renewables, and data centres.
 		</p>
 		<div class="flex flex-wrap gap-4">
-			<Button size="lg" link="/contact" classes="hover:!bg-primary-500 focus:!bg-primary-500">
-				VIEW GRIDSCORE
-			</Button>
-			<Button variation="link" size="lg" link="/contact">
-				<span class="flex items-center border-b-4 border-primary-500 pb-1.5">
-					BOOK A CALL
+			<Button size="lg" link="/contact" style="accent-light"> View GridScore </Button>
+			<Button variation="link" style="neutral" size="lg" link="/contact">
+				<span class="flex items-center border-b-2 border-neutral-500 px-0.5 pb-1.5">
+					Book a Call
 					<Icon name="arrow-right" class="ml-2 dark:text-neutral-50" />
 				</span>
 			</Button>

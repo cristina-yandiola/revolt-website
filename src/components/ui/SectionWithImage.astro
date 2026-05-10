@@ -19,15 +19,16 @@ type Props = {
 	image: ImageMetadata
 	imageAlt?: string
 	classes?: string
+	surfaceColor?: boolean
 }
-const { id, mode, padding = 'both', image, imageAlt, classes } = Astro.props
+const { id, mode, padding = 'both', image, imageAlt, classes, surfaceColor } = Astro.props
 ---
 
 <section
 	{...id ? { id } : {}}
 	class:list={[
 		'section',
-		'relative flex h-dvh max-h-[1080px] w-full overflow-hidden',
+		surfaceColor ? 'section--surface' : 'section-neutral',
 		{ 'section--padded': padding === 'both' },
 		{ 'section--padded-t': padding === 'top' },
 		{ 'section--padded-b': padding === 'bottom' },
@@ -35,23 +36,32 @@ const { id, mode, padding = 'both', image, imageAlt, classes } = Astro.props
 		{ [`${classes}`]: classes }
 	]}
 >
-	<div class="flex w-full items-center px-6 py-12 md:w-[55%] lg:px-8 lg:py-24">
+	<div class="flex w-full items-center px-6 py-12 md:w-[45%] lg:px-8 lg:py-24">
 		<slot />
 	</div>
-	<div class="relative min-h-[400px] w-full md:w-[45%]">
+	<div class="relative min-h-[400px] w-full md:w-[40%]">
 		<Image
 			class="absolute inset-0 h-full w-full object-cover contrast-[1.1] grayscale-[0.2]"
 			src={image}
 			loading="eager"
-      alt={imageAlt || 'Section image'}
+			alt={imageAlt || 'Section image'}
 		/>
 	</div>
 </section>
 
 <style>
 	.section {
-		@apply relative text-neutral-500 dark:text-neutral-400 [&.dark:not([class*='bg-'])]:bg-neutral-950 [&.dark]:text-neutral-400 [&.light:not([class*='bg-'])]:bg-white [&.light]:bg-white [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
+		@apply relative flex h-dvh max-h-[1080px] w-full justify-between text-neutral-500 dark:text-neutral-400 [&.dark]:text-neutral-400 [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
 	}
+
+	.section--neutral {
+		@apply [&.dark:not([class*='bg-'])]:bg-neutral-950 [&.light:not([class*='bg-'])]:bg-neutral-50 [&.light]:bg-neutral-50;
+	}
+
+	.section--surface {
+		@apply [&.dark:not([class*='bg-'])]:bg-surface-950 [&.light:not([class*='bg-'])]:bg-surface-50 [&.light]:bg-surface-50;
+	}
+
 	.section--padded {
 		@apply py-12 lg:py-24;
 	}
