@@ -39,17 +39,7 @@ const savedNavActions = navActions.map((action) => ({
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
-				{
-					logo.src && (
-						<Icon
-							name="logo"
-							aria-label={logo.alt}
-							class="text-primary-500 dark:text-accent-500"
-							width={48}
-							height={48}
-						/>
-					)
-				}
+				{logo.src && <Icon name="logo" aria-label={logo.alt} width={48} height={48} />}
 				<span class="text-3xl" set:html={logo.text} />
 			</a>
 
@@ -78,7 +68,9 @@ const savedNavActions = navActions.map((action) => ({
 									role="menuitem"
 									class={`header__menu-link ${isActivePath(item.link) ? 'active' : ''}`}
 								>
-									{item.name}
+									<span class={`header__menu-link-text ${isActivePath(item.link) ? 'active' : ''}`}>
+										{item.name}
+									</span>
 								</a>
 							) : (
 								<span
@@ -152,7 +144,10 @@ const savedNavActions = navActions.map((action) => ({
 		@apply relative flex cursor-pointer flex-col items-stretch lg:flex-row;
 	}
 	.header__menu-link {
-		@apply relative flex items-center gap-1 py-4 transition-colors duration-300 hover:text-primary-500 focus:text-primary-600 focus:outline-none focus-visible:outline-none lg:px-6 [&.active]:text-primary-500;
+		@apply relative flex items-center gap-1 py-4 text-xs uppercase tracking-widest text-neutral-600 transition-colors duration-300 hover:text-neutral-950 focus:text-neutral-950 focus:outline-none focus-visible:outline-none lg:px-6 lg:py-0;
+	}
+	.header__menu-link-text {
+		@apply px-0.5 pb-1 [&.active]:border-b-2 [&.active]:border-accent-700 [&.active]:font-bold;
 	}
 	.header__menu-chevron {
 		@apply h-4 w-4 transition-transform [.header\_\_menu-item.open_&]:rotate-180;
