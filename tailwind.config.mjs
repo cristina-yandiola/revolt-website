@@ -93,7 +93,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-        headings: ["Outfit Variable", ...defaultTheme.fontFamily.sans],
+        headings: ["Inter Variable", ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         dropdown: {
