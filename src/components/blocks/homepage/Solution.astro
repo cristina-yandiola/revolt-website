@@ -6,7 +6,8 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-import electricGridImg from '../../../assets/powerlines.png'
+import electricGridImg from '../../../assets/powerlines-upscaled.png'
+import SectionWithImage from '../../ui/SectionWithImage.astro'
 
 const bulletPoints: { icon: string; text: string }[] = [
 	{
@@ -20,7 +21,7 @@ const bulletPoints: { icon: string; text: string }[] = [
 	{
 		icon: 'gauge',
 		text: 'Capacity and regulatory signal mapping'
-    },
+	},
 	{
 		icon: 'bolt',
 		text: 'Strategic support for BESS and flexible assets'
@@ -28,30 +29,17 @@ const bulletPoints: { icon: string; text: string }[] = [
 ]
 ---
 
-<Section id="solution" classes="bg-white py-12 lg:py-24 dark:bg-neutral-950">
-	<div
-		class="absolute -bottom-12 -top-12 left-[calc(50%-50vw)] right-1/2 hidden lg:-bottom-24 lg:-top-24 lg:block"
-	>
-		<Image
-			src={electricGridImg}
-			alt="Transmission grid infrastructure"
-			class="h-full w-full object-cover grayscale"
-		/>
-		<div class="absolute inset-0 bg-neutral-950/15 dark:bg-neutral-950/35"></div>
-	</div>
-	<Row classes="items-stretch gap-y-10">
-		<Col span="6" classes="lg:hidden">
-			<div class="relative min-h-[360px] overflow-hidden">
-				<Image
-					src={electricGridImg}
-					alt="Transmission grid infrastructure"
-					class="absolute inset-0 h-full w-full object-cover grayscale"
-				/>
-				<div class="absolute inset-0 bg-neutral-950/15 dark:bg-neutral-950/35"></div>
-			</div>
-		</Col>
-		<Col span="6" classes="hidden lg:block" />
-		<Col span="6" classes="relative z-10 flex flex-col justify-center lg:pl-12">
+<SectionWithImage
+	id="solution"
+	mode="light"
+	image={electricGridImg}
+	imageAlt="Symmetrical view of high voltage power lines and transmission towers extending into the horizon against a crisp morning sky"
+	reverse
+	imageClasses="grayscale"
+	padding="none"
+>
+	<Row>
+		<Col span="12" classes="relative z-10 flex flex-col justify-center lg:pl-12">
 			<h2
 				class="mb-6 max-w-xl font-headings text-3xl font-bold leading-tight text-primary-700 lg:text-4xl"
 			>
@@ -76,4 +64,4 @@ const bulletPoints: { icon: string; text: string }[] = [
 			</ul>
 		</Col>
 	</Row>
-</Section>
+</SectionWithImage>

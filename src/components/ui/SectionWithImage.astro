@@ -19,6 +19,7 @@ type Props = {
 	image: ImageMetadata
 	imageAlt?: string
 	classes?: string
+	imageClasses?: string
 	surfaceColor?: boolean
 	fullHeight?: boolean
 	reverse?: boolean
@@ -27,9 +28,10 @@ const {
 	id,
 	mode,
 	padding = 'both',
+	classes,
 	image,
 	imageAlt,
-	classes,
+	imageClasses,
 	surfaceColor,
 	fullHeight,
 	reverse
@@ -55,7 +57,10 @@ const {
 	</div>
 	<div class="relative hidden min-h-[400px] w-full md:block md:w-[45%]">
 		<Image
-			class="absolute inset-0 h-full w-full object-cover contrast-[1.1] grayscale-[0.2]"
+			class:list={[
+				'absolute inset-0 h-full w-full object-cover',
+				{ [`${imageClasses}`]: imageClasses }
+			]}
 			src={image}
 			loading="eager"
 			alt={imageAlt || 'Section image'}
