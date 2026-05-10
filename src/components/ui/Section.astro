@@ -14,7 +14,7 @@
 // - classes: additional classes
 
 // Props
-type BgProps =  {
+type BgProps = {
 	src: string
 	width: number
 	height: number
@@ -23,6 +23,7 @@ type BgProps =  {
 type Props = {
 	id?: string
 	fullWidth?: boolean
+	fullHeight?: boolean
 	stickyCol?: boolean
 	mode?: 'dark' | 'light'
 	padding?: 'both' | 'top' | 'bottom' | 'none'
@@ -30,17 +31,20 @@ type Props = {
 	bgPosition?: string
 	bgHeight?: string
 	classes?: string
+	surfaceColor?: boolean
 }
 const {
 	id,
 	fullWidth,
+	fullHeight,
 	stickyCol = false,
 	mode,
 	padding = 'both',
 	bg,
 	bgPosition = 'center',
 	bgHeight = '100%',
-	classes
+	classes,
+	surfaceColor
 } = Astro.props
 
 const bgStyle = bg
@@ -58,6 +62,8 @@ const bgStyle = bg
 	{...id ? { id } : {}}
 	class:list={[
 		'section',
+		surfaceColor ? 'section--surface' : 'section-neutral',
+		fullHeight ? 'h-dvh max-h-[1080px]' : '',
 		{ 'section--sticky-col': stickyCol },
 		{ 'section--fullwidth': fullWidth },
 		{ 'section--padded': padding === 'both' },
@@ -75,8 +81,17 @@ const bgStyle = bg
 
 <style>
 	.section {
-		@apply relative text-neutral-500 dark:text-neutral-400 [&.dark:not([class*='bg-'])]:bg-neutral-950 [&.dark]:text-neutral-400 [&.light:not([class*='bg-'])]:bg-white [&.light]:bg-white [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
+		@apply relative flex w-full justify-between text-neutral-500 dark:text-neutral-400 [&.dark]:text-neutral-400 [&.light]:text-neutral-500 [&.section--sticky-col_.container]:h-full [&:not(.section--sticky-col)]:overflow-hidden;
 	}
+
+	.section--neutral {
+		@apply [&.dark:not([class*='bg-'])]:bg-neutral-950 [&.light:not([class*='bg-'])]:bg-neutral-50 [&.light]:bg-neutral-50;
+	}
+
+	.section--surface {
+		@apply [&.dark:not([class*='bg-'])]:bg-surface-950 [&.light:not([class*='bg-'])]:bg-surface-50 [&.light]:bg-surface-50;
+	}
+
 	.section--padded {
 		@apply py-12 lg:py-24;
 	}
