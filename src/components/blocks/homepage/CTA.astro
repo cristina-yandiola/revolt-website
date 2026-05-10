@@ -14,28 +14,23 @@ interface Props {
 }
 
 const {
-	title = 'Ready to find your strongest grid position?',
-	text = 'Use Gridscore to compare connection risk, capacity signals, and project viability before capital is committed.',
+	title = 'Request a Sample Report',
+	text = 'Get a comprehensive evaluation of connection opportunities across congestion exposure, capacity signals, and grid-related investment risk.',
 	buttonText = 'REQUEST A SAMPLE REPORT',
 	buttonLink = '/contact'
 } = Astro.props
 ---
 
-<Section id="cta" classes="bg-neutral-800 py-16 lg:py-24" mode="dark" padding="none">
+<Section id="cta" mode="light" surfaceColor>
 	<Row classes="justify-center text-center">
 		<Col span="8" classes="lg:col-start-3">
 			<h2
-				class="mx-auto mb-6 max-w-4xl font-headings text-4xl font-bold leading-tight !text-white lg:text-5xl"
+				class="mx-auto mb-6 max-w-4xl font-headings text-4xl font-bold leading-tight lg:text-4xl"
 				set:html={title}
 			/>
-			<p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-primary-50" set:html={text} />
+			<p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed" set:html={text} />
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-				<Button
-					size="lg"
-					style="primary"
-					link={buttonLink}
-					classes="w-full !border-accent-400 !bg-accent-400 !px-8 !text-neutral-950 hover:!border-accent-300 hover:!bg-accent-300 focus:!border-accent-300 focus:!bg-accent-300 sm:w-auto"
-				>
+				<Button size="lg" style="accent-light" link={buttonLink}>
 					{buttonText}
 				</Button>
 			</div>
