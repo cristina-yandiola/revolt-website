@@ -1,0 +1,49 @@
+---
+import SectionWithImage from '../../ui/SectionWithImage.astro'
+import Col from '../../../components/ui/Col.astro'
+import Row from '../../../components/ui/Row.astro'
+import energySafeWork from '../../../assets/energy-safe-work-upscaled.png'
+const supportItems = [
+	{
+		title: 'Grid Application Support',
+		text: 'Expert guidance on DNO, TSO, and utility application optimization.'
+	},
+	{
+		title: 'Grid Constraint Analysis',
+		text: 'Downside-risk protection through constraint, congestion, and nodal-signal review.'
+	}
+]
+---
+
+<SectionWithImage
+	id="gridscore-hero"
+	image={energySafeWork}
+	imageAlt="A futuristic power line tower silhouetted against a sharp sunset sky, geometric patterns of steel wires and glass insulators"
+	mode="light"
+	padding="none"
+>
+	<Row>
+		<Col span="12" classes="relative z-10">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Beyond the Score
+			</p>
+			<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				Grid Strategy Support
+			</h2>
+			<p class="mb-8 leading-relaxed text-neutral-600">
+				GridScore can be complemented by strategic grid advisory to support connection strategy,
+				regulatory engagement, and development prioritization.
+			</p>
+			<div class="space-y-12">
+				{
+					supportItems.map((item) => (
+						<div class="bg-surface-100 border-l-4 border-accent-500 p-6 shadow-sm">
+							<h3 class="mb-2 font-bold">{item.title}</h3>
+							<p class="text-neutral-600 dark:text-neutral-400">{item.text}</p>
+						</div>
+					))
+				}
+			</div>
+		</Col>
+	</Row>
+</SectionWithImage>

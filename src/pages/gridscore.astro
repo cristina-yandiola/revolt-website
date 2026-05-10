@@ -6,17 +6,12 @@ import Layout from '../layouts/Layout.astro'
 import Col from '../components/ui/Col.astro'
 import Row from '../components/ui/Row.astro'
 import Section from '../components/ui/Section.astro'
-import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
 import CTA from '../components/blocks/homepage/CTA.astro'
-
-// Assets
-import cubeGridImg from '../assets/cube-grid-electric.webp'
-import electricGridImg from '../assets/electric-grid.jpg'
 
 import GridScoreHero from '../components/sections/gridscore/GridScoreHero.astro'
 import GridScoreMetrics from '../components/sections/gridscore/GridScoreMetrics.astro'
 import GridScoreContext from '../components/sections/gridscore/GridScoreContext.astro'
+import GridScoreSupport from '../components/sections/gridscore/GridScoreSupport.astro'
 
 const SEO = {
 	title: 'GridScore | Revolt Grid Access Intelligence',
@@ -28,28 +23,17 @@ const steps = [
 	{
 		number: '1',
 		title: 'Location Intake',
-		text: 'Provide GPS coordinates, substation IDs, or a proposed development pipeline for analysis.'
+		text: 'Provide GPS coordinates, substations, or a candidate development pipeline for evaluation.'
 	},
 	{
 		number: '2',
 		title: 'Analytical Pass',
-		text: 'GridScore cross-references connection constraints, network capacity signals, and historical queue data.'
+		text: 'GridScore evaluates congestion exposure, connection constraints, redispatch patterns, and regional capacity signals.'
 	},
 	{
 		number: '3',
 		title: 'Risk Dossier',
-		text: 'Receive a concise technical report and ranked view of which grid positions deserve diligence.'
-	}
-]
-
-const supportItems = [
-	{
-		title: 'Interconnection Filing Support',
-		text: 'Expert guidance on DNO, TSO, and utility application optimization.'
-	},
-	{
-		title: 'Curtailment Analysis',
-		text: 'Downside-risk protection through constraint, congestion, and nodal-signal review.'
+		text: 'Receive a concise GridScore report with prioritized connection opportunities and key grid-related risk indicators.'
 	}
 ]
 ---
@@ -57,7 +41,7 @@ const supportItems = [
 <Layout title={SEO.title} description={SEO.description}>
 	<GridScoreHero />
 	<GridScoreMetrics />
-  <GridScoreContext />
+	<GridScoreContext />
 
 	<Section id="gridscore-flow" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
 		<Row classes="mb-12 text-center">
@@ -74,7 +58,7 @@ const supportItems = [
 			{
 				steps.map((step) => (
 					<Col span="4">
-						<div class="h-full border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-900">
+						<div class="bg-surface-100 h-full border-2 border-neutral-200 p-8">
 							<div class="mb-6 flex h-10 w-10 items-center justify-center bg-primary-500 font-mono text-sm font-bold text-white">
 								{step.number}
 							</div>
@@ -86,54 +70,6 @@ const supportItems = [
 			}
 		</Row>
 	</Section>
-
-	<Section id="gridscore-support" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
-		<div
-			class="absolute -bottom-16 -top-16 left-1/2 right-[calc(50%-50vw)] hidden bg-neutral-950 lg:-bottom-28 lg:-top-28 lg:block"
-		>
-			<Image
-				src={cubeGridImg}
-				alt="Energy technology signal map"
-				class="h-full w-full object-cover"
-			/>
-			<div class="absolute inset-0 bg-neutral-950/35"></div>
-		</div>
-		<Row classes="items-center gap-y-10">
-			<Col span="5" classes="relative z-10">
-				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
-					Beyond the Score
-				</p>
-				<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
-					Grid Strategy Support
-				</h2>
-				<p class="mb-8 leading-relaxed text-neutral-600 dark:text-neutral-400">
-					Data is only as valuable as the decisions it informs. Revolt pairs GridScore with
-					technical advisory support to help developers navigate filings, capacity constraints, and
-					BESS sizing decisions.
-				</p>
-				<div class="space-y-4">
-					{
-						supportItems.map((item) => (
-							<div class="border-l-4 border-primary-500 bg-neutral-50 p-6 dark:bg-neutral-900">
-								<h3 class="mb-2 font-bold">{item.title}</h3>
-								<p class="text-neutral-600 dark:text-neutral-400">{item.text}</p>
-							</div>
-						))
-					}
-				</div>
-			</Col>
-			<Col span="6" classes="lg:col-start-7 lg:hidden">
-				<div class="relative min-h-[360px] overflow-hidden bg-neutral-950">
-					<Image
-						src={cubeGridImg}
-						alt="Energy technology signal map"
-						class="absolute inset-0 h-full w-full object-cover"
-					/>
-				</div>
-			</Col>
-			<Col span="6" classes="hidden lg:block" />
-		</Row>
-	</Section>
-
+	<GridScoreSupport />
 	<CTA />
 </Layout>
