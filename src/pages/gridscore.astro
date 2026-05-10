@@ -3,7 +3,6 @@
 // - Layout
 import Layout from '../layouts/Layout.astro'
 // - UI
-import Button from '../components/ui/Button.astro'
 import Col from '../components/ui/Col.astro'
 import Row from '../components/ui/Row.astro'
 import Section from '../components/ui/Section.astro'
@@ -14,7 +13,8 @@ import CTA from '../components/blocks/homepage/CTA.astro'
 // Assets
 import cubeGridImg from '../assets/cube-grid-electric.webp'
 import electricGridImg from '../assets/electric-grid.jpg'
-import networkImg from '../assets/futuristic-digital-cube-network-with-glowing-neon-blue-lights-and-data-points-distribution-photo.jpg'
+
+import GridScoreHero from '../components/sections/gridscore/GridScoreHero.astro'
 
 const SEO = {
 	title: 'GridScore | Revolt Grid Access Intelligence',
@@ -95,41 +95,7 @@ const supportItems = [
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Section
-		id="gridscore-hero"
-		classes="bg-neutral-50 py-20 lg:py-28 dark:bg-neutral-950 overflow-hidden"
-	>
-		<div
-			class="absolute -bottom-20 -top-20 left-1/2 right-[calc(50%-50vw)] hidden lg:-bottom-28 lg:-top-28 lg:block"
-		>
-			<Image
-				src={networkImg}
-				alt="Technical grid visualization"
-				class="h-full w-full object-cover"
-				loading="eager"
-			/>
-			<div class="absolute inset-0 z-20 bg-primary-500/10 dark:bg-primary-400/5"></div>
-		</div>
-		<Row classes="items-center gap-y-12">
-			<Col span="5" classes="relative z-10">
-				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
-					The Technical Edge
-				</p>
-				<h1 class="mb-6 font-headings text-5xl font-bold leading-tight lg:text-4xl">GridScore</h1>
-				<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-					Rank points of connection and assess grid risk before committing development capital.
-				</p>
-				<Button
-					size="lg"
-					link="/contact"
-					classes="!bg-accent-400 !text-neutral-950 hover:!bg-accent-300 focus:!bg-accent-300"
-				>
-					REQUEST SAMPLE REPORT
-				</Button>
-			</Col>
-			<Col span="6" classes="hidden lg:block lg:col-start-7" />
-		</Row>
-	</Section>
+	<GridScoreHero />
 
 	<Section id="gridscore-framework" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
 		<Row classes="items-center gap-y-12">

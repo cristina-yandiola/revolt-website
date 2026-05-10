@@ -1,0 +1,29 @@
+---
+import SectionWithFloatingImage from '../../ui/SectionWithFloatingImage.astro'
+import Col from '../../../components/ui/Col.astro'
+import Row from '../../../components/ui/Row.astro'
+import blueRays from '../../../assets/blue-rays.png'
+import Button from '../../ui/Button.astro'
+---
+
+<SectionWithFloatingImage
+	id="gridscore-hero"
+	image={blueRays}
+	imageAlt="Modern electrical substation with high-voltage lines and insulators under a clear blue sky, technical high-end industrial photography"
+	mode="light"
+	surfaceColor
+>
+	<Row>
+		<Col span="12" classes="relative z-10">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				GRID INTELLIGENCE
+			</p>
+			<h1 class="mb-6 font-headings text-5xl font-bold leading-tight lg:text-4xl">GridScore</h1>
+			<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+				Rank points of connection and assess grid risk before committing development capital.
+			</p>
+			<Button size="lg" link="/contact" style="accent-light"> REQUEST SAMPLE REPORT </Button>
+		</Col>
+		<Col span="6" classes="hidden lg:block lg:col-start-7" />
+	</Row>
+</SectionWithFloatingImage>
