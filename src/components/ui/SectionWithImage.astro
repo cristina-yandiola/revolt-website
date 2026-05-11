@@ -52,17 +52,25 @@ const {
 		{ [`${classes}`]: classes }
 	]}
 >
-	<div class="flex w-full items-center px-6 py-12 lg:w-[45%] lg:px-8 lg:py-24">
-		<slot />
+	<div class="container">
+		<div
+			class:list={[
+				'flex h-full w-full items-center py-12 lg:w-[45%] lg:py-24',
+				reverse ? 'justify-self-end' : ''
+			]}
+		>
+			<slot />
+		</div>
 	</div>
-	<div class="relative hidden min-h-[400px] w-full lg:block lg:w-[45%]">
-		<Image
-			class:list={['h-full w-full object-cover', { [`${imageClasses}`]: imageClasses }]}
-			src={image}
-			loading="eager"
-			alt={imageAlt || 'Section image'}
-		/>
-	</div>
+	<Image
+		class:list={[
+			'absolute hidden h-full min-h-[400px] w-[45%] object-cover lg:block',
+			{ [`${imageClasses}`]: imageClasses }
+		]}
+		src={image}
+		loading="eager"
+		alt={imageAlt || 'Section image'}
+	/>
 </section>
 
 <style>
