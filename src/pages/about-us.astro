@@ -7,6 +7,8 @@ import Col from '../components/ui/Col.astro'
 import CTA from '../components/blocks/homepage/CTA.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
+import Hero from '../components/sections/about-us/Hero.astro'
+import Expertise from '../components/sections/about-us/Expertise.astro'
 
 // Assets
 import electricGridImg from '../assets/electric-grid.jpg'
@@ -19,17 +21,6 @@ const SEO = {
 	description:
 		'Revolt is the technical anchor for energy investors, providing the data and strategic engagement necessary for successful grid connection in Germany’s evolving landscape.'
 }
-
-const stats = [
-	{
-		value: '12+',
-		label: 'Years Experience'
-	},
-	{
-		value: '1GW+',
-		label: 'Projects Connected'
-	}
-]
 
 const bessFeatures = [
 	'Technical Feasibility Assessments',
@@ -54,74 +45,8 @@ const regulatoryItems = [
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<!-- 1. Hero Section -->
-	<Section
-		id="about-hero"
-		classes="pt-24 pb-12 lg:pt-32 lg:pb-32 bg-white dark:bg-neutral-950 overflow-hidden relative"
-	>
-		<Row>
-			<Col span="8" classes="flex flex-col justify-center z-10 relative">
-				<p class="mb-6 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
-					The Future of Infrastructure
-				</p>
-				<h1 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
-					Navigating the complexities of Germany's power grid.
-				</h1>
-				<p class="max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-					Revolt is the technical anchor for energy investors, providing the data and strategic
-					engagement necessary for successful grid connection in Germany’s evolving regulatory
-					landscape.
-				</p>
-			</Col>
-		</Row>
-	</Section>
-
-	<!-- 2. Expertise Section: Bleed Image Right -->
-	<Section
-		id="expertise"
-		classes="bg-neutral-50 dark:bg-neutral-900 overflow-hidden"
-		padding="none"
-	>
-		<div class="absolute -bottom-0 -top-0 left-1/2 right-[calc(50%-50vw)] hidden lg:block">
-			<Image src={electricGridImg} alt="Technical power lines" class="h-full w-full object-cover" />
-		</div>
-		<Row classes="items-center py-16 lg:py-32">
-			<Col span="6" classes="relative z-10 lg:pr-16">
-				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
-					Our Legacy
-				</p>
-				<h2 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">
-					Over a decade of strategic grid expertise
-				</h2>
-				<p class="mb-10 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-					With over ten years on the front lines of European energy infrastructure, Revolt has
-					witnessed every major shift in the German energy transition. We don't just observe the
-					market; we actively shape the technical frameworks that define it.
-				</p>
-				<div class="grid grid-cols-2 gap-8">
-					{
-						stats.map((stat) => (
-							<div>
-								<div class="mb-1 text-4xl font-black text-primary-500">{stat.value}</div>
-								<div class="font-mono text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-									{stat.label}
-								</div>
-							</div>
-						))
-					}
-				</div>
-			</Col>
-			<Col span="6" classes="lg:hidden mt-12">
-				<div class="relative min-h-[400px]">
-					<Image
-						src={electricGridImg}
-						alt="Technical power lines"
-						class="absolute inset-0 h-full w-full object-cover"
-					/>
-				</div>
-			</Col>
-		</Row>
-	</Section>
+	<Hero />
+	<Expertise />
 
 	<!-- 3. BESS Section: Bleed Image Left -->
 	<Section id="bess" classes="bg-white dark:bg-neutral-950 overflow-hidden" padding="none">

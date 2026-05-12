@@ -15,7 +15,6 @@ import { Image } from 'astro:assets'
 type Props = {
 	id?: string
 	mode?: 'dark' | 'light'
-	padding?: 'both' | 'top' | 'bottom' | 'none'
 	image: ImageMetadata
 	imageAlt?: string
 	classes?: string
@@ -24,18 +23,8 @@ type Props = {
 	fullHeight?: boolean
 	reverse?: boolean
 }
-const {
-	id,
-	mode,
-	padding = 'both',
-	classes,
-	image,
-	imageAlt,
-	imageClasses,
-	surfaceColor,
-	fullHeight,
-	reverse
-} = Astro.props
+const { id, mode, classes, image, imageAlt, imageClasses, surfaceColor, fullHeight, reverse } =
+	Astro.props
 ---
 
 <section
@@ -45,9 +34,6 @@ const {
 		surfaceColor ? 'section--surface' : 'section-neutral',
 		fullHeight ? 'md:h-dvh md:max-h-[1080px]' : '',
 		reverse ? 'flex-row-reverse' : '',
-		{ 'section--padded': padding === 'both' },
-		{ 'section--padded-t': padding === 'top' },
-		{ 'section--padded-b': padding === 'bottom' },
 		{ [`${mode}`]: mode },
 		{ [`${classes}`]: classes }
 	]}
@@ -86,15 +72,6 @@ const {
 		@apply [&.dark:not([class*='bg-'])]:bg-surface-950 [&.light:not([class*='bg-'])]:bg-surface-50 [&.light]:bg-surface-50;
 	}
 
-	.section--padded {
-		@apply py-12 lg:py-24;
-	}
-	.section--padded-t {
-		@apply pt-12 lg:pt-24;
-	}
-	.section--padded-b {
-		@apply pb-12 lg:pb-24;
-	}
 	.section__bg {
 		@apply absolute inset-0 bg-cover;
 	}
