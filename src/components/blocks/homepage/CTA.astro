@@ -11,13 +11,17 @@ interface Props {
 	text?: string
 	buttonText?: string
 	buttonLink?: string
+	secondaryButtonText?: string
+	secondaryButtonLink?: string
 }
 
 const {
 	title = 'Request a Sample Report',
 	text = 'Get a comprehensive evaluation of connection opportunities across congestion exposure, capacity signals, and grid-related investment risk.',
 	buttonText = 'REQUEST A SAMPLE REPORT',
-	buttonLink = '/contact'
+	buttonLink = '/contact',
+	secondaryButtonText,
+	secondaryButtonLink
 } = Astro.props
 ---
 
@@ -29,10 +33,17 @@ const {
 				set:html={title}
 			/>
 			<p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed" set:html={text} />
-			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+			<div class="flex flex-col items-center justify-center gap-8 sm:flex-row">
 				<Button size="lg" style="accent-light" link={buttonLink}>
 					{buttonText}
 				</Button>
+				{
+					secondaryButtonText && secondaryButtonLink && (
+						<Button size="lg" style="neutral" variation="outline" link={secondaryButtonLink}>
+							{secondaryButtonText}
+						</Button>
+					)
+				}
 			</div>
 		</Col>
 	</Row>
