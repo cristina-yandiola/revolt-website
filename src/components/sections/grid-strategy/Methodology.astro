@@ -1,0 +1,54 @@
+---
+import Col from '../../ui/Col.astro'
+import Row from '../../ui/Row.astro'
+import cubeGridImg from '../../../assets/cube-grid-electric.webp'
+import SectionWithImage from '../../ui/SectionWithImage.astro'
+
+const methodology = [
+	{
+		number: '01',
+		title: 'Project & Pipeline Review',
+		text: 'Revolt reviews project-specific data, substations, coordinates, and development assumptions to identify relevant grid-related constraints and opportunities.'
+	},
+	{
+		number: '02',
+		title: 'Grid & Strategic Assessment',
+		text: 'Assessment of connection pathways, capacity dynamics, regulatory context, and broader grid-access considerations relevant to the project.'
+	},
+	{
+		number: '03',
+		title: 'Strategic Advisory',
+		text: 'Receive a concise strategic assessment to support siting decisions, project prioritisation, and navigation of Germany’s evolving grid-access landscape.'
+	}
+]
+---
+
+<SectionWithImage
+	id="strategy-methodology"
+	padding="none"
+	image={cubeGridImg}
+	mode="light"
+	surfaceColor
+>
+	<Row classes="items-center ">
+		<Col span="12" classes="relative z-10 py-16 lg:py-28">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				ADVISORY APPROACH
+			</p>
+			<h2 class="mb-10 font-headings text-3xl font-bold leading-tight lg:text-4xl">How it works</h2>
+			<div class="space-y-12">
+				{
+					methodology.map((step) => (
+						<div class="border-l-4 border-accent-500 pl-8">
+							<span class="mb-2 block font-mono text-4xl font-black text-primary-500/80">
+								{step.number}
+							</span>
+							<h3 class="mb-3 font-headings text-xl font-bold">{step.title}</h3>
+							<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{step.text}</p>
+						</div>
+					))
+				}
+			</div>
+		</Col>
+	</Row>
+</SectionWithImage>

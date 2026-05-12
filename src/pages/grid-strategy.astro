@@ -7,10 +7,10 @@ import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import CTA from '../components/blocks/homepage/CTA.astro'
 
-import GridStrategyHero from '../components/sections/grid-strategy/GridStrategyHero.astro'
-import GridStrategyCapabilities from '../components/sections/grid-strategy/GridStrategyCapabilities.astro'
+import Hero from '../components/sections/grid-strategy/Hero.astro'
+import Capabilities from '../components/sections/grid-strategy/Capabilities.astro'
+import Methodology from '../components/sections/grid-strategy/Methodology.astro'
 
-import cubeGridImg from '../assets/cube-grid-electric.webp'
 import networkImg from '../assets/futuristic-digital-cube-network-with-glowing-neon-blue-lights-and-data-points-distribution-photo.jpg'
 
 const SEO = {
@@ -18,77 +18,12 @@ const SEO = {
 	description:
 		'Supporting investors and developers with high-fidelity grid connection decisions. Navigate complexity with Revolt’s proprietary analytics engine.'
 }
-
-const methodology = [
-	{
-		number: '01',
-		title: 'Data Ingestion',
-		text: 'We integrate real-time grid data with historical load profiles to create a digital twin of your target region.'
-	},
-	{
-		number: '02',
-		title: 'BESS Simulation',
-		text: 'Our algorithms stress-test Battery Energy Storage System (BESS) configurations against multiple grid scenarios.'
-	},
-	{
-		number: '03',
-		title: 'Strategic Roadmap',
-		text: 'Receive a validated investment brief with prioritized connection sites and risk-adjusted returns.'
-	}
-]
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<GridStrategyHero />
-	<GridStrategyCapabilities />
-
-	<!-- Methodology Section (Full-half Image Reverse) -->
-	<Section
-		id="strategy-methodology"
-		classes="bg-neutral-50 dark:bg-neutral-900 overflow-hidden"
-		padding="none"
-	>
-		<div class="absolute -bottom-0 -top-0 left-1/2 right-[calc(50%-50vw)] hidden lg:block">
-			<Image
-				src={cubeGridImg}
-				alt="BESS Simulation visualization"
-				class="h-full w-full object-cover"
-			/>
-			<div class="absolute inset-0 bg-primary-500/5"></div>
-		</div>
-		<Row classes="items-center ">
-			<Col span="6" classes="relative z-10 lg:pr-16 py-16 lg:py-28">
-				<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
-					Methodology
-				</p>
-				<h2 class="mb-10 font-headings text-3xl font-bold leading-tight lg:text-4xl">
-					How it works
-				</h2>
-				<div class="space-y-12">
-					{
-						methodology.map((step) => (
-							<div class="border-l-4 border-primary-500 pl-8">
-								<span class="mb-2 block font-mono text-4xl font-black text-primary-500/30">
-									{step.number}
-								</span>
-								<h3 class="mb-3 font-headings text-xl font-bold">{step.title}</h3>
-								<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{step.text}</p>
-							</div>
-						))
-					}
-				</div>
-			</Col>
-			<Col span="6" classes="lg:hidden mt-12">
-				<div class="relative min-h-[400px]">
-					<Image
-						src={cubeGridImg}
-						alt="BESS Simulation visualization"
-						class="absolute inset-0 h-full w-full object-cover"
-					/>
-				</div>
-			</Col>
-		</Row>
-	</Section>
+	<Hero />
+	<Capabilities />
+	<Methodology />
 
 	<!-- Engineering Section -->
 	<Section id="strategy-engineering" classes="bg-white py-16 lg:py-28 dark:bg-neutral-950">
