@@ -69,7 +69,11 @@ const dropdownOptions = [
 						<InputField id="name" label="Full Name" type="text" required />
 						<InputField id="email" label="Work Email" type="email" required />
 						<InputField id="company" label="Company / Organization" type="text" required />
-						<DropdownField label="What are you interested in?" options={dropdownOptions} />
+						<DropdownField
+							id="interested"
+							label="What are you interested in?"
+							options={dropdownOptions}
+						/>
 						<TextArea id="message" label="Message" required />
 						<CheckboxField id="consent" label="I agree to the privacy policy." required />
 						<Button
