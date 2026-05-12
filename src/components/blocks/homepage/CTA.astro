@@ -13,6 +13,7 @@ interface Props {
 	buttonLink?: string
 	secondaryButtonText?: string
 	secondaryButtonLink?: string
+	classes?: string
 }
 
 const {
@@ -21,11 +22,12 @@ const {
 	buttonText = 'REQUEST A SAMPLE REPORT',
 	buttonLink = '/contact',
 	secondaryButtonText,
-	secondaryButtonLink
+	secondaryButtonLink,
+	classes
 } = Astro.props
 ---
 
-<Section id="cta" mode="light" surfaceColor>
+<Section id="cta" mode="light" surfaceColor classes={classes}>
 	<Row classes="justify-center text-center">
 		<Col span="8" classes="lg:col-start-3">
 			<h2

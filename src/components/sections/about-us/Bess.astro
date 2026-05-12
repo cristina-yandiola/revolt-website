@@ -1,0 +1,39 @@
+---
+import SectionWithImage from '../../ui/SectionWithImage.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import cubeGridImg from '../../../assets/cube-grid-electric.webp'
+import { Icon } from 'astro-icon/components'
+
+const bessFeatures = [
+	'Grid Connection Strategy',
+	'Site and Pipeline Prioritization',
+	'TSO/DSO Process Navigation',
+	'Grid-related Investment Risk Assessment'
+]
+---
+
+<SectionWithImage id="expertise" image={cubeGridImg} mode="light" reverse>
+	<Row classes="items-center py-16 lg:py-32">
+		<Col classes="relative z-10 lg:pl-16">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Core Competency
+			</p>
+			<h2 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">Focus areas</h2>
+			<p class="mb-8 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+				Revolt supports developers and investors navigating grid connection risk, siting strategy,
+				and evolving network constraints for BESS and energy infrastructure projects.
+			</p>
+			<ul class="space-y-4">
+				{
+					bessFeatures.map((feature) => (
+						<li class="flex items-start gap-3">
+							<Icon name="check-circle" class="h-6 w-6 shrink-0 text-primary-500" />
+							<span class="text-neutral-700 dark:text-neutral-200">{feature}</span>
+						</li>
+					))
+				}
+			</ul>
+		</Col>
+	</Row>
+</SectionWithImage>
