@@ -1,0 +1,70 @@
+---
+// Checkbox field
+// ------------
+// Description: The component for the basic form checkbox field
+// Properties:
+// - id: The id of the checkbox field
+// - label: The label of the checkbox field
+// - helperText: The helper text to be displayed
+// - required: Whether the checkbox field is required
+// - disabled: Whether the checkbox field is disabled
+// - checked: Whether the checkbox is checked by default
+// - classes: Additional classes to be added to the checkbox field
+
+// Props
+type Props = {
+	id: string
+	label: string
+	helperText?: string
+	required?: boolean
+	disabled?: boolean
+	checked?: boolean
+	classes?: string
+}
+const { id, label, helperText, required, disabled, checked, classes } = Astro.props
+---
+
+<div class:list={['checkbox', { [`${classes}`]: classes }]}>
+	<input
+		id={id}
+		type="checkbox"
+		name={id}
+		required={required}
+		disabled={disabled}
+		checked={checked}
+		class="checkbox__field peer"
+	/>
+	<div class="checkbox__custom">
+		<svg
+			class="h-3.5 w-3.5 text-white"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke="currentColor"
+			stroke-width="3"
+		>
+			<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+		</svg>
+	</div>
+	<label for={id} class="checkbox__label">
+		{label}
+	</label>
+	{helperText && <small class="checkbox__helper-text">{helperText}</small>}
+</div>
+
+<style>
+	.checkbox {
+		@apply relative grid w-full grid-cols-[1.25rem_1fr] items-start gap-x-3 gap-y-1;
+	}
+	.checkbox__field {
+		@apply col-start-1 row-start-1 mt-0.5 h-5 w-5 cursor-pointer appearance-none rounded border border-neutral-300 bg-white transition-all checked:border-primary-500 checked:bg-primary-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-neutral-200 disabled:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:checked:border-primary-500 dark:checked:bg-primary-500 dark:focus-visible:ring-offset-neutral-950 dark:disabled:border-neutral-800 dark:disabled:bg-neutral-800;
+	}
+	.checkbox__custom {
+		@apply pointer-events-none col-start-1 row-start-1 mt-0.5 flex h-5 w-5 items-center justify-center opacity-0 transition-opacity peer-checked:opacity-100;
+	}
+	.checkbox__label {
+		@apply col-start-2 row-start-1 cursor-pointer text-sm font-medium text-neutral-700 transition-colors peer-required:after:text-red-500 peer-required:after:content-['\00a0*'] peer-disabled:cursor-not-allowed peer-disabled:text-neutral-400 dark:text-neutral-300 dark:peer-disabled:text-neutral-600;
+	}
+	.checkbox__helper-text {
+		@apply col-start-2 row-start-2 text-xs text-neutral-500 transition-colors peer-disabled:text-neutral-400 dark:text-neutral-400 dark:peer-disabled:text-neutral-600;
+	}
+</style>

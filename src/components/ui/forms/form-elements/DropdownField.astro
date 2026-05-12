@@ -1,0 +1,124 @@
+---
+// Dropdown field
+// ------------
+// Description: The component for the basic form dropdown/select field
+// Properties:
+// - id: The id of the select field
+// - label: The label of the select field
+// - options: Array of options to be displayed { label: string, value: string }
+// - iconName: The name of the icon to be displayed (optional)
+// - iconPosition: The position of the icon (lead or trail)
+// - helperText: The helper text to be displayed
+// - required: Whether the select field is required
+// - disabled: Whether the select field is disabled
+// - value: The initially selected value
+// - classes: Additional classes to be added to the select field
+
+// Components
+// - UI
+import { Icon } from 'astro-icon/components'
+
+// Props
+type Option = {
+	label: string
+	value: string
+}
+
+type Props = {
+	id: string
+	label: string
+	options: Option[]
+	iconName?: string
+	iconPosition?: 'lead' | 'trail'
+	helperText?: string
+	required?: boolean
+	disabled?: boolean
+	value?: string
+	classes?: string
+}
+const {
+	id,
+	label,
+	options = [],
+	iconName,
+	iconPosition,
+	helperText,
+	required,
+	disabled,
+	value,
+	classes
+} = Astro.props
+---
+
+<div
+	class:list={[
+		'input',
+		{ ['input--icon-' + `${iconPosition}`]: iconPosition },
+		,
+		{ [`${classes}`]: classes }
+	]}
+>
+	<select
+		id={id}
+		name={id}
+		required={required}
+		disabled={disabled}
+		class={`input__field peer ${!value ? 'text-transparent' : ''}`}
+		onchange="this.classList.remove('text-transparent')"
+	>
+		<option value="" disabled selected={!value} hidden></option>
+		{
+			options.map((option) => (
+				<option
+					value={option.value}
+					selected={value === option.value}
+					class="text-neutral-500 dark:text-neutral-300"
+				>
+					{option.label}
+				</option>
+			))
+		}
+	</select>
+	<label
+		for={id}
+		class={`input__label ${iconPosition === 'lead' ? 'peer-invalid:left-10 peer-focus:left-2 peer-valid:left-2' : ''}`}
+	>
+		{label}
+	</label>
+	{iconName && <Icon name={iconName} class="input__icon" />}
+	{
+		helperText && (
+			<small class="input__helper-text">
+				<span> {helperText} </span>
+			</small>
+		)
+	}
+	<Icon
+		name="chevron-down"
+		class="input__chevron pointer-events-none absolute right-4 top-3 h-6 w-6 text-neutral-400"
+	/>
+</div>
+
+<style>
+	.input {
+		@apply relative w-full;
+	}
+	.input__field {
+		@apply relative h-12 w-full appearance-none rounded border border-neutral-200 bg-transparent px-4 text-neutral-500 outline-none transition-all focus:border-primary-500 focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:disabled:bg-neutral-600 [&:not(:focus):invalid]:border-red-500 [&:not(:focus):invalid]:text-red-500;
+	}
+	.input__label {
+		@apply absolute -top-2 left-2 z-[1] cursor-text px-2 text-xs text-neutral-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-required:after:text-red-500 peer-required:after:content-['\00a0*'] peer-valid:-top-2 peer-valid:text-xs peer-invalid:top-3 peer-invalid:text-base peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-primary-500 peer-disabled:cursor-not-allowed peer-disabled:text-neutral-400 peer-disabled:before:bg-transparent peer-[:not(:focus):invalid]:text-red-500 dark:before:bg-neutral-900;
+	}
+	.input__icon {
+		@apply absolute left-4 top-3 h-6 w-6 stroke-neutral-400 peer-disabled:cursor-not-allowed;
+	}
+	.input__helper-text {
+		@apply absolute flex w-full justify-between px-4 py-1 text-xs text-neutral-400 transition peer-invalid:text-red-500;
+	}
+	.input--icon-lead {
+		@apply [&_.input\_\_field]:!pl-12 [&_.input\_\_icon]:left-4;
+	}
+	.input--icon-trail {
+		@apply [&_.input\_\_field]:!pr-12 [&_.input\_\_icon]:right-4;
+	}
+</style>
