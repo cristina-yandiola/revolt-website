@@ -39,31 +39,35 @@ const steps = [
 	<Row classes="mb-16 gap-y-6">
 		<Col span="6">
 			<div
-				class="bg-surface-100 flex h-full flex-col justify-between border-2 border-neutral-200 p-8"
+				class="flex h-full flex-col justify-between border-2 border-neutral-200 bg-surface-100 p-8"
 			>
-				<ul class="mb-8 list-outside list-disc pl-5 text-lg leading-relaxed text-neutral-600">
-					<li>
-						Downloadable ranking of Germany’s top transmission-level connection opportunities
-						(380kV/TSO level)
-					</li>
-				</ul>
-				<div>
-					<Button type="link" link="/contact" style="primary">Request ranking</Button>
+				<p class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Downloadable Grid Report
+				</p>
+				<p class="text-lg leading-relaxed text-neutral-600">
+					Downloadable ranking of Germany's 50 top transmission-level (380kV) points of connection,
+					assessed by standard grid risk parameters.
+				</p>
+				<div class="flex justify-center">
+					<Button type="link" link="/contact" style="accent-light">Request Report</Button>
 				</div>
 			</div>
 		</Col>
 		<Col span="6">
 			<div
-				class="bg-surface-100 flex h-full flex-col justify-between border-2 border-neutral-200 p-8"
+				class="flex h-full flex-col justify-between border-2 border-neutral-200 bg-surface-100 p-8"
 			>
-				<ul class="mb-8 list-outside list-disc pl-5 text-lg leading-relaxed text-neutral-600">
-					<li>
-						Tailored assessment workflow for evaluating specific substations, coordinates, and
-						development pipelines across transmission and distribution networks
-					</li>
-				</ul>
-				<div>
-					<Button type="link" link="/contact" style="primary">Request assessment</Button>
+				<p class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+					Tailored Grid Assessment
+				</p>
+				<p class="text-lg leading-relaxed text-neutral-600">
+					Tailored evaluation of specific or points of connection (POC) for your development
+					pipeline or projects under acquisition.
+				</p>
+				<div class="flex justify-center">
+					<Button type="link" link="/contact" style="accent-light"
+						>Request Tailored Assessment</Button
+					>
 				</div>
 			</div>
 		</Col>
@@ -73,7 +77,7 @@ const steps = [
 		{
 			steps.map((step) => (
 				<Col span="4">
-					<div class="bg-surface-100 h-full border-2 border-neutral-200 p-8">
+					<div class="h-full border-2 border-neutral-200 bg-surface-100 p-8">
 						<div class="mb-6 flex h-10 w-10 items-center justify-center bg-primary-500 font-mono text-sm font-bold text-white">
 							{step.number}
 						</div>
