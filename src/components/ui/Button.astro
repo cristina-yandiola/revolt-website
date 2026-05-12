@@ -40,7 +40,7 @@ const {
 	type === 'link' || link ? (
 		<a
 			href={link}
-			target={link?.startsWith('http') ? '_blank' : '_self'}
+			target={link?.startsWith('http') || link?.startsWith('mailto') ? '_blank' : '_self'}
 			class:list={[
 				'button',
 				{ ['button--' + `${size}`]: size },
