@@ -1,10 +1,14 @@
 ---
-import { Image } from 'astro:assets'
 import Col from '../../ui/Col.astro'
 import Row from '../../ui/Row.astro'
 import Section from '../../ui/Section.astro'
-import panels from '../../../assets/panels-3.jpg'
-import { Icon } from 'astro-icon/components'
+
+const areas = [
+	'Grid connection strategy and project positioning',
+	'Support navigating TSO/DSO processes and evolving German grid-access frameworks',
+	'Site and pipeline prioritisation informed by project-specific grid intelligence',
+	'Strategic guidance for BESS and energy infrastructure projects'
+]
 ---
 
 <Section id="strategy-engineering" mode="light">
@@ -14,32 +18,17 @@ import { Icon } from 'astro-icon/components'
 		</Col>
 	</Row>
 	<Row classes="gap-6">
-		<Col span="8">
-			<div
-				class="flex h-full flex-col justify-between border border-neutral-200 bg-neutral-50 p-10 dark:border-neutral-800 dark:bg-neutral-900"
-			>
-				<div>
-					<h3 class="mb-4 font-headings text-2xl font-bold">Interactive Heatmaps</h3>
-					<p class="max-w-md leading-relaxed text-neutral-600 dark:text-neutral-400">
-						Visualize grid congestion patterns across the national network in real-time with
-						sub-station granularity.
-					</p>
-				</div>
-				<div class="mt-12 overflow-hidden border border-neutral-200 dark:border-neutral-800">
-					<Image src={panels} alt="Interactive Heatmap" class="w-full object-cover" />
-				</div>
-			</div>
-		</Col>
-		<Col span="4">
-			<div class="flex h-full flex-col justify-between bg-accent-500 p-10 text-neutral-600">
-				<Icon name="bolt" class="h-12 w-12 text-accent-800" />
-				<div>
-					<h3 class="mb-4 font-headings text-2xl font-bold">Rapid Siting</h3>
-					<p class="leading-relaxed">
-						Reduce site identification time from weeks to seconds with our AI-driven GIS tools.
-					</p>
-				</div>
-			</div>
-		</Col>
+		{
+			areas.map((area, i) => (
+				<Col span="6">
+					<div class="h-full border-2 border-neutral-200 bg-surface-100 p-8">
+						<div class="mb-6 flex h-10 w-10 items-center justify-center bg-primary-500 font-mono text-sm font-bold text-white">
+							{i + 1}
+						</div>
+						<h3 class="mb-4 font-headings text-xl font-bold">{area}</h3>
+					</div>
+				</Col>
+			))
+		}
 	</Row>
 </Section>
