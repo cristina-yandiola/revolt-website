@@ -67,8 +67,13 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 						{
 							socialLinks.map((social) => (
 								<li>
-									<a href={social.link} aria-label={social.name}>
-										<Icon name={social.icon} />
+									<a
+										target="_blank"
+										rel="noreferrer noopener"
+										href={social.link}
+										aria-label={social.name}
+									>
+										<Icon name={social.icon} size={34} />
 									</a>
 								</li>
 							))
@@ -112,9 +117,6 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 	}
 	.footer__sub ul {
 		@apply flex items-center justify-end gap-6;
-	}
-	.footer__sub a {
-		@apply [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0;
 	}
 	.footer__sub-cols {
 		@apply grid grid-cols-4 items-center gap-6 md:grid-cols-8 lg:grid-cols-12;

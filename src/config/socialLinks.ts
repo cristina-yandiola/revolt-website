@@ -8,4 +8,10 @@ export interface SocialLink {
 	icon: string
 }
 
-export const socialLinks: SocialLink[] = []
+export const socialLinks: SocialLink[] = [
+	{
+		name: 'LinkedIn',
+		link: 'https://www.linkedin.com/company/revoltgrid/',
+		icon: 'linkedin'
+	}
+]
