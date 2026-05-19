@@ -65,22 +65,44 @@ const dropdownOptions = [
 				<div
 					class="border border-neutral-200 bg-white p-8 shadow-sm lg:p-12 dark:border-neutral-800 dark:bg-neutral-950"
 				>
-					<form action="#" method="POST" class="space-y-6">
-						<InputField id="name" label="Full Name" type="text" required />
-						<InputField id="email" label="Work Email" type="email" required />
-						<InputField id="company" label="Company / Organization" type="text" required />
+					<div data-fs-success class="mb-6 font-headings text-lg font-bold text-primary-500"></div>
+					<div data-fs-error class="mb-6 text-red-500"></div>
+
+					<form id="fs-contact-form" class="space-y-6">
+						<InputField id="name" label="Full Name" type="text" data-fs-field required />
+						<InputField id="email" label="Work Email" type="email" data-fs-field required />
+						<InputField
+							id="company"
+							label="Company / Organization"
+							type="text"
+							data-fs-field
+							required
+						/>
 						<DropdownField
 							id="interested"
 							label="What are you interested in?"
 							options={dropdownOptions}
+							data-fs-field
 						/>
-						<TextArea id="message" label="Message" required />
-						<CheckboxField id="consent" label="I agree to the privacy policy." required />
+						<TextArea id="message" label="Message" data-fs-field required />
+						<CheckboxField
+							id="consent"
+							label="I agree to the privacy policy."
+							data-fs-field
+							required
+						/>
+						<input
+							type="hidden"
+							name="g-recaptcha-response"
+							id="g-recaptcha-response"
+							data-fs-field
+						/>
 						<Button
 							style="accent-light"
 							size="lg"
-							link="mailto:info@revoltgrid.de?subject=GridScore%20Sample%20Report%20Request&body=Hi%2C%20I%20would%20like%20to%20request%20a%20sample%20GridScore%20report%20and%20learn%20more%20about%20the%20product."
+							type="submit"
 							classes="w-full"
+							data-fs-submit-btn
 						>
 							SEND INQUIRY
 							<Icon name="arrow-right" class="ml-2 h-4 w-4" />
@@ -90,4 +112,54 @@ const dropdownOptions = [
 			</Col>
 		</Row>
 	</Section>
+	<script is:inline>
+		// This runs on the initial load AND every time you switch pages asynchronously
+		document.addEventListener('astro:page-load', () => {
+			const form = document.getElementById('fs-contact-form')
+
+			// Exit immediately if the user navigated to a page without the form
+			if (!form) return
+
+			// A. Restore the Google reCAPTCHA Badge cleanly
+			// If the badge got wiped by the page transition, re-inject the script
+			if (!document.querySelector('.grecaptcha-badge')) {
+				const script = document.createElement('script')
+				script.src =
+					'https://www.google.com/recaptcha/api.js?render=6LfeH_EsAAAAAN97gCRIAq_znfgU_z8VFhAzdFNO'
+				document.body.appendChild(script)
+			}
+
+			// B. Re-attach the Form Interceptor to the new DOM element
+			form.addEventListener('submit', function (e) {
+				const recaptchaInput = document.getElementById('g-recaptcha-response')
+				const submitBtn = form.querySelector('[data-fs-submit-btn]')
+
+				if (!recaptchaInput.value) {
+					e.preventDefault()
+					e.stopImmediatePropagation()
+
+					if (submitBtn) submitBtn.disabled = true
+
+					grecaptcha.ready(function () {
+						grecaptcha
+							.execute('6LfeH_EsAAAAAN97gCRIAq_znfgU_z8VFhAzdFNO', { action: 'submit' })
+							.then(function (token) {
+								recaptchaInput.value = token
+								if (submitBtn) submitBtn.disabled = false
+								form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))
+							})
+					})
+				}
+			})
+
+			// C. Re-initialize Formspree on the new form element
+			window.formspree =
+				window.formspree ||
+				function () {
+					;(formspree.q = formspree.q || []).push(arguments)
+				}
+			formspree('initForm', { formElement: '#fs-contact-form', formId: 'mbdbjepv' })
+		})
+	</script>
+	<script is:inline src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </Layout>

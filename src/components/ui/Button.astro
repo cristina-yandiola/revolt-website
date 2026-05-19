@@ -32,7 +32,8 @@ const {
 	style = 'primary',
 	variation,
 	elevated,
-	classes
+	classes,
+	...rest
 } = Astro.props
 ---
 
@@ -49,6 +50,7 @@ const {
 				{ ['button--elevated']: elevated },
 				{ [`${classes}`]: classes }
 			]}
+			{...rest}
 		>
 			<slot />
 		</a>
@@ -64,6 +66,7 @@ const {
 				{ [`${classes}`]: classes }
 			]}
 			{...(modal ? { 'data-modal': modal } : {})}
+			{...rest}
 		>
 			<slot />
 		</button>
