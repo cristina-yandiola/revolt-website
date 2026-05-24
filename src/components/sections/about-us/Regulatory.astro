@@ -2,19 +2,24 @@
 import Col from '../../ui/Col.astro'
 import Row from '../../ui/Row.astro'
 import Section from '../../ui/Section.astro'
+import { Icon } from 'astro-icon/components'
 
 const regulatoryItems = [
 	{
-		text: 'Grid-access Strategy'
+    text: 'Grid-access Strategy',
+		icon: 'chart-pie',
 	},
 	{
     text: 'Grid Application Procedures',
+		icon: 'file-chart-column-increasing',
 	},
 	{
     text: 'German Regulatory Landscape',
+		icon: 'gauge',
   },
 	{
-		text: 'Grid Connection Agreements'
+    text: 'Grid Connection Agreements',
+		icon: 'bolt',
 	}
 ]
 ---
@@ -37,16 +42,18 @@ const regulatoryItems = [
 			</p>
 		</Col>
 		<Col span="5" classes="lg:col-start-8">
-			<div class="space-y-6">
+			<ul class="space-y-8">
 				{
-					regulatoryItems.map((item) => (
-						<div class="border-l-4 border-primary-500 bg-white p-8 shadow-sm transition-all hover:shadow-md dark:bg-neutral-950">
-							<h3 class="mb-2 font-headings text-xl font-bold text-primary-500">{item.text}</h3>
-							<!-- <p class="text-neutral-600 dark:text-neutral-400">{item.text}</p> -->
-						</div>
+					regulatoryItems.map((point) => (
+						<li class="flex items-center gap-3">
+							<Icon name={point.icon} class="h-6 w-6 shrink-0 text-primary-700" />
+							<div>
+								<h3 class="text-lg text-neutral-600">{point.text}</h3>
+							</div>
+						</li>
 					))
 				}
-			</div>
+			</ul>
 		</Col>
 	</Row>
 </Section>
