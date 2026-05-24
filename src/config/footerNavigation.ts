@@ -102,6 +102,6 @@ export const footerNavigationData: FooterData = {
 		}
 	],
 	subFooter: {
-		copywriteText: '© Revolt 2026.'
+		copywriteText: '© Revolt Energy 2026.'
 	}
 }
