@@ -67,11 +67,19 @@ export const footerNavigationData: FooterData = {
 			]
 		},
 		{
-			category: 'Legal',
+			category: 'Legal Terms',
 			subCategories: [
 				{
-					subCategory: 'Terms',
+					subCategory: 'Terms & Conditions',
 					subCategoryLink: '/terms'
+				},
+				{
+					subCategory: 'Privacy Policy',
+					subCategoryLink: '/privacy-policy'
+				},
+				{
+					subCategory: 'Impressum',
+					subCategoryLink: '/impressum'
 				}
 			]
 		},

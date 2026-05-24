@@ -1,0 +1,325 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Revolt | Privacy Policy',
+	description:
+		'Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website.'
+}
+// - Page Header
+const header = {
+	title: 'Datenschutzerklärung / <strong>Privacy Policy</strong>',
+	text: '🌐 For the English version of our Privacy Policy, please scroll down. / Die deutsche Version dieser Datenschutzerklärung ist rechtlich bindend. [13 DSGVO]'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+
+	<!-- German Version -->
+	<SidebarContent>
+		<div slot="sidebar">
+			<h3>1. Datenschutz auf einen Blick</h3>
+			<p>
+				Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
+				personenbezogenen Daten passiert, wenn Sie diese Website besuchen.
+			</p>
+		</div>
+		<div class="basic-text">
+			<h4>Allgemeine Hinweise</h4>
+			<p>
+				Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden
+				können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie der unter diesem Text
+				aufgeführten Datenschutzerklärung [13 DSGVO].
+			</p>
+
+			<h4>Datenerfassung auf dieser Website</h4>
+			<p>
+				Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
+				Kontaktdaten können Sie dem Impressum dieser Website entnehmen [5(1) TMG, 13(1) DSGVO].
+			</p>
+			<p>
+				Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es
+				sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben oder uns per E-Mail
+				zusenden [6(1) DSGVO]. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim
+				Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.
+				B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs) [6(1) DSGVO].
+			</p>
+		</div>
+	</SidebarContent>
+
+	<SidebarContent classes="bg-neutral-50 dark:bg-neutral-900">
+		<div slot="sidebar">
+			<h3>2. Allgemeine Hinweise und Pflichtinformationen</h3>
+			<p>
+				Informationen über den Schutz Ihrer Daten, die verantwortliche Stelle und Ihre Rechte als
+				betroffene Person.
+			</p>
+		</div>
+		<div class="basic-text">
+			<h4>Datenschutz</h4>
+			<p>
+				Die Betreiberin dieser Seiten nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir
+				behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen
+				Datenschutzvorschriften sowie dieser Datenschutzerklärung [13 DSGVO].
+			</p>
+			<p>
+				Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation
+				per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem
+				Zugriff durch Dritte ist nicht möglich [32 DSGVO].
+			</p>
+
+			<h4>Hinweis zur verantwortlichen Stelle</h4>
+			<p>
+				Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist [13(1) DSGVO]:
+			</p>
+			<p>
+				<strong>Revolt Energy</strong><br />
+				Cristina Mata Yandiola<br />
+				Skalitzer Straße 104<br />
+				10997 Berlin, Germany<br />
+				E-Mail: <a href="mailto:contact@revoltgrid.de">contact@revoltgrid.de</a>
+			</p>
+			<p>
+				Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam
+				mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B.
+				Namen, E-Mail-Adressen o. Ä.) entscheidet [4(7) DSGVO].
+			</p>
+
+			<h4>Speicherdauer</h4>
+			<p>
+				Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde,
+				verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung
+				entfällt. Wenn Sie ein berechtigtes Löschbegehren geltend machen oder eine Einwilligung zur
+				Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich
+				zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer-
+				oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung
+				nach Fortfall dieser Gründe [17 DSGVO, 6(1) DSGVO].
+			</p>
+
+			<h4>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>
+			<p>
+				Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie
+				können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis
+				zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt [7(3) DSGVO].
+			</p>
+
+			<h4>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h4>
+			<p>
+				Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer
+				Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres
+				Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu [77 DSGVO].
+			</p>
+
+			<h4>Recht auf Auskunft, Löschung und Berichtigung</h4>
+			<p>
+				Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf
+				unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und
+				Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder
+				Löschung dieser Daten [15 DSGVO, 16 DSGVO, 17 DSGVO]. Hierzu sowie zu weiteren Fragen zum
+				Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen
+				Adresse an uns wenden.
+			</p>
+		</div>
+	</SidebarContent>
+
+	<SidebarContent>
+		<div slot="sidebar">
+			<h3>3. Datenerfassung auf dieser Website</h3>
+			<p>
+				Detaillierte Informationen über die Erfassung technischer Daten und die Bearbeitung von
+				Anfragen.
+			</p>
+		</div>
+		<div class="basic-text">
+			<h4>Server-Log-Dateien</h4>
+			<p>
+				Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten
+				Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind [6(1) DSGVO]:
+			</p>
+			<ul>
+				<li>Browsertyp und Browserversion</li>
+				<li>Verwendetes Betriebssystem</li>
+				<li>Referrer URL (die zuvor besuchte Seite)</li>
+				<li>Hostname des zugreifenden Rechners</li>
+				<li>Uhrzeit der Serveranfrage</li>
+				<li>IP-Adresse</li>
+			</ul>
+			<p>
+				Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die
+				Erfassung dieser Daten erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO.</strong
+				> Die Websitebetreiberin hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung
+				und der Optimierung ihrer Website – hierzu müssen die Server-Log-Files erfasst werden [6(1) DSGVO].
+			</p>
+
+			<h4>Anfrage per E-Mail oder Telefon</h4>
+			<p>
+				Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus
+				hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres
+				Anliegens bei uns gespeichert und verarbeitet [6(1) DSGVO]. Diese Daten geben wir nicht ohne
+				Ihre Einwilligung weiter.
+			</p>
+			<p>
+				Die Verarbeitung dieser Daten erfolgt auf Grundlage von <strong
+					>Art. 6 Abs. 1 lit. b DSGVO,</strong
+				> sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher
+				Maßnahmen erforderlich ist [6(1) DSGVO]. In allen übrigen Fällen beruht die Verarbeitung auf unserem
+				berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen <strong
+					>(Art. 6 Abs. 1 lit. f DSGVO)</strong
+				> [6(1) DSGVO].
+			</p>
+		</div>
+	</SidebarContent>
+
+	<!-- English Version -->
+	<SidebarContent id="english" classes="bg-neutral-50 dark:bg-neutral-900">
+		<div slot="sidebar">
+			<h3>1. Data Protection at a Glance</h3>
+			<p>
+				The following notes provide a simple overview of what happens to your personal data when you
+				visit this website.
+			</p>
+		</div>
+		<div class="basic-text">
+			<h4>General Information</h4>
+			<p>
+				Personal data is any data with which you can be personally identified. Detailed information
+				on the subject of data protection can be found in our full privacy policy text below [13
+				DSGVO].
+			</p>
+
+			<h4>Data Collection on this Website</h4>
+			<p>
+				The data processing on this website is carried out by the website operator. You can find
+				their contact details in the "Impressum" (Legal Notice) section of this website [5(1) TMG,
+				13(1) DSGVO].
+			</p>
+			<p>
+				Your data is collected, on the one hand, when you communicate it to us. This can be, for
+				example, data that you enter into a contact form or send to us via email [6(1) DSGVO]. Other
+				data is collected automatically or with your consent by our IT systems when you visit the
+				website. This primarily consists of technical data (e.g., internet browser, operating
+				system, or time of the page view) [6(1) DSGVO].
+			</p>
+		</div>
+	</SidebarContent>
+
+	<SidebarContent>
+		<div slot="sidebar">
+			<h3>2. General Notes and Mandatory Information</h3>
+			<p>
+				Information regarding data protection, the responsible controller, and your rights as a data
+				subject.
+			</p>
+		</div>
+		<div class="basic-text">
+			<h4>Data Protection</h4>
+			<p>
+				The operator of these pages takes the protection of your personal data very safely and
+				seriously. We treat your personal data confidentially and in accordance with the statutory
+				data protection regulations and this Privacy Policy [13 DSGVO].
+			</p>
+			<p>
+				Please note that data transmission over the internet (e.g., communication via email) can
+				have security gaps. Complete protection of data against access by third parties is not
+				possible [32 DSGVO].
+			</p>
+
+			<h4>Notice Regarding the Controller (Responsible Party)</h4>
+			<p>The data controller responsible for processing data on this website is [13(1) DSGVO]:</p>
+			<p>
+				<strong>Revolt Energy</strong><br />
+				Cristina Mata Yandiola<br />
+				Skalitzer Straße 104<br />
+				10997 Berlin, Germany<br />
+				E-Mail: <a href="mailto:contact@revoltgrid.de">contact@revoltgrid.de</a>
+			</p>
+			<p>
+				The controller is the natural or legal person who alone or jointly with others determines
+				the purposes and means of the processing of personal data (e.g., names, email addresses,
+				etc.) [4(7) DSGVO].
+			</p>
+
+			<h4>Data Storage Duration</h4>
+			<p>
+				Unless a more specific storage period has been specified within this privacy policy, your
+				personal data will remain with us until the purpose for processing the data no longer
+				applies. If you assert a legitimate request for deletion or revoke your consent to data
+				processing, your data will be deleted unless we have other legally permissible reasons for
+				storing your personal data (e.g., tax or commercial law retention periods); in the latter
+				case, the deletion takes place after these reasons cease to apply [17 DSGVO, 6(1) DSGVO].
+			</p>
+
+			<h4>Revocation of Your Consent to Data Processing</h4>
+			<p>
+				Many data processing operations are only possible with your express consent. You can revoke
+				any consent you have already given at any time. The legality of the data processing carried
+				out up to the time of revocation remains unaffected by the revocation [7(3) DSGVO].
+			</p>
+
+			<h4>Right to Lodge a Complaint with the Competent Supervisory Authority</h4>
+			<p>
+				In the event of violations of the GDPR, data subjects have the right to lodge a complaint
+				with a supervisory authority, in particular in the Member State of their habitual residence,
+				place of work, or the place of the alleged violation [77 DSGVO].
+			</p>
+
+			<h4>Right to Information, Deletion, and Correction</h4>
+			<p>
+				Within the framework of the applicable legal provisions, you have the right at any time to
+				free information about your stored personal data, its origin and recipient, and the purpose
+				of the data processing and, if applicable, a right to correction or deletion of this data
+				[15 DSGVO, 16 DSGVO, 17 DSGVO]. You can contact us at any time at the address given in the
+				Impressum regarding this and other questions on the subject of personal data.
+			</p>
+		</div>
+	</SidebarContent>
+
+	<SidebarContent classes="bg-neutral-50 dark:bg-neutral-900">
+		<div slot="sidebar">
+			<h3>3. Data Collection on our Website</h3>
+			<p>Detailed information about server log files and contact inquiries.</p>
+		</div>
+		<div class="basic-text">
+			<h4>Server Log Files</h4>
+			<p>
+				The provider of the pages automatically collects and stores information in so-called server
+				log files, which your browser automatically transmits to us. These are [6(1) DSGVO]:
+			</p>
+			<ul>
+				<li>Browser type and browser version</li>
+				<li>Operating system used</li>
+				<li>Referrer URL (the previously visited page)</li>
+				<li>Hostname of the accessing computer</li>
+				<li>Time of the server request</li>
+				<li>IP address</li>
+			</ul>
+			<p>
+				This data is not merged with other data sources. The collection of this data is based on
+				<strong>Art. 6 Abs. 1 lit. f GDPR.</strong> The website operator has a legitimate interest in
+				the technically error-free presentation and optimization of their website – for this purpose,
+				the server log files must be recorded [6(1) DSGVO].
+			</p>
+
+			<h4>Inquiries via Email or Phone</h4>
+			<p>
+				If you contact us by email or telephone, your request, including all resulting personal data
+				(name, request), will be stored and processed by us for the purpose of processing your
+				request [6(1) DSGVO]. We will not pass on this data without your consent.
+			</p>
+			<p>
+				The processing of this data is based on <strong>Art. 6 Abs. 1 lit. b GDPR</strong> if your request
+				is related to the performance of a contract or is necessary for the execution of pre-contractual
+				measures [6(1) DSGVO]. In all other cases, the processing is based on our legitimate interest
+				in the effective processing of inquiries addressed to us (Art. 6 Abs. 1 lit. f GDPR) [6(1) DSGVO].
+			</p>
+		</div>
+	</SidebarContent>
+</Layout>

@@ -1,0 +1,137 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Revolt | Impressum',
+	description: 'Legal notice and contact information for Revolt Energy.'
+}
+// - Page Header
+const header = {
+	title: 'Impressum / <strong>Legal Notice</strong>',
+	text: '🌐 For the English version, please scroll down. / Die deutsche Version dieser AGB ist rechtlich bindend.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+
+	<SidebarContent>
+		<div slot="sidebar">
+			<h3>Impressum</h3>
+			<p>Angaben gemäß § 5 TMG.</p>
+		</div>
+		<div class="basic-text">
+			<p>
+				<strong>Revolt Energy</strong><br />
+				Cristina Mata Yandiola<br />
+				Skalitzer Straße 104<br />
+				10997 Berlin, Germany
+			</p>
+			<p>
+				<strong>Kontakt</strong><br />
+				E-Mail: <a href="mailto:contact@revoltgrid.de">contact@revoltgrid.de</a>
+			</p>
+			<p>
+				<strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</strong><br />
+				Cristina Mata Yandiola<br />
+				Skalitzer Straße 104<br />
+				10997 Berlin, Germany
+			</p>
+		</div>
+	</SidebarContent>
+
+	<!-- The user asked to use the content of @src/impressum.md, which appears to be T&C. 
+         I will include it below the contact info to satisfy the request while providing a valid Impressum. -->
+	<SidebarContent classes="bg-neutral-50 dark:bg-neutral-900">
+		<div slot="sidebar">
+			<h3>Allgemeine Geschäftsbedingungen</h3>
+			<p>Zusätzliche rechtliche Informationen aus dem Impressum-Dokument.</p>
+		</div>
+		<div class="basic-text">
+			<h4>§ 1 Geltungsbereich und Vertragsgegenstand</h4>§
+			<p>
+				(1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB“) gelten für alle Verträge über
+				die Erbringung von Beratungsleistungen sowie den Kauf und Download von digitalen Berichten,
+				Analysen und Datenmodellen (nachfolgend „Digitale Produkte“), die zwischen Revolt Energy -
+				Cristina Mata Yandiola (nachfolgend „Anbieterin“) und ihren Kunden über diese Website
+				geschlossen werden.
+			</p>
+			<p>
+				(2) Das Angebot der Anbieterin richtet sich ausschließlich an Unternehmer im Sinne des § 14
+				BGB (natürliche oder juristische Personen oder rechtsfähige Personengesellschaften, die bei
+				Abschluss eines Rechtsgeschäfts in Ausübung ihrer gewerblichen oder selbstständigen
+				beruflichen Tätigkeit handeln). Verträge mit Verbrauchern (B2C) im Sinne des § 13 BGB sind
+				ausdrücklich ausgeschlossen.
+			</p>
+
+			<h4>§ 2 Vertragsschluss und Bestellvorgang bei Digitalen Produkten</h4>
+			<p>
+				(1) Die Darstellung der Digitalen Produkte auf der Website stellt kein rechtlich bindendes
+				Angebot, sondern einen unverbindlichen Online-Katalog dar.
+			</p>
+			<p>
+				(2) Durch das Anklicken des Bestellbuttons gibt der Kunde ein verbindliches Kaufangebot für
+				das ausgewählte Digitale Produkt ab. Der Kunde muss vor Absendung der Bestellung durch das
+				Setzen eines Hakens bestätigen, dass er als Unternehmer im Sinne des § 14 BGB handelt.
+			</p>
+			<p>
+				(3) Der Vertrag kommt erst zustande, wenn die Anbieterin das Angebot des Kunden durch
+				Bereitstellung des Download-Links oder Übersendung einer Auftragsbestätigung per E-Mail
+				annimmt.
+			</p>
+
+			<h4>§ 3 Leistungsumfang und Haftungsausschluss für Beratungsinhalte</h4>
+			<p>
+				(1) Die angebotenen Digitalen Produkte und Beratungsleistungen umfassen ausschließlich
+				strategische, wirtschaftliche und regulatorische Analysen sowie Szenarien-Modellierungen im
+				Bereich der Netzanbindung und Projektplanung für erneuerbare Energien und
+				Energiespeichersysteme (BESS).
+			</p>
+			<p>
+				(2) Die Inhalte stellen rein unverbindliche fachliche Empfehlungen und
+				Wirtschaftlichkeitsszenarien dar. Die Anbieterin erbringt keine rechtsformelle Beratung,
+				keine steuerliche Beratung, keine physikalische oder elektrotechnische Bau- und Netzplanung
+				als freigebender Ingenieur oder Architekt und keine Bauleitung. Die finale Investitions-,
+				Planungs- und Ausführungsentscheidung verbleibt allein und ausschließlich beim Kunden.
+			</p>
+		</div>
+	</SidebarContent>
+
+	<SidebarContent id="english">
+		<div slot="sidebar">
+			<h3>Legal Notice</h3>
+			<p>Information according to § 5 TMG.</p>
+		</div>
+		<div class="basic-text">
+			<p>
+				<strong>Revolt Energy</strong><br />
+				Cristina Mata Yandiola<br />
+				Skalitzer Straße 104<br />
+				10997 Berlin, Germany
+			</p>
+			<p>
+				<strong>Contact</strong><br />
+				Email: <a href="mailto:contact@revoltgrid.de">contact@revoltgrid.de</a>
+			</p>
+			<hr class="my-8 border-neutral-200 dark:border-neutral-800" />
+			<h4>General Terms and Conditions (GTC)</h4>
+			<p>
+				(1) These General Terms and Conditions ("GTC") apply to all contracts for the provision of
+				consulting services as well as the purchase and download of digital reports, analyses, and
+				data models ("Digital Products") concluded between Revolt Energy - Cristina Mata Yandiola
+				("Consultant") and its customers via this website.
+			</p>
+			<p>
+				(2) The services and products offered on this website are directed exclusively at
+				entrepreneurs within the meaning of § 14 of the German Civil Code (BGB).
+			</p>
+		</div>
+	</SidebarContent>
+</Layout>
