@@ -18,10 +18,16 @@ const header = {
 	title: 'Datenschutzerklärung / Privacy Policy',
 	text: '🌐 For the English version of our Privacy Policy, please scroll down. / Die deutsche Version dieser Datenschutzerklärung ist rechtlich bindend. [13 DSGVO]'
 }
+
+const headerMobile = {
+	title: 'Datenschutz - Erklärung / Privacy Policy',
+	text: '🌐 For the English version of our Privacy Policy, please scroll down. / Die deutsche Version dieser Datenschutzerklärung ist rechtlich bindend. [13 DSGVO]'
+}
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
+	<Hero title={header.title} text={header.text} classes="!hidden !md:block" />
+	<Hero title={headerMobile.title} text={headerMobile.text} classes="!md:hidden" />
 
 	<!-- German Version -->
 	<SidebarContent>
