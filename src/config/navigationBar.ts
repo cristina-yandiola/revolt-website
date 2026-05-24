@@ -33,9 +33,9 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '',
+		src: '/src/assets/logo.png',
 		alt: 'Revolt logo',
-		text: 'Revolt<span class="text-accent-500 text-5xl ml-1">.</span>'
+		text: ''
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },

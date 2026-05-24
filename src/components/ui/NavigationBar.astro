@@ -14,7 +14,11 @@
 // Components
 // - UI
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
 import Button from './Button.astro'
+
+// Assets
+import logoImage from '../../assets/logo.png'
 
 // Data
 import { navigationBarData } from '../../config/navigationBar'
@@ -39,8 +43,7 @@ const savedNavActions = navActions.map((action) => ({
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
-				{logo.src && <Icon name="logo" aria-label={logo.alt} width={48} height={48} />}
-				<span class="text-3xl" set:html={logo.text} />
+				<Image src={logoImage} alt={logo.alt} width={120} height={40} class="h-8 w-auto" />
 			</a>
 
 			<!-- Menu toggle -->

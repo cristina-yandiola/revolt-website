@@ -7,6 +7,10 @@
 // Components
 // - UI
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+// Assets
+import logoImage from '../../assets/logo.png'
 
 // Data
 import { socialLinks } from '../../config/socialLinks'
@@ -22,18 +26,7 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 			<div class="footer__cols">
 				<div class="footer__col">
 					<a aria-label="webiste logo" aria-current="page" class="footer__main-brand" href="/">
-						{
-							footerAbout.logo.src && (
-								<Icon
-									name="logo"
-									aria-label={footerAbout.logo.alt}
-									class="text-primary-500 dark:text-accent-500"
-									width={32}
-									height={32}
-								/>
-							)
-						}
-						<span class="text-3xl" set:html={footerAbout.logo.text} />
+						<Image src={logoImage} alt={footerAbout.logo.alt} width={120} height={40} class="h-8 w-auto" />
 					</a>
 					<p>
 						{footerAbout.aboutText}
