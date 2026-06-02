@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const SEO = {
+  title: 'Book a Call | Revolt',
+  description: 'Schedule an intro call with Revolt. Fill in your details to get started.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+  <section class="book-section">
+    <div class="book-container">
+      <h1>Book an Intro Call</h1>
+      <p>Fill in your details below to schedule a call with Revolt.</p>
+
+      <div class="form">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Jane Smith" />
+        </div>
+
+        <div class="field">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" placeholder="Acme Energy GmbH" />
+        </div>
+
+        <div class="field">
+          <label for="title">Job Title</label>
+          <input type="text" id="title" placeholder="Head of Development" />
+        </div>
+
+        <div class="field">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" placeholder="jane@acmeenergy.com" />
+          <p class="error" id="emailError">Please use your company email address to book a call.</p>
+        </div>
+
+        <button id="submitBtn">Book a Call</button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .book-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    background: #F8F7F4;
+  }
+
+  .book-container {
+    max-width: 480px;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: 'Inter Variable', Inter, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #000;
+  }
+
+  p {
+    color: #444;
+    margin-bottom: 2rem;
+    font-family: 'Inter Variable', Inter, sans-serif;
+  }
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-family: 'Inter Variable', Inter, sans-serif;
+    color: #000;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter Variable', Inter, sans-serif;
+    box-sizing: border-box;
+    background: #fff;
+    color: #000;
+  }
+
+  input:focus {
+    outline: 2px solid #1A45EF;
+    border-color: transparent;
+  }
+
+  .error {
+    color: #cc0000;
+    font-size: 0.82rem;
+    margin-top: 0.3rem;
+    display: none !important;
+    margin-bottom: 0;
+  }
+
+  .error.visible {
+    display: block !important;
+  }
+
+  button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.85rem;
+    background: #DEFF26;
+    color: #000;
+    font-weight: 700;
