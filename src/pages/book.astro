@@ -104,12 +104,12 @@ const SEO = {
     color: #cc0000;
     font-size: 0.82rem;
     margin-top: 0.3rem;
-    display: none !important;
+    display: none;
     margin-bottom: 0;
   }
 
   .error.visible {
-    display: block !important;
+    display: block;
   }
 
   button {
@@ -120,65 +120,45 @@ const SEO = {
     color: #000;
     font-weight: 700;
     font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: Inter, sans-serif;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+  }
+
+  button:hover {
+    background: #c8e800;
+  }
+</style>
+
+<script>
+  const freeProviders = [
+    'gmail.com','hotmail.com','yahoo.com','outlook.com','icloud.com',
+    'protonmail.com','live.com','msn.com','googlemail.com','ymail.com',
+    'aol.com','mail.com','zoho.com','gmx.com','gmx.net'
+  ];
+
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+
+  submitBtn.addEventListener('click', () => {
+    const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+    const company = (document.getElementById('company') as HTMLInputElement).value.trim();
+    const title = (document.getElementById('title') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const errorEl = document.getElementById('emailError') as HTMLParagraphElement;
+
+    if (!name || !company || !title || !email) {
+      alert('Please fill in all fields.');
+      return;
     }
-    button:hover {
-      background: #c8e800;
+
+    const domain = email.split('@')[1]?.toLowerCase();
+    if (!domain || freeProviders.includes(domain)) {
+      errorEl.classList.add('visible');
+      return;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Book an Intro Call</h1>
-    <p>Fill in your details to schedule a call with Revolt.</p>
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" placeholder="Jane Smith" required />
-
-    <label for="company">Company Name</label>
-    <input type="text" id="company" placeholder="Acme Energy GmbH" required />
-
-    <label for="title">Job Title</label>
-    <input type="text" id="title" placeholder="Head of Development" required />
-
-    <label for="email">Work Email</label>
-    <input type="email" id="email" placeholder="jane@acmeenergy.com" required />
-    <div class="error" id="emailError">Please use your company email address to book a call.</div>
-
-    <button onclick="handleSubmit()">Book a Call</button>
-  </div>
-
-  <script>
-    const freeProviders = [
-      'gmail.com','hotmail.com','yahoo.com','outlook.com','icloud.com',
-      'protonmail.com','live.com','msn.com','googlemail.com','ymail.com',
-      'aol.com','mail.com','zoho.com','gmx.com','gmx.net'
-    ];
-
-    function handleSubmit() {
-      const name = document.getElementById('name').value.trim();
-      const company = document.getElementById('company').value.trim();
-      const title = document.getElementById('title').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const errorEl = document.getElementById('emailError');
-
-      if (!name || !company || !title || !email) {
-        alert('Please fill in all fields.');
-        return;
-      }
-
-      const domain = email.split('@')[1]?.toLowerCase();
-      if (!domain || freeProviders.includes(domain)) {
-        errorEl.style.display = 'block';
-        return;
-      }
-
-      errorEl.style.display = 'none';
-      window.location.href = 'https://cal.com/revoltenergy/introcall';
-    }
-  </script>
-</body>
-</html>
+    errorEl.classList.remove('visible');
+    window.location.href = 'https://cal.com/revoltenergy/introcall';
+  });
+</script>
